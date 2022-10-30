@@ -111,4 +111,13 @@ return array(
     'EBT\\ExtensionBuilder\\ViewHelpers\\PregReplaceViewHelper' => $typo3InstallDir . 'typo3conf/ext/extension_builder/Classes/ViewHelpers/PregReplaceViewHelper.php',
     'EBT\\ExtensionBuilder\\ViewHelpers\\RecordTypeViewHelper' => $typo3InstallDir . 'typo3conf/ext/extension_builder/Classes/ViewHelpers/RecordTypeViewHelper.php',
     'EBT\\ExtensionBuilder\\ViewHelpers\\SingularizeViewHelper' => $typo3InstallDir . 'typo3conf/ext/extension_builder/Classes/ViewHelpers/SingularizeViewHelper.php',
+    'Sajmon\\Test\\Controller\\NewsCategoryController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/NewsCategoryController.php',
+    'Sajmon\\Test\\Controller\\NewsController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/NewsController.php',
+    'Sajmon\\Test\\Domain\\Model\\News' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/News.php',
+    'Sajmon\\Test\\Domain\\Model\\NewsCategory' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/NewsCategory.php',
+    'Sajmon\\Test\\Domain\\Repository\\NewsCategoryRepository' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Repository/NewsCategoryRepository.php',
+    'Sajmon\\Test\\Domain\\Repository\\NewsRepository' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Repository/NewsRepository.php',
+    'T3docs\\StoreInventory\\Controller\\StoreInventoryController' => $typo3InstallDir . 'typo3conf/ext/store_inventory/Classes/Controller/StoreInventoryController.php',
+    'T3docs\\StoreInventory\\Domain\\Model\\Product' => $typo3InstallDir . 'typo3conf/ext/store_inventory/Classes/Domain/Model/Product.php',
+    'T3docs\\StoreInventory\\Domain\\Repository\\ProductRepository' => $typo3InstallDir . 'typo3conf/ext/store_inventory/Classes/Domain/Repository/ProductRepository.php',
 );

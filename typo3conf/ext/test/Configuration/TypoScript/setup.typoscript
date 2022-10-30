@@ -1,0 +1,46 @@
+plugin.tx_test_newslist {
+    view {
+        templateRootPaths.0 = EXT:test/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_test_newslist.view.templateRootPath}
+        partialRootPaths.0 = EXT:test/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_test_newslist.view.partialRootPath}
+        layoutRootPaths.0 = EXT:test/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_test_newslist.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_test_newslist.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+plugin.tx_test_newscategories {
+    view {
+        templateRootPaths.0 = EXT:test/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_test_newscategories.view.templateRootPath}
+        partialRootPaths.0 = EXT:test/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_test_newscategories.view.partialRootPath}
+        layoutRootPaths.0 = EXT:test/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_test_newscategories.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_test_newscategories.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+

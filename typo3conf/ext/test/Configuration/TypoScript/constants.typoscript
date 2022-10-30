@@ -1,0 +1,28 @@
+plugin.tx_test_newslist {
+    view {
+        # cat=plugin.tx_test_newslist/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:test/Resources/Private/Templates/
+        # cat=plugin.tx_test_newslist/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:test/Resources/Private/Partials/
+        # cat=plugin.tx_test_newslist/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:test/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_test_newslist//a; type=string; label=Default storage PID
+        storagePid =1
+    }
+}
+plugin.tx_test_newscategories {
+    view {
+        # cat=plugin.tx_test_newscategories/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:test/Resources/Private/Templates/
+        # cat=plugin.tx_test_newscategories/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:test/Resources/Private/Partials/
+        # cat=plugin.tx_test_newscategories/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:test/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_test_newscategories//a; type=string; label=Default storage PID
+        storagePid =1
+    }
+}

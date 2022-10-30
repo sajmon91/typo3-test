@@ -95,6 +95,12 @@ return [
         'extension_builder' => [
             'packagePath' => 'typo3conf/ext/extension_builder/',
         ],
+        'store_inventory' => [
+            'packagePath' => 'typo3conf/ext/store_inventory/',
+        ],
+        'test' => [
+            'packagePath' => 'typo3conf/ext/test/',
+        ],
     ],
     'version' => 5,
 ];

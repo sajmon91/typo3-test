@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:test/Resources/Private/Language/locallang_db.xlf" date="2022-10-30T13:56:10Z" product-name="test">
+		<header/>
+		<body>
+			<trans-unit id="tx_test_domain_model_news" resname="tx_test_domain_model_news">
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="tx_test_domain_model_news.title" resname="tx_test_domain_model_news.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_test_domain_model_news.description" resname="tx_test_domain_model_news.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_test_domain_model_news.categories" resname="tx_test_domain_model_news.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_test_domain_model_newscategory" resname="tx_test_domain_model_newscategory">
+				<source>News Category</source>
+			</trans-unit>
+			<trans-unit id="tx_test_domain_model_newscategory.name" resname="tx_test_domain_model_newscategory.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_test_domain_model_newscategory.news" resname="tx_test_domain_model_newscategory.news">
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="tx_test_newslist.name" resname="tx_test_newslist.name">
+				<source>news list</source>
+			</trans-unit>
+			<trans-unit id="tx_test_newslist.description" resname="tx_test_newslist.description">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tx_test_newscategories.name" resname="tx_test_newscategories.name">
+				<source>news categories</source>
+			</trans-unit>
+			<trans-unit id="tx_test_newscategories.description" resname="tx_test_newscategories.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

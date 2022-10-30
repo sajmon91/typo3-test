@@ -1,0 +1,30 @@
+{
+    "name": "t3docs/store-inventory",
+    "type": "typo3-cms-extension",
+    "description": "This TYPO3 extension is an example in the Extbase Fluid Book. See external documentation",
+    "license": [
+        "GPL-2.0+"
+    ],
+    "authors": [
+        {
+            "name": "Documentation Team",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "T3docs\\StoreInventory\\": "Classes/"
+        }
+    },
+    "require": {
+        "typo3/cms-core": "^11.0.0"
+    },
+    "replace": {
+        "typo3-ter/store_inventory": "self.version"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "11.0.x-dev"
+        }
+    }
+}
