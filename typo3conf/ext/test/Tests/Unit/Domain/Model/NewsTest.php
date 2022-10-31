@@ -78,6 +78,28 @@ class NewsTest extends UnitTestCase
     /**
      * @test
      */
+    public function getImgReturnsInitialValueForFileReference(): void
+    {
+        self::assertEquals(
+            null,
+            $this->subject->getImg()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setImgForFileReferenceSetsImg(): void
+    {
+        $fileReferenceFixture = new \TYPO3\CMS\Extbase\Domain\Model\FileReference();
+        $this->subject->setImg($fileReferenceFixture);
+
+        self::assertEquals($fileReferenceFixture, $this->subject->_get('img'));
+    }
+
+    /**
+     * @test
+     */
     public function getCategoriesReturnsInitialValueForNewsCategory(): void
     {
         $newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();

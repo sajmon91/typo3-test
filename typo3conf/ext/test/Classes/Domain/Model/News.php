@@ -42,6 +42,14 @@ class News extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $categories = null;
 
     /**
+     * img
+     *
+     * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
+     */
+    protected $img = null;
+
+    /**
      * __construct
      */
     public function __construct()
@@ -147,5 +155,26 @@ class News extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setCategories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories)
     {
         $this->categories = $categories;
+    }
+
+    /**
+     * Returns the img
+     *
+     * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Sets the img
+     *
+     * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $img
+     * @return void
+     */
+    public function setImg(\TYPO3\CMS\Extbase\Domain\Model\FileReference $img)
+    {
+        $this->img = $img;
     }
 }

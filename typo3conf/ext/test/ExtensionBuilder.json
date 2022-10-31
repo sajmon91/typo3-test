@@ -57,6 +57,18 @@
                             "propertyName": "description",
                             "propertyType": "RichText",
                             "uid": "498998419280"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "img",
+                            "propertyType": "Image",
+                            "uid": "568642003829"
                         }
                     ]
                 },
@@ -215,7 +227,7 @@
     ],
     "storagePath": "\/Users\/admin\/Sites\/intbase.com\/htdocs\/typo3conf\/ext\/",
     "log": {
-        "last_modified": "2022-10-30 01:56",
+        "last_modified": "2022-10-30 02:34",
         "extension_builder_version": "11.0.8",
         "be_user": " (1)"
     }
