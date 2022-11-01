@@ -92,6 +92,9 @@ return [
         'viewpage' => [
             'packagePath' => 'typo3/sysext/viewpage/',
         ],
+        'demo_test_package' => [
+            'packagePath' => 'typo3conf/ext/demo_test_package/',
+        ],
         'extension_builder' => [
             'packagePath' => 'typo3conf/ext/extension_builder/',
         ],
