@@ -30,7 +30,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
             <tr>
                 <td><f:link.action action="show" arguments="{news : news}">{news.title}</f:link.action></td>
                 <td><f:link.action action="show" arguments="{news : news}">{news.description-> f:format.html()}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{news : news}"><f:image src="fileadmin/user_upload/{news.img.originalResource.name}" width="40" height="40" alt="alt text" /></f:link.action></td>
+                <td><img src="{f:uri.image(image:news.img,width:'150c',height:'150c')}"/></td>
+                <!-- <td><f:link.action action="show" arguments="{news : news}"><f:image src="fileadmin/user_upload/{news.img.originalResource.name}" width="40c" height="40c" alt="alt text" /></f:link.action></td> -->
                 <!-- <td><f:link.action action="edit" arguments="{news : news}">Edit</f:link.action></td> -->
                 <!-- <td><f:link.action action="delete" arguments="{news : news}">Delete</f:link.action></td> -->
             </tr>
