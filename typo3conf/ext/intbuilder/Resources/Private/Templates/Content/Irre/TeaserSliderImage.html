@@ -1,0 +1,76 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')} {f:if(condition: '{data.intLink1}', then: 'has-link')}">
+        <div class="teaser-slider-image-irre-spacer--begin">&nbsp;</div>
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:variable name="flickityContainer"
+                        value=""/>
+            <f:variable name="noFlickityClass"
+                        value="teaser-slider-image-irre--content--no-slider"/>
+
+            <f:if condition="{data.intIrreTeasersliderimage -> f:count()} > 3">
+                <f:variable name="flickityContainer"
+                            value="data--flickity--teaser-slider-image"/>
+                <f:variable name="noFlickityClass"
+                            value=""/>
+            </f:if>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+            <div class="teaser-slider-image-irre--content {noFlickityClass}" {flickityContainer}>
+                <f:for each="{data.intIrreTeasersliderimage}"
+                       as="singleItem">
+                    <div class="teaser-slider-image-irre--item">
+                        <div class="teaser-slider-image-irre--item--inner {f:if(condition: '{data.intBackgroundColor} != 10', then: 'background-inverted')}"
+                             data-linkparent-container>
+
+                            <div class="teaser-slider-image-irre--image wrapper-image">
+                                <f:render partial="Content/Image"
+                                          arguments="{
+                                                ce: '{data}',
+                                                image: '{singleItem.currentImage}',
+                                                queries: {
+                                                    0: { query: '(max-width:768px)', width: '768c', height: '512c' },
+                                                    1: { query: '(min-width:769px)', width: '393c', height: '262c' }
+                                                }
+                                          }"/>
+                            </div>
+                            <h3 class="h5 teaser-slider-image-irre--item-headline">
+                                {singleItem.header -> f:format.raw()}
+                            </h3>
+                            {singleItem.text -> f:format.crop(maxCharacters: 200) -> f:format.html()}
+
+                            <f:if condition="{singleItem.link}">
+                                <f:link.typolink parameter="{singleItem.link}"
+                                                 class="link-with-arrow"
+                                                 additionalAttributes="{data-linkparent: 'data-linkparent'}">
+                                    {inthelper:titleFromLink(link: singleItem.link) -> f:format.raw()}
+                                </f:link.typolink>
+                            </f:if>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+        <div class="teaser-slider-image-irre-spacer--end"></div>
+
+    </section>
+
+</f:section>

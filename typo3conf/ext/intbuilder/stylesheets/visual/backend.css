@@ -1,0 +1,490 @@
+/* Capitalize flux select options */
+.capitalize {
+    text-transform: capitalize;
+}
+
+/* Auto width table */
+.t3-page-ce-body-inner table {
+    margin-top: 0;
+    width: 100%;
+    vertical-align: baseline;
+}
+
+.t3-page-ce-body-inner table td,
+.intbuilder-table-auto-width th {
+    padding-right: 10px;
+}
+
+.t3-page-ce-body-inner > div > strong,
+.t3-page-ce-body-inner > strong,
+.intbuilder-header-plugin,
+.intbuilder-header-replace {
+    display: inline-block;
+    margin-bottom: 5px !important;
+    padding: 5px 10px;
+    background-color: #333;
+    border-radius: 3px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: #fff;
+}
+
+.intbuilder-header-plugin {
+    background-color: #3e609a;
+}
+
+.t3-page-ce-body-inner > div > strong > a,
+.t3-page-ce-body-inner > strong > a {
+    color: #fff !important;
+}
+
+.t3-page-ce-body-inner > div > strong > em,
+.t3-page-ce-body-inner > strong > em {
+    color: #fff !important;
+    font-size: 10px;
+}
+
+.intbuilder-wrapper {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.intbuilder-wrapper p {
+    max-width: 600px;
+}
+
+.intbuilder-wrapper img {
+    border-radius: 4px;
+}
+
+span[class*="icon-icon-fluidcontent-Int_Inthelper"],
+.media-new-content-element-wizard .icon-size-default {
+    width: 140px !important;
+    height: 140px !important;
+    border: 1px solid #ddd !important;
+}
+
+.media-new-content-element-wizard .icon-size-default img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.media-new-content-element-wizard .icon-markup {
+    padding: 10px;
+    background: #fff;
+}
+
+.media-new-content-element-wizard .media {
+    grid-template-columns: 140px auto;
+    grid-gap: 10px;
+}
+
+/* Clearfix */
+.t3-page-ce .t3-page-ce-body-inner .intbuilder-wrapper:after {
+    content: '';
+    display: table;
+    width: 100%;
+    height: 1px;
+    clear: both;
+}
+
+.t3-page-ce .t3-page-ce-header {
+    padding: 1px;
+}
+
+.t3-page-ce, .t3-page-lang-copyce {
+    padding: 5px;
+}
+
+.t3-page-ce .t3-page-ce-body-inner {
+    padding: 5px;
+}
+
+.t3-page-ce-header {
+    border-top: 3px solid #333 !important;
+}
+
+/* CE name */
+.intbuilder-ce-name,
+.exampleContent > a > strong {
+    display: inline-block;
+    background: #aaa;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 9px;
+}
+
+.intbuilder-ce-name {
+    margin-top: 0 !important;
+}
+
+/*
+ * Top Inline data
+ * span is bold
+ * sizes sm and md
+ */
+.intbuilder-info-sm {
+    display: inline-block;
+    background: #eee;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #333;
+    font-size: 10px;
+}
+
+/**/
+.intbuilder-info-md {
+    display: inline-block;
+    font-size: 11px;
+    color: #37474F;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.intbuilder-info-sm span,
+.intbuilder-info-md span {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: normal;
+}
+
+/* Block */
+.intbuilder-info-block {
+    font-size: 12px;
+    color: #222;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Flux conf 'Images' section */
+.intbuilder-images {
+    margin-bottom: 10px;
+}
+
+.intbuilder-images-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.intbuilder-images-item img {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    outline: 1px solid #eaeaea;
+}
+
+/* Flux conf 'Image' section */
+/* Image */
+.t3-page-ce .t3-page-ce-body-inner .intbuilder-wrapper .intbuilder-image {
+    width: 400px;
+    height: auto;
+    padding-right: 15px;
+}
+
+/* Grid table */
+.intbuilder-table {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Auto width table */
+.intbuilder-table-auto-width {
+    width: auto;
+    vertical-align: baseline;
+}
+
+.intbuilder-table-auto-width td,
+.t3-page-ce-body-inner table th {
+    padding-right: 10px;
+}
+
+/* Grid classes */
+.intbuilder-table-20 {
+    width: 20%;
+}
+
+.intbuilder-table-30 {
+    width: 30%;
+}
+
+.intbuilder-table-40 {
+    width: 40%;
+}
+
+.intbuilder-table-5 {
+    width: 50% !important;
+}
+
+.intbuilder-table-60 {
+    width: 70%;
+}
+
+.intbuilder-table-70 {
+    width: 70%;
+}
+
+.intbuilder-table-80 {
+    width: 80%;
+}
+
+.intbuilder-table-90 {
+    width: 90%;
+}
+
+/* END OF Grid classes */
+
+.intbuilder-table td,
+.intbuilder-table th {
+    vertical-align: top;
+    padding: 5px 15px 5px 0;
+}
+
+/* Label */
+.intbuilder-label {
+    display: inline-block;
+    color: #292C3C;
+    font-weight: bold;
+}
+
+/* Headline text. large text */
+.intbuilder-headline,
+.intbuilder-label-headline {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 24px;
+    color: #292C3C;
+    text-transform: capitalize;
+}
+
+/* Subheadline text. medium text */
+.intbuilder-label-subheadline {
+    text-transform: capitalize;
+    font-size: 20px;
+    line-height: 130%;
+}
+
+/* LinkText */
+.intbuilder-link-text {
+}
+
+/* CE: Responsive Image*/
+.responsive-image-table .intbuilder-label {
+    display: block;
+}
+
+.t3-page-ce .t3-page-ce-body-inner img.intbuilder-responsive-image--image {
+    display: inline-block;
+    vertical-align: bottom;
+    outline: 1px solid #eaeaea;
+}
+
+/* END OF CE: Responsive Image*/
+
+/* Headline */
+.intbuilder-headline {
+}
+
+/* Subeadline */
+.intbuilder-subheadline {
+    font-size: 14px;
+}
+
+/* Alert class */
+.intbuilder-alert {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Google maps */
+.google-maps-image {
+    max-height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* Large Image */
+.intbuilder-large-image--image {
+    height: 130px;
+    width: auto;
+}
+
+/* Checkbox */
+.intbuilder-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 14px;
+}
+
+.intbuilder-checkbox.checked {
+    /*
+        Change fill, generate code from svg
+        https://yoksel.github.io/url-encoder/
+    */
+    text-decoration: none;
+}
+
+.intbuilder-checkbox.unchecked {
+    border-radius: 5px;
+    /* Close icon SVG code */
+    background-size: auto 14px;
+}
+
+/* SliderFull */
+.slider-full-table .intbuilder-subheadline {
+    vertical-align: baseline;
+}
+
+.intbuilder-slider-full-image-wrapper {
+    display: inline-block;
+    min-width: 110px;
+    margin-right: 10px;
+}
+
+.intbuilder-slider-full-image-wrapper img {
+    display: inline-block;
+    outline: 1px solid #eaeaea;
+}
+
+/*
+ * Admin panel style
+ * override TYPO3 element preview
+ */
+
+.intbuilder_thumbnail {
+    outline: 1px solid #ddd;
+    margin: 10px 10px 10px 50px;
+    width: 200px !important;
+}
+
+.intbuilder-ce-identifier {
+    color: #bbb;
+    font-size: 10px;
+}
+
+.intbuilder-ce-header {
+    margin: 0 0 10px;
+}
+
+/* Remove Hover style  */
+body .t3-page-ce:hover > .t3-page-ce-dragitem > .t3-page-ce-header, body .t3-page-ce:hover > .t3-page-ce-dragitem > .t3-page-ce-body {
+    border-color: #ccc;
+}
+
+body .t3-page-ce:hover > .t3-page-ce-dragitem > .t3-page-ce-header {
+    background-color: #eaeaea;
+}
+
+body .t3-page-ce .t3-page-ce-body-inner {
+    /*padding: 5px;*/
+}
+
+.t3-page-column-header {
+    padding: 10px; /*Default 20px 10px 5px */
+}
+
+.t3-page-column-header-label {
+    /*display: inline-block;*/
+    /*background: #cdcdcd;*/
+    /*padding: 5px 10px;*/
+    /*color: #fff;*/
+    /*border-radius: 5px 5px 0 0;*/
+}
+
+/* Theme colors */
+.t3-grid-cell {
+    /*border-bottom: 1px solid #cdcdcd;*/
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.intbuilder-ce-irre-container {
+    width: 870px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding-top: 30px;
+}
+
+.intbuilder-ce-irre-item {
+    padding: 10px;
+    border-radius: 5px;
+    background: #eee;
+}
+
+.intbuilder-ce-irre-item h4 {
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+.intbuilder-ce-irre-item p {
+    margin-bottom: 0;
+}
+
+.intbuilder-ce-irre-item--icon {
+    max-width: 200px !important;
+    max-height: 50px !important;
+}
+
+/* End of: Admin panel style */
+
+/*
+ * Responsive
+ */
+@media screen and (max-width: 1023px) {
+    .intbuilder-table td,
+    .intbuilder-table tr,
+    .intbuilder-table tbody,
+    .intbuilder-table thead,
+    .intbuilder-table th,
+    .intbuilder-table table,
+    .intbuilder-table-auto-width {
+        display: block;
+        width: 100% !important;
+    }
+
+    .intbuilder-label {
+        display: table-cell;
+        margin-top: 5px;
+    }
+
+    /* GoogleMap */
+    .intbuilder-google-map thead {
+        display: none;
+    }
+
+    .intbuilder-table-20,
+    .intbuilder-table-30,
+    .intbuilder-table-40,
+    .intbuilder-table-50,
+    .intbuilder-table-60,
+    .intbuilder-table-70,
+    .intbuilder-table-80,
+    .intbuilder-table-90 {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .intbuilder-google-map td,
+    .intbuilder-google-map th {
+        max-width: 400px;
+    }
+
+    .intbuilder-table td,
+    .intbuilder-table th {
+        min-width: 100px;
+    }
+}
+
+/* END OF Responsive */

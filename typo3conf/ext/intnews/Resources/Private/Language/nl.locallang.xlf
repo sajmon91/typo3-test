@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="nl" datatype="plaintext" original="EXT:intnews/Resources/Private/Language/locallang.xlf" date="2022-06-29T06:30:15Z" product-name="intnews">
+		<header/>
+		<body>
+			<trans-unit id="read_more" resname="read_more">
+				<source>Read more</source>
+				<target>Lees verder</target>
+			</trans-unit>
+			<trans-unit id="news_noresults" resname="news_noresults">
+				<source>No results</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="event_booth" resname="event_booth">
+				<source>Booth</source>
+				<target>Stand</target>
+			</trans-unit>
+			<trans-unit id="event_hall" resname="event_hall">
+				<source>Hall</source>
+				<target>Hal</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

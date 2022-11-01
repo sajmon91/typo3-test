@@ -1,0 +1,138 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <inthelper:metaTags title="{news.name}"
+                        image="{news.headerImage}"
+                        description="{news.descriptionShort}"/>
+
+    <div class="int-news--detail int-news--detail--{news.newsType}">
+
+        <section
+                class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')} background-color-10 has-background background-inverted page-header">
+            <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+                <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+                <div class="page-header--inner page-header--backgroundcolor">
+
+                    <div class=" page-header--content">
+                        <div class=" page-header--content--inner">
+                            <h1>{news.name -> f:format.raw() -> f:format.nl2br()}</h1>
+                        </div>
+                    </div>
+
+                </div>
+
+                <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+            </div>
+
+        </section>
+
+        <div class="breadcrumb">
+            <div class="width-desktop-m">
+                <f:render partial="Page/Header/_Breadcrumb"
+                          arguments="{
+                                hideLatest: 1,
+                                lastItem: news.name
+                          }"/>
+            </div>
+        </div>
+
+        <f:switch expression="{news.newsType}">
+            <f:case value="100">
+                <f:render section="_EventDetail"
+                          arguments="{_all}"/>
+            </f:case>
+            <f:defaultCase>
+                <f:render section="_NewsDetail"
+                          arguments="{_all}"/>
+            </f:defaultCase>
+        </f:switch>
+
+        <f:if condition="{news.contents}">
+            <f:for each="{news.contents}"
+                   as="singleContent">
+                {inthelper:renderContent(contentUid: singleContent.uid) -> f:format.raw()}
+            </f:for>
+        </f:if>
+
+    </div>
+</f:section>
+
+<f:section name="_NewsDetail">
+    <div class="width-desktop-m int-news--detail--content">
+        <div class="width-desktop-m int-news--detail--content--inner">
+            <f:if condition="{news.subheader -> f:format.raw() -> f:format.nl2br()}">
+                <h2 class="int-news--detail--subheader">{news.subheader -> f:format.raw() -> f:format.nl2br()}</h2>
+            </f:if>
+            <f:if condition="news.newsDate">
+                <f:variable name="dateToInject"
+                            value="<span class='int-news--detail-date'>{news.newsDate -> f:format.date(format: 'd.m.Y')}</span> — "/>
+            </f:if>
+            <f:if condition="{news.description}">
+                <div class="int-news--detail--description">
+                    {news.description -> inthelper:prefixRteContent(contentToInject: dateToInject) -> f:format.html()}
+                </div>
+            </f:if>
+        </div>
+    </div>
+</f:section>
+
+<f:section name="_EventDetail">
+    <div class="width-desktop-m int-news--detail--content">
+        <div class="width-desktop-m int-news--detail--content--inner one-two-cols">
+            <div class="int-news--detail--content--event-info">
+                <f:if condition="{news.listImage}">
+                    <div class="wrapper-image int-news--detail-image">
+                        <f:image image="{news.listImage}"
+                                 maxWidth="300"/>
+                    </div>
+                </f:if>
+                <f:if condition="{news.eventDuration}">
+                    <div class="int-news--list-event-duration">
+                        {news.eventDuration -> f:format.nl2br() -> f:format.raw()}
+                    </div>
+                </f:if>
+                <f:if condition="{news.eventLocation}">
+                    <div class="int-news--list-event-location">
+                        {news.eventLocation -> f:format.nl2br() -> f:format.raw()}
+                    </div>
+                </f:if>
+                <f:if condition="{news.eventAddress}">
+                    <div class="int-news--list-event-address">
+                        {news.eventAddress -> f:format.raw()}
+                    </div>
+                </f:if>
+                <f:if condition="{news.eventHall}">
+                    <div class="int-news--list-event-hall">
+                        {news.eventHall -> f:format.raw()}
+                    </div>
+                </f:if>
+                <f:if condition="{news.eventBooth}">
+                    <div class="int-news--list-event-booth">
+                        {news.eventBooth -> f:format.raw()}
+                    </div>
+                </f:if>
+                <f:if condition="{news.eventLink}">
+                    <div class="int-news--list-event-link">
+                        <f:link.typolink parameter="{news.eventLink}"/>
+                    </div>
+                </f:if>
+            </div>
+            <div class="int-news--detail--content--event-content">
+                <f:if condition="{news.subheader -> f:format.raw() -> f:format.nl2br()}">
+                    <h2 class="int-news--detail--subheader">{news.subheader -> f:format.raw() -> f:format.nl2br()}</h2>
+                </f:if>
+                <f:if condition="{news.description}">
+                    <div class="int-news--detail--description">
+                        {news.description -> f:format.html()}
+                    </div>
+                </f:if>
+            </div>
+        </div>
+    </div>
+</f:section>

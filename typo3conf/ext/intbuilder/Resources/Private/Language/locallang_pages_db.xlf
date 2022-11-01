@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" product-name="intbuilder">
+        <header/>
+        <body>
+            <!-- Backend Layouts -->
+            <trans-unit id="backendLayout.blank.title">
+                <source><![CDATA[Blank]]></source>
+            </trans-unit>
+            <trans-unit id="backendLayout.blank.content">
+                <source><![CDATA[Content]]></source>
+            </trans-unit>
+
+            <trans-unit id="backendLayout.adminLayout.title">
+                <source><![CDATA[Admin Layout]]></source>
+            </trans-unit>
+            <trans-unit id="backendLayout.adminLayout.content">
+                <source><![CDATA[Content]]></source>
+            </trans-unit>
+
+            <trans-unit id="backendLayout.oneColumn.title">
+                <source><![CDATA[One Column]]></source>
+            </trans-unit>
+            <trans-unit id="backendLayout.oneColumn.content">
+                <source><![CDATA[One Column Content]]></source>
+            </trans-unit>
+
+            <trans-unit id="backendLayout.twoColumns.title">
+                <source><![CDATA[Two Columns]]></source>
+            </trans-unit>
+            <trans-unit id="backendLayout.twoColumns.content">
+                <source><![CDATA[Two Columns Content]]></source>
+            </trans-unit>
+            <trans-unit id="backendLayout.twoColumns.sidebar">
+                <source><![CDATA[Two Columns Sidebar]]></source>
+            </trans-unit>
+
+            <!-- Dividers and Palettes -->
+            <trans-unit id="div.pages_navigation">
+                <source><![CDATA[Header & Footer Navigation]]></source>
+            </trans-unit>
+            <trans-unit id="palette.int_partials">
+                <source><![CDATA[Page partials]]></source>
+            </trans-unit>
+            <trans-unit id="palette.top_pages">
+                <source><![CDATA[Top Pages]]></source>
+            </trans-unit>
+            <trans-unit id="palette.bottom_pages">
+                <source><![CDATA[Bottom Pages]]></source>
+            </trans-unit>
+            <trans-unit id="palette.footer_teaser">
+                <source><![CDATA[Footer Teaser]]></source>
+            </trans-unit>
+            <trans-unit id="palette.icons">
+                <source><![CDATA[Icons]]></source>
+            </trans-unit>
+            <trans-unit id="palette.headers">
+                <source><![CDATA[Headers]]></source>
+            </trans-unit>
+
+            <!-- Fields -->
+            <trans-unit id="pages.field.int_header_desktop">
+                <source><![CDATA[Header Desktop]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_header_mobile">
+                <source><![CDATA[Header Mobile]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_footer_desktop">
+                <source><![CDATA[Footer Desktop]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_footer_mobile">
+                <source><![CDATA[Footer Mobile]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_top_pages">
+                <source><![CDATA[Top Pages]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_new">
+                <source><![CDATA[Mark as New]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_image1">
+                <source><![CDATA[Icons]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_footer_teaser_title">
+                <source><![CDATA[Footer Teaser Title]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_footer_teaser">
+                <source><![CDATA[Footer Teaser]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_top_pages.description">
+                <source><![CDATA[This pages will be shown as top navigation, beside the main navigation]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages1">
+                <source><![CDATA[Bottom Pages 1]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages1.description">
+                <source><![CDATA[This pages will be shown in first column]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages2">
+                <source><![CDATA[Bottom Pages 2]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages2.description">
+                <source><![CDATA[This pages will be shown in second column]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages3">
+                <source><![CDATA[Bottom Pages 3]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages3.description">
+                <source><![CDATA[This pages will be shown in third column]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages4">
+                <source><![CDATA[Bottom Pages 4]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_bottom_pages4.description">
+                <source><![CDATA[This pages will be shown in fourth column]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_icons1">
+                <source><![CDATA[Icons 1]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_icons2">
+                <source><![CDATA[Icons 2]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_icons3">
+                <source><![CDATA[Icons 3]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_icons4">
+                <source><![CDATA[Icons 4]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_header1">
+                <source><![CDATA[Header 1]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_header2">
+                <source><![CDATA[Header 2]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_header3">
+                <source><![CDATA[Header 3]]></source>
+            </trans-unit>
+            <trans-unit id="pages.field.int_header4">
+                <source><![CDATA[Header 4]]></source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

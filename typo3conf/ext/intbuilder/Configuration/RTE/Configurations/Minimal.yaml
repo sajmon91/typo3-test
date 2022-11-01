@@ -1,0 +1,23 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Minimal RTE Configuration
+# ----------------------------------------------------------------------------------------------------------------------
+
+# Load default options
+imports:
+- { resource: "EXT:intbuilder/Configuration/RTE/Processing.yaml" }
+- { resource: "EXT:intbuilder/Configuration/RTE/Editor/Base.yaml" }
+- { resource: "EXT:intbuilder/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Custom RTE Configuration
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    # Block styles
+    stylesSet: []
+
+    # Custom toolbar
+    toolbar:
+    - { name: basicstyles, items: [ Bold ] }
+    - { name: clipboard, items: [ PasteText, RemoveFormat, -, Undo, Redo, ] }
+    - { name: tools, items: [ Maximize, -, Source ] }
+    - { name: links, items: [ Link, Unlink ] }

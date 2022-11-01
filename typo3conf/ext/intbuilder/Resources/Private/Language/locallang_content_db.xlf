@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" product-name="intbuilder">
+        <header/>
+        <body>
+            <!-- Dividers and Palettes -->
+            <trans-unit id="div.data">
+                <source><![CDATA[Data]]></source>
+            </trans-unit>
+            <trans-unit id="div.margins_paddings">
+                <source><![CDATA[Margins & Paddings]]></source>
+            </trans-unit>
+            <trans-unit id="palettes.container">
+                <source><![CDATA[Container]]></source>
+            </trans-unit>
+            <trans-unit id="palettes.content_slug">
+                <source><![CDATA[Anchor]]></source>
+            </trans-unit>
+            <trans-unit id="palettes.container_inner">
+                <source><![CDATA[Inner Container]]></source>
+            </trans-unit>
+            <trans-unit id="div.backgrounds">
+                <source><![CDATA[Backgrounds]]></source>
+            </trans-unit>
+            <trans-unit id="palettes.container_background">
+                <source><![CDATA[Container Background]]></source>
+            </trans-unit>
+            <trans-unit id="palettes.container_background_inner">
+                <source><![CDATA[Inner Container Background]]></source>
+            </trans-unit>
+            <trans-unit id="div.images">
+                <source><![CDATA[Images]]></source>
+            </trans-unit>
+            <trans-unit id="div.settings">
+                <source><![CDATA[Settings]]></source>
+            </trans-unit>
+
+            <!-- NEW CE Titles -->
+            <trans-unit id="new_ce.text.title">
+                <source><![CDATA[Text]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.text.description">
+                <source><![CDATA[Basic Text Element with Editor]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.image.title">
+                <source><![CDATA[Image]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.gallery.title">
+                <source><![CDATA[Gallery]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.admin-images-detail.title">
+                <source><![CDATA[Administration – Image Detail]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.admin-images-detail.description">
+                <source><![CDATA[Detail Image without resizing]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.accordion-irre.title">
+                <source><![CDATA[Accordion (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.accordion-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.hero-slider-irre.title">
+                <source><![CDATA[Hero Slider (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.hero-slider-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.quote.title">
+                <source><![CDATA[Quote]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.quote.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.page-hero.title">
+                <source><![CDATA[Hero]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.page-hero.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.page-header.title">
+                <source><![CDATA[Page Header]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.page-header.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.tabs-irre.title">
+                <source><![CDATA[Tabs (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.tabs-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-box-irre.title">
+                <source><![CDATA[Teaser Box (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-box-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-box-icon-irre.title">
+                <source><![CDATA[Teaser with Text and Icon (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-box-icon-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-box-image-irre.title">
+                <source><![CDATA[Teaser with Text and Image (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-box-image-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.text-with-image.title">
+                <source><![CDATA[Text with image]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.text-with-image.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.image.title">
+                <source><![CDATA[Image]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.image.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.video.title">
+                <source><![CDATA[Video]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.video.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.gallery.title">
+                <source><![CDATA[Gallery]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.gallery.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.summary1.title">
+                <source><![CDATA[Summary 1]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.summary1.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.summary2.title">
+                <source><![CDATA[Summary 2]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.summary2.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.download-irre.title">
+                <source><![CDATA[Download (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.download-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.usp-irre.title">
+                <source><![CDATA[USP's (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.usp-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.box-teaser-irre.title">
+                <source><![CDATA[Box Teaser (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.box-teaser-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-slider-box-irre.title">
+                <source><![CDATA[Teaser Slider Box (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-slider-box-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-slider-image-irre.title">
+                <source><![CDATA[Teaser Slider Image (repeatable)]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.teaser-slider-image-irre.description">
+                <source><![CDATA[]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.divider.title">
+                <source><![CDATA[Divider]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.sticky-box.title">
+                <source><![CDATA[Sticky Box]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.item-teaser.title">
+                <source><![CDATA[Item Teaser]]></source>
+            </trans-unit>
+            <trans-unit id="new_ce.references.title">
+                <source><![CDATA[References]]></source>
+            </trans-unit>
+
+            <!-- CONTENT FIELDS -->
+            <trans-unit id="tt_content.field.int_identifier">
+                <source>Identifier (not visible in frontend)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_identifier.description">
+                <source>Will be shown as page navigation if anchor is set (Tab "Settings" > "Human-readable URL
+                    #anchor")
+                </source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_header1">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_header2">
+                <source>Header 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_header3">
+                <source>Header 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_subheader1">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_subheader2">
+                <source>Subheader 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_subheader3">
+                <source>Subheader 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_lead1">
+                <source>Lead</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_lead2">
+                <source>Lead 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_lead3">
+                <source>Lead 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_text1">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_text2">
+                <source>Text 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_text3">
+                <source>Text 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_phone1">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_phone2">
+                <source>Phone 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_phone3">
+                <source>Phone 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_mail1">
+                <source>Link Mail</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_mail2">
+                <source>Link Mail 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_mail3">
+                <source>Link Mail 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_external1">
+                <source>Link External</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_external2">
+                <source>Link External 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_external3">
+                <source>Link External 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_page1">
+                <source>Link Page</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_page2">
+                <source>Link Page 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_page3">
+                <source>Link Page 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_file1">
+                <source>Link File</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_file2">
+                <source>Link File 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link_file3">
+                <source>Link File 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link1">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link2">
+                <source>Link 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_link3">
+                <source>Link 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_image1">
+                <source>Image</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_image2">
+                <source>Image 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_image3">
+                <source>Image 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_video1">
+                <source>Video</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_video2">
+                <source>Video 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_video3">
+                <source>Video 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_number1">
+                <source>Number</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_number2">
+                <source>Number 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_number3">
+                <source>Number 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_float1">
+                <source>Float</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_float2">
+                <source>Float 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_float3">
+                <source>Float 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_select1">
+                <source>Select</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_select2">
+                <source>Select 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_select3">
+                <source>Select 3</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_checkbox1">
+                <source>Checkbox</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_checkbox2">
+                <source>Checkbox 2</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_checkbox3">
+                <source>Checkbox 3</source>
+            </trans-unit>
+
+            <!-- CONTENT SPECIFIC ITEMS -->
+            <trans-unit id="tt_content.field.int_image_position">
+                <source>Image position</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_width_container">
+                <source>Container width</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_background_color">
+                <source>Container background color</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_column_count">
+                <source>Number of columns</source>
+            </trans-unit>
+
+            <!-- OVERRIDES -->
+
+            <trans-unit id="tt_content.override.invert_colors">
+                <source>Invert copy colors</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary1.documents">
+                <source>Documents</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary1.add_new_document">
+                <source>Link document</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary1.header_summary">
+                <source>Summary Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary1.header_relatedlinks">
+                <source>Related Links Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary1.header_downloads">
+                <source>Downloads Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary1.header_contacts">
+                <source>Contacts Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.summary2.description">
+                <source>Add items as bulleted list</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.quote.image_desktop">
+                <source>Image desktop (landscape)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.quote.image_mobile">
+                <source>Image mobile</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.page_header.image_mobile">
+                <source>Image mobile (720 x 380px)</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.divider">
+                <source>Divider as horizontal line</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.quote.int_image1">
+                <source>Desktop image</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.quote.int_image2">
+                <source>Mobile image</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.quote.int_checkbox1">
+                <source>Invert Copy</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.sticky-box.int_image1">
+                <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.sticky-box.int_subheader1">
+                <source>Icon Text</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.sticky-box.int_select1">
+                <source>Continents</source>
+            </trans-unit>
+            <trans-unit id="tt_content.override.sticky-box.int_select2">
+                <source>Countries</source>
+            </trans-unit>
+
+            <trans-unit id="tx_intbuilder_domain_model_irre_accordion">
+                <source>Accordion</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_heroslider">
+                <source>Hero Slider</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_tabs">
+                <source>Tabs</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_teaserbox">
+                <source>Teaser Box</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_teaserboxicon">
+                <source>Teaser Box with Icon</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_teaserboximage">
+                <source>Teaser Box with Image</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_download">
+                <source>Downloads</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_usp">
+                <source>USP's</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_boxteaser">
+                <source>Box Teaser</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_teasersliderbox">
+                <source>Teaser Slider with Box</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_teasersliderimage">
+                <source>Teaser Slider with Image</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser">
+                <source>Item Teaser</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_references">
+                <source>References</source>
+            </trans-unit>
+
+            <!-- IRRE ITEMS -->
+            <trans-unit id="tt_content.field.int_irre_heroslider">
+                <source>Hero Slider Items</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_accordion">
+                <source>Accordion Items</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_tabs">
+                <source>Tabs Items</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_teaserbox">
+                <source>Teaserbox Items</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_teaserboxicon">
+                <source>Teaser Box Icon Items</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_teaserboximage">
+                <source>Teaser Box Image Items</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_download">
+                <source>Downloads</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_usp">
+                <source>USP's</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_boxteaser">
+                <source>Box Teaser</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_teasersliderbox">
+                <source>Teaser Slider with Box</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_teasersliderimage">
+                <source>Teaser Slider with Image</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_itemteaser">
+                <source>Item Teaser</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.int_irre_references">
+                <source>References</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.field.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.link">
+                <source>Link</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.field.content_type">
+                <source>Content Type</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.images">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.icons">
+                <source>Icons</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.videos">
+                <source>Videos</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.text2">
+                <source>Text 2</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.field.download.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.download.header2">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.download.subheader1">
+                <source>File description</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.download.subheader2">
+                <source>File extension prefix</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.download.preview">
+                <source>Preview image</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.download.preview.description">
+                <source>Will be generated from file if possible</source>
+            </trans-unit>
+            <trans-unit id="tt_content.field.download.file">
+                <source>File to download</source>
+            </trans-unit>
+
+            <!-- Author fields -->
+            <trans-unit id="tx_intbuilder_domain_model_author">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.name_prefix">
+                <source>Name Prefix (Dr., Prof. etc.)</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.first_name">
+                <source>First Name</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.last_name">
+                <source>Last Name</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.author_position">
+                <source>Position</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.author_company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.email">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.website">
+                <source>Website</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.linkedin">
+                <source>LinkedIn</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.xing">
+                <source>Xing</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.author_type">
+                <source>Author Type</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_author.field.image">
+                <source>image</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.item_type">
+                <source>Item Type</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.item_priority">
+                <source>Item Priority</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.subheader">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.image1">
+                <source>Image Large (744 x 420 px)</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.image1.description">
+                <source>This image will be used for mobile</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.image2">
+                <source>Image Medium (615 x 420 px)</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.image3">
+                <source>Image small (486 x 420 px)</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.logo">
+                <source>Logo</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.background_color">
+                <source>Background Color</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.item_date">
+                <source>Item Date</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.tags">
+                <source>Tags</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_itemteaser.field.grey_overlay">
+                <source>Image overlay</source>
+            </trans-unit>
+
+
+            <trans-unit id="tx_intbuilder_domain_model_irre_references.field.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_references.field.subheader">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_references.field.text">
+                <source>Text</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_references.field.link">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_references.field.image">
+                <source>Image (774 x 542 px)</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_irre_references.field.grey_overlay">
+                <source>Grey Overlay</source>
+            </trans-unit>
+
+            <!-- Category fields -->
+            <trans-unit id="tx_intbuilder_domain_model_category">
+                <source>Category</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.oid">
+                <source>OID</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.show_in_list">
+                <source>Show in list</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.show_in_filter">
+                <source>Show in filter</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.image1">
+                <source>Image 1</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.image2">
+                <source>Image 2</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.icon1">
+                <source>Icon 1</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.icon2">
+                <source>Icon 2</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="tx_intbuilder_domain_model_category.field.child_categories">
+                <source>Child categories</source>
+            </trans-unit>
+
+
+        </body>
+    </file>
+</xliff>

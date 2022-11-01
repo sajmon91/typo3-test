@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en"
+          datatype="plaintext"
+          original="EXT:intnews/Resources/Private/Language/locallang_db"
+          date="2021-05-24T15:06:28Z"
+          product-name="intnews">
+        <header/>
+        <body>
+            <trans-unit id="tabs.images">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="tabs.documents">
+                <source>Files</source>
+            </trans-unit>
+            <trans-unit id="tabs.properties">
+                <source>Properties</source>
+            </trans-unit>
+            <trans-unit id="tabs.categories">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="tabs.contents">
+                <source>Contents</source>
+            </trans-unit>
+
+            <trans-unit id="tx_intnews_domain_model_news">
+                <source>News</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.oid">
+                <source>Oid</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.oid.description">
+                <source>Unique news identifier (if needed)</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.subheader">
+                <source>Subheader</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.news_type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.event_location">
+                <source>Event location (usually city and country)</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.event_address">
+                <source>Event address (e.g. street)</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.event_booth">
+                <source>Event booth</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.event_hall">
+                <source>Event hall</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.event_duration">
+                <source>Event duration</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.event_link">
+                <source>Event link</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.description_short">
+                <source>Description Short</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.description_short.description">
+                <source>Used for social media and list description</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.description">
+                <source>Description</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.list_image">
+                <source>List Image</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.header_image">
+                <source>Header Image</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.images">
+                <source>Images</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.files">
+                <source>Files</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.categories">
+                <source>Categories</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.authors">
+                <source>Authors</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.contents">
+                <source>Contents</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.news_date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.slug">
+                <source>Slug</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_domain_model_news.field.hide_original_language">
+                <source>Hide original language</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_newslist.name">
+                <source>News list</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_newslist.description">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_newsdetail.name">
+                <source>News detail</source>
+            </trans-unit>
+            <trans-unit id="tx_intnews_newsdetail.description">
+                <source></source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

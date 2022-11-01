@@ -1,0 +1,149 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Theme settings
+#
+# The settings can (and should) be overwritten in theme ext
+# ----------------------------------------------------------------------------------------------------------------------
+
+theme {
+    config {
+        # Identifier is appended to the partial names, e.g. Header will be called by HeaderIdentifier -> HeaderDefault
+        identifier = Default
+        paths {
+            # Paths needed for overriding the default content elements and partials
+            # !!! WITH TRAILING SLASH
+            build = intbuilder/Resource/Private/
+        }
+    }
+
+    header {
+        # Identifier is appended to the partial names, e.g. Header will be called by HeaderIdentifier -> HeaderDefault
+        # Load specific header layouts for desktop and mobile views
+        layoutDesktop = Default
+        layoutMobile = Default
+    }
+
+    footer {
+        # Identifier is appended to the partial names, e.g. Header will be called by HeaderIdentifier -> HeaderDefault
+        # Load specific footer layouts for desktop and mobile
+        layoutDesktop = Default
+        layoutMobile = Default
+    }
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Main configuration
+# ----------------------------------------------------------------------------------------------------------------------
+
+config {
+
+    # Administration
+    admPanel = 0
+    debug = 0
+    disableAllCache = 0
+    headerComment = 
+
+    # Search
+    enableIndexedSearch = 1
+    enableIndexedSearchExternals = 0
+
+    # Cache Header
+    sendCacheHeaders = 1
+    cache_period = 86400
+
+    # Other Settings
+    contentObjectExceptionHandler = 0
+
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Page and Content UID settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+# Add as setup settings in setup/02_plugins.typoscript
+pageUid {
+    rootPid = 1
+}
+
+# Add as setup settings in setup/02_plugins.typoscript
+contentUid {
+
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Navigation settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+navigation {
+    main {
+        levels = 4
+        entryLevel = 0
+        expandAll = 1
+        includeSpacer = 1
+        includeNotInMenu = 0
+        titleField = nav_title // title
+        dataProcessor = Int\Intbuilder\DataProcessing\PagesNavProcessor
+    }
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Plugin settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+plugin {
+    tx_powermail {
+        settings {
+            # @TODO: Validate PID
+            main.pid = 6
+            main.confirmation = 0
+            main.optin = 0
+            main.moresteps = 0
+
+            validation.native = 1
+            validation.client = 0
+
+            misc.htmlForHtmlFields = 1
+            misc.htmlForLabels = 1
+            misc.addQueryString = 1
+
+            javascript.addAdditionalJavaScript = 0
+            javascript.addJQueryFromGoogle = 0
+            javascript.powermailJQuery >
+        }
+    }
+}
+
+sourceopt {
+    enabled = 1
+    formatHtml = 1
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Usergroup settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+userGroups {
+
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Development and staging settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+[applicationContext != "Production"]
+    config {
+        debug = 1
+        sendCacheHeaders = 0
+        adminPanel = 1
+    }
+
+    sourceopt {
+        removeComments = 0
+        debugComment = 1
+    }
+[GLOBAL]

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:intticket/Resources/Private/Language/locallang_csh_tx_intticket_domain_model_note.xlf" date="2022-01-17T19:34:31Z" product-name="intticket">
+		<header/>
+		<body>
+			<trans-unit id="sender.description" resname="sender.description">
+				<source>sender</source>
+			</trans-unit>
+			<trans-unit id="receivers.description" resname="receivers.description">
+				<source>receivers</source>
+			</trans-unit>
+			<trans-unit id="body.description" resname="body.description">
+				<source>body</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

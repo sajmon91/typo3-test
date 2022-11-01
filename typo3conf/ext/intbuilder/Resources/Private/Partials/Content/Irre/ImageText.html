@@ -1,0 +1,28 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<div class="partial-irre--content two-cols">
+    <div class="partial-irre--content--single">
+        <f:for each="{singleItem.images}"
+               as="singleImage">
+            <f:if condition="{singleImage}">
+                <f:variable name="imageLink"
+                            value="{f:uri.image(image: singleImage)}"/>
+                <f:render partial="Content/Image"
+                          arguments="{
+                                ce: '{data}',
+                                image: '{singleImage}',
+                                link: '{imageLink}',
+                                lightbox: 'lightbox-{singleItem.uid}',
+                                queries: {
+                                    0: { query: '(max-width:767px)', maxWidth: '768' },
+                                    1: { query: '(min-width:768px)', maxWidth: '414' }
+                                }
+                          }"/>
+            </f:if>
+        </f:for>
+    </div>
+    <div class="partial-irre--content--single">
+        {singleItem.text -> f:format.html()}
+    </div>
+</div>

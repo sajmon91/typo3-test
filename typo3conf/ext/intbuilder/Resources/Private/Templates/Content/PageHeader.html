@@ -1,0 +1,60 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <f:variable name="backgroundImage">
+        <f:render partial='Background/BckgImage'
+                  section='Default'
+                  arguments="{
+                        image: data.intImage1Current,
+                        imageMobile: data.intImage2Current,
+                        sizes: {
+                            mobile: {0: 720, 1: 380},
+                            tablet: {0: 720, 1: 380},
+                            desktop: {0: 1280, 1: 430},
+                            desktopLarge: {0: 1280, 1: 430},
+                            widescreen: {0: 1280, 1: 430}
+                        }
+                }"/>
+    </f:variable>
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <div class="page-header--inner {f:if(condition: data.intBackgroundColor, then: 'page-header--backgroundcolor')}">
+
+                <div class="{f:if(condition: '{data.intImage1Current}', then: 'two-cols')}">
+                    <div class=" page-header--content">
+                        <div class=" page-header--content--inner">
+                            <h1>{data.intText1 -> f:format.raw() -> f:format.nl2br()}</h1>
+                        </div>
+                    </div>
+                    <f:if condition="{data.intImage1Current}">
+                        <div class="page-header--image" {backgroundImage}></div>
+                    </f:if>
+                </div>
+
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+
+    </section>
+
+    <div class="breadcrumb">
+        <div class="width-desktop-m">
+            <f:render partial="Page/Header/_Breadcrumb"
+                      arguments="{_all}"/>
+
+            <f:render partial="Page/Header/_BackLink"
+                      arguments="{_all}"/>
+        </div>
+    </div>
+
+</f:section>

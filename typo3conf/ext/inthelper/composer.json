@@ -1,0 +1,19 @@
+{
+  "name": "int/inthelper",
+  "description": "TYPO3 Helper extension",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Saša Stojanović",
+      "email": "stojanovic@intention.rs"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Int\\Inthelper\\": "Classes/"
+    }
+  }
+}

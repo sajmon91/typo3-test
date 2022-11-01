@@ -1,0 +1,14 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+    <hr class="divider {f:if(condition: '{data.intCheckbox1}', then: 'divider--line', else: 'divider--spacer')}"/>
+
+    <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+</f:section>

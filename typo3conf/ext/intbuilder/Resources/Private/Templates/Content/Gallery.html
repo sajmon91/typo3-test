@@ -1,0 +1,89 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:switch expression="{data.intColumnCount}">
+                <f:case value="2">
+                    <f:variable name="columnCount" value="2"/>
+                    <f:variable name="divClass" value="two-cols"/>
+                    <f:variable name="imageDimensions" value="{
+                            0: { query: '(max-width:767px)', width: '768c', height: '512c' },
+                            1: { query: '(min-width:769px)', width: '600c', height: '400c' }
+                        }"/>
+                </f:case>
+                <f:case value="3">
+                    <f:variable name="columnCount" value="3"/>
+                    <f:variable name="divClass" value="three-cols"/>
+                    <f:variable name="imageDimensions" value="{
+                            0: { query: '(max-width:767px)', width: '768c', height: '512c' },
+                            1: { query: '(min-width:768px)', width: '387c', height: '258c' }
+                    }"/>
+                </f:case>
+                <f:case value="6">
+                    <f:variable name="columnCount" value="6"/>
+                    <f:variable name="divClass" value="six-cols"/>
+                    <f:variable name="imageDimensions" value="{
+                            0: { query: '(max-width:767px)', maxWidth: '344' },
+                            1: { query: '(min-width:768px) and (min-width:1367px)', maxWidth: '387' },
+                            2: { query: '(min-width:1368px)', maxWidth: '173' }
+                    }"/>
+                </f:case>
+                <f:defaultCase>
+                    <f:variable name="columnCount" value="4"/>
+                    <f:variable name="divClass" value="four-cols"/>
+                    <f:variable name="imageDimensions" value="{
+                            0: { query: '(max-width:767px)', width: '344c', height: '230c' },
+                            1: { query: '(min-width:768px)', width: '280c', height: '187c' }
+                    }"/>
+                </f:defaultCase>
+            </f:switch>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div class="width-desktop-m {divClass} gallery--items">
+                <f:for each="{inthelper:chunkRows(list: '{data.intImage1}', itemsPerChunk: '{columnCount}')}"
+                       as="singleImage">
+                    <f:for each="{singleImage}"
+                           as="singleItem">
+                        <div class="gallery--item">
+                            <div class="gallery--item--image wrapper-image">
+                                <f:if condition="{singleItem}">
+                                    <f:variable name="imageLink"
+                                                value="{f:uri.image(image: singleItem)}"/>
+                                    <f:render partial="Content/Image"
+                                              arguments="{
+                                                    ce: '{data}',
+                                                    image: '{singleItem}',
+                                                    link: imageLink,
+                                                    lightbox: 'lightbox-{data.uid}',
+                                                    queries: imageDimensions
+                                              }"/>
+                                </f:if>
+                            </div>
+                        </div>
+                    </f:for>
+                </f:for>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

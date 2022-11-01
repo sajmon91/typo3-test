@@ -1,0 +1,24 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:section name="Default">
+
+    <f:if condition="{icon}">
+
+        <f:if condition="!{alternative}">
+            <f:variable name="alternative" value="{image.originalResource.alternative}"/>
+        </f:if>
+        <f:if condition="!{title}">
+            <f:variable name="alternative" value="{image.originalResource.title}"/>
+        </f:if>
+        <f:if condition="!{loading}">
+            <f:variable name="alternative" value="lazy"/>
+        </f:if>
+
+        <img src="{icon.originalResource.publicUrl}"
+                 alt="{alternative}"
+                 title="{title}"
+                 loading="{loading}"/>
+
+    </f:if>
+</f:section>

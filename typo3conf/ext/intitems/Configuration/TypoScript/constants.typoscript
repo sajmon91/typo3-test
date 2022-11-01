@@ -1,0 +1,27 @@
+plugin.tx_intitems {
+    view {
+        # cat=plugin.tx_intitems_itemlist/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:intitems/Resources/Private/Templates/
+
+        # cat=plugin.tx_intitems_itemlist/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:intitems/Resources/Private/Partials/
+
+        # cat=plugin.tx_intitems_itemlist/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:intitems/Resources/Private/Layouts/
+    }
+
+    persistence {
+        # cat=plugin.tx_intitems_itemlist//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+pageUid {
+    intitems {
+        listPid = 54
+        detailPid = 57
+    }
+}
+
+plugin.tx_intitems_itemlist < plugin.tx_intitems
+plugin.tx_intitems_itemdetail < plugin.tx_intitems

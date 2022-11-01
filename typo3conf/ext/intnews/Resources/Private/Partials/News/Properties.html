@@ -1,0 +1,74 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<table class="tx-intnews" >
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.oid" />
+		</td>
+		<td>
+		{item.oid}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.name" />
+		</td>
+		<td>
+		{item.name}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.description_short" />
+		</td>
+		<td>
+		{item.descriptionShort}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.description" />
+		</td>
+		<td>
+		{item.description}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.images" />
+		</td>
+		<td>
+				<f:image src="{item.images.originalResource.publicUrl}" width="200"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.files" />
+		</td>
+		<td>
+				<a href="{item.files.originalResource.publicUrl}">
+					{item.files.originalResource.name}
+				</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.files2" />
+		</td>
+		<td>
+				<a href="{item.files2.originalResource.publicUrl}">
+					{item.files2.originalResource.name}
+				</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_intnews_domain_model_news.files3" />
+		</td>
+		<td>
+				<a href="{item.files3.originalResource.publicUrl}">
+					{item.files3.originalResource.name}
+				</a>
+		</td>
+	</tr>
+</table>
+</html>

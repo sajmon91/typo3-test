@@ -1,0 +1,43 @@
+config.sourceopt {
+	enabled = {$sourceopt.enabled}
+	headerComment = {$sourceopt.headerComment}
+
+	formatHtml = {$sourceopt.formatHtml}
+	formatHtml {
+		tabSize = {$sourceopt.formatHtml.tabSize}
+		debugComment = {$sourceopt.formatHtml.debugComment}
+	}
+
+	dropEmptySpaceChar = 0
+
+	removeGenerator = {$sourceopt.removeGenerator}
+	removeComments = {$sourceopt.removeComments}
+	removeComments.keep {
+		# TYPO3 specific comment
+		87 = /This website is powered by TYPO3/usi
+
+		# IE conditional comments
+		88 = /^\[if/usi
+		89 = /^<!\[endif/usi
+
+		# keep the comments that are replaced with xx_INT Objects
+		96 = /^INT_SCRIPT\./usi
+		97 = /^TDS_/usi
+		98 = /^HD_/usi
+		99 = /INTsubpart_/usi
+
+		# google search appliance
+		101 = /^googleoff_/usi
+		102 = /^googleon_/usi
+
+		# Google pagespeed
+		104 = /^gps(e|s)/usi
+
+		# for typo-search
+		10 = {$sourceopt.removeComments.keep.10}
+	}
+}
+config.svgstore {
+	enabled = {$svgstore.enabled}
+	fileSize = {$svgstore.fileSize}
+}

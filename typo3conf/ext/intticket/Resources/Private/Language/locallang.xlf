@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:intticket/Resources/Private/Language/locallang.xlf" date="2022-01-17T19:34:31Z" product-name="intticket">
+		<header/>
+		<body>
+			<trans-unit id="tx_intticket_domain_model_ticket" resname="tx_intticket_domain_model_ticket">
+				<source>Ticket</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_ticket.subject" resname="tx_intticket_domain_model_ticket.subject">
+				<source>Subject</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_ticket.body" resname="tx_intticket_domain_model_ticket.body">
+				<source>Body</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_ticket.notes" resname="tx_intticket_domain_model_ticket.notes">
+				<source>Notes</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_note" resname="tx_intticket_domain_model_note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_note.sender" resname="tx_intticket_domain_model_note.sender">
+				<source>Sender</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_note.receivers" resname="tx_intticket_domain_model_note.receivers">
+				<source>Receivers</source>
+			</trans-unit>
+			<trans-unit id="tx_intticket_domain_model_note.body" resname="tx_intticket_domain_model_note.body">
+				<source>Body</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

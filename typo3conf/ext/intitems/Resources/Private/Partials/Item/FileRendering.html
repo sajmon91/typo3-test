@@ -1,0 +1,27 @@
+<f:section name="_SingleFile">
+    <p class="int-items--detail--file-title">
+        <f:if condition="{singleFile.originalResource.title}">
+            <f:then>
+                <span class="int-items--detail--file-title">{singleFile.originalResource.title}</span>
+                <span class="int-items--detail--file-name">{singleFile.originalResource.name}</span>
+            </f:then>
+            <f:else>
+                <span class="int-items--detail--file-title">{singleFile.originalResource.name}</span>
+            </f:else>
+        </f:if>
+    </p>
+    <f:if condition="{singleFile.originalResource.description}">
+        <div class="int-items--detail--file-description">
+            {singleFile.originalResource.description -> f:format.raw()}
+        </div>
+    </f:if>
+
+    <p class="int-items--detail--file-meta">
+        <span class="int-items--detail--file-extension">
+            {singleFile.originalResource.originalFile.extension}
+        </span>
+        <span class="int-items--detail--file-size">
+            {singleFile.originalResource.originalFile.size -> f:format.bytes(decimals: '0')}
+        </span>
+    </p>
+</f:section>

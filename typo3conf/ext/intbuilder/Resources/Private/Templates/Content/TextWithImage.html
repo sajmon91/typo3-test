@@ -1,0 +1,46 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header
+                      }"/>
+
+            <div class="text-with-image--container-columns width-desktop-m two-cols">
+                <div class="">
+                    <f:if condition="{data.intText1}">
+                        <div class="text--content">
+                            {data.intText1 -> f:format.html()}
+                        </div>
+                    </f:if>
+                </div>
+
+                <div class=" wrapper-image">
+                    <f:render partial="Content/Image"
+                              arguments="{
+                                ce: '{data}',
+                                image: '{data.intImage1Current}',
+                                queries: {
+                                    0: { query: '(max-width:768px)', maxWidth: '768' },
+                                    1: { query: '(min-width:769px)', maxWidth: '600' }
+                                }
+                              }"/>
+                </div>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

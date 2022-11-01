@@ -1,0 +1,40 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Base Configuration
+# ----------------------------------------------------------------------------------------------------------------------
+
+config {
+    debug = {$config.debug}
+    prefixLocalAnchors = all
+
+    cache_period = {$config.cache_period}
+    sendCacheHeaders = {$config.sendCacheHeaders}
+
+    contentObjectExceptionHandler = {$config.contentObjectExceptionHandler}
+
+    linkVars = L
+
+    intTarget = _self
+    extTarget = _blank
+
+    disablePrefixComment = 1
+
+    spamProtectEmailAddresses = -2
+    spamProtectEmailAddresses_atSubst = &#64;<span class="hide">misaifica</span>
+    spamProtectEmailAddresses_lastDotSubst = &#46;
+
+    headerComment (
+        {$config.headerComment}
+    )
+
+    no_cache = {$config.disableAllCache}
+    admPanel = {$config.admPanel}
+
+    # We need critical.min.js in header
+    moveJsFromHeaderToFooter = 0
+
+    removeDefaultCss = 1
+    removePageCss = 1
+    removeDefaultJS = external
+
+    meaningfulTempFilePrefix = 100
+}

@@ -1,0 +1,146 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:section name="Default">
+
+    <div class="partial-author--container partial-author--items">
+        <f:for each="{authors}"
+               as="singleAuthor">
+            <div class="partial-author--container--item partial-author--{singleAuthor.authorType}">
+                <f:if condition="{singleAuthor.image}">
+                    <f:image image="{singleAuthor.image}"
+                             class="partial-author--image"
+                             width="100c"
+                             height="100c"/>
+                </f:if>
+                <f:if condition="{singleAuthor.fullName}">
+                    <span class="partial-author--name">{singleAuthor.fullName}<br/></span>
+                </f:if>
+                <f:if condition="{singleAuthor.position}">
+                    <span class="partial-author--position">{singleAuthor.position}</span>
+                </f:if>
+                <f:if condition="{singleAuthor.company}">
+                    <span class="partial-author--company">{singleAuthor.company}</span>
+                </f:if>
+
+                <f:if condition="{singleAuthor.fullName} || {singleAuthor.position} || {singleAuthor.company}">
+                    <br/>
+                </f:if>
+
+                <f:if condition="{singleAuthor.email}">
+                    <f:link.typolink parameter="{singleAuthor.email}"
+                                     class="partial-author--email"/>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.phone}">
+                    <f:link.typolink parameter="{singleAuthor.phone}"
+                                     class="partial-author--phone">
+                        <inthelper:getPhoneNumber phoneNumber="{singleAuthor.phone}"/>
+                    </f:link.typolink>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.website}">
+                    <f:link.typolink parameter="{singleAuthor.website}"
+                                     target="_blank"
+                                     class="partial-author--website"/>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.linkedin}">
+                    <f:link.typolink parameter="{singleAuthor.linkedin}"
+                                     target="_blank"
+                                     class="partial-author--linkedin">LinkedIn
+                    </f:link.typolink>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.xing}">
+                    <f:link.typolink parameter="{singleAuthor.xing}"
+                                     target="_blank"
+                                     class="partial-author--xing">Xing
+                    </f:link.typolink>
+                    <br/>
+                </f:if>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+
+<f:section name="_ListSimple">
+    <div class="partial-author--container--news-list--items">
+        <f:for each="{authors}"
+               as="singleAuthor">
+            <div class="partial-author--container--news-list--item partial-author--{singleAuthor.authorType}">
+                <f:if condition="{singleAuthor.image}">
+                    <f:image image="{singleAuthor.image}"
+                             class="partial-author--image"
+                             width="40c"
+                             height="40c"/>
+                </f:if>
+                <f:if condition="{singleAuthor.fullName}">
+                    <span class="partial-author--name">{singleAuthor.fullName}<br/></span>
+                </f:if>
+            </div>
+        </f:for>
+    </div>
+</f:section>
+
+<f:section name="_ListFull">
+    <div class="partial-author--container--news-detail--items">
+        <f:for each="{authors}"
+               as="singleAuthor">
+            <div class="partial-author--container--news-detail--item partial-author--{singleAuthor.authorType}">
+                <f:if condition="{singleAuthor.image}">
+                    <f:image image="{singleAuthor.image}"
+                             class="partial-author--image"
+                             width="100c"
+                             height="100c"/>
+                </f:if>
+                <f:if condition="{singleAuthor.fullName}">
+                    <span class="partial-author--name">{singleAuthor.fullName}<br/></span>
+                </f:if>
+                <f:if condition="{singleAuthor.position}">
+                    <span class="partial-author--position">{singleAuthor.position}</span>
+                </f:if>
+                <f:if condition="{singleAuthor.company}">
+                    <span class="partial-author--company">{singleAuthor.company}</span>
+                </f:if>
+
+                <f:if condition="{singleAuthor.fullName} || {singleAuthor.position} || {singleAuthor.company}">
+                    <br/>
+                </f:if>
+
+                <f:if condition="{singleAuthor.email}">
+                    <f:link.typolink parameter="{singleAuthor.email}"
+                                     class="partial-author--email"/>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.phone}">
+                    <f:link.typolink parameter="{singleAuthor.phone}"
+                                     class="partial-author--phone">
+                        <inthelper:getPhoneNumber phoneNumber="{singleAuthor.phone}"/>
+                    </f:link.typolink>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.website}">
+                    <f:link.typolink parameter="{singleAuthor.website}"
+                                     target="_blank"
+                                     class="partial-author--website"/>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.linkedin}">
+                    <f:link.typolink parameter="{singleAuthor.linkedin}"
+                                     target="_blank"
+                                     class="partial-author--linkedin">LinkedIn
+                    </f:link.typolink>
+                    <br/>
+                </f:if>
+                <f:if condition="{singleAuthor.xing}">
+                    <f:link.typolink parameter="{singleAuthor.xing}"
+                                     target="_blank"
+                                     class="partial-author--xing">Xing
+                    </f:link.typolink>
+                    <br/>
+                </f:if>
+            </div>
+        </f:for>
+    </div>
+</f:section>

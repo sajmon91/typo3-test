@@ -1,0 +1,25 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:if condition="{singleItem.text} && {singleItem.text2}">
+    <f:then>
+        <div class="partial-irre--content two-cols">
+            <div class="partial-irre--content--single">
+                {singleItem.text -> f:format.html()}
+            </div>
+            <div class="partial-irre--content--single">
+                {singleItem.text2 -> f:format.html()}
+            </div>
+        </div>
+    </f:then>
+    <f:else>
+        <div class="partial-irre--content--single">
+            <f:if condition="{singleItem.text} || {singleItem.text2}">
+                <div class="partial-irre--content">
+                    {singleItem.text -> f:format.html()}
+                    {singleItem.text2 -> f:format.html()}
+                </div>
+            </f:if>
+        </div>
+    </f:else>
+</f:if>

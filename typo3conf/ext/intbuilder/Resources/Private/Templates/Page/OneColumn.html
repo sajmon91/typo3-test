@@ -1,0 +1,13 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Page/Default"/>
+
+<f:section name="Main">
+
+    <main class="content-main">
+        <f:cObject typoscriptObjectPath="lib.columns"
+                   data="{colPos: '0'}"/>
+    </main>
+
+</f:section>

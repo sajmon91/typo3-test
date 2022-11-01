@@ -1,0 +1,96 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:if condition="{image}">
+    <f:if condition="!{alternative}">
+        <f:variable name="alternative"
+                    value="{image.originalResource.alternative}"/>
+    </f:if>
+    <f:if condition="!{title}">
+        <f:variable name="title"
+                    value="{image.originalResource.title}"/>
+    </f:if>
+    <f:if condition="!{description} && !{hideDescription}">
+        <f:variable name="description"
+                    value="{image.originalResource.description}"/>
+    </f:if>
+    <f:if condition="!{loading}">
+        <f:variable name="loading"
+                    value="lazy"/>
+    </f:if>
+    <f:if condition="!{link}">
+        <f:variable name="link"
+                    value="{image.originalResource.link}"/>
+    </f:if>
+    <f:if condition="{lightbox} || {image.intLightbox}">
+        <f:variable name="lightboxParam"
+                    value="{data-fslightbox: '{ce.uid}', data-caption: '{description}'}"/>
+        <f:variable name="link"
+                    value="{f:uri.image(image: image)}"/>
+    </f:if>
+
+    <f:link.typolink parameter="{link}"
+                     additionalAttributes="{lightboxParam}"
+                     class="wrapper-image wrapper-image--link">
+        <f:if condition="{queries}">
+            <f:then>
+                <picture>
+                    <f:for each="{queries}"
+                           as="singleQuery">
+
+                        <f:variable name="widthLarge"
+                                    value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{singleQuery.width}')}"/>
+                        <f:variable name="heightLarge"
+                                    value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{singleQuery.height}')}"/>
+                        <f:variable name="maxWidthLarge"
+                                    value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{singleQuery.maxWidth}')}"/>
+                        <f:variable name="maxHeightLarge"
+                                    value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{singleQuery.maxHeight}')}"/>
+
+                        <f:if condition="!{singleQuery.width} && !{singleQuery.height} && !{singleQuery.maxWidth} && !{singleQuery.maxHeight}">
+                            <div class="">Missing Dimensions for query for {image.originalResource.publicUrl}</div>
+                        </f:if>
+
+                        <source srcset="{f:uri.image(image: '{image}', width: '{singleQuery.width}', height: '{singleQuery.height}', maxWidth: '{singleQuery.maxWidth}', maxHeight: '{singleQuery.maxHeight}')} 1x,
+                        {f:uri.image(image: '{image}', width: '{widthLarge}', height: '{heightLarge}', maxWidth: '{maxWidthLarge}', maxHeight: '{maxHeightLarge}')} 2x"
+                                media="{singleQuery.query}">
+                    </f:for>
+                    <f:image image="{image}"
+                             alt="{alternative} – {description}"
+                             title="{title}"
+                             maxWidth="100"
+                             loading="{loading}"/>
+                </picture>
+            </f:then>
+            <f:else>
+
+                <f:variable name="width"
+                            value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{width}')}"/>
+                <f:variable name="height"
+                            value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{height}')}"/>
+                <f:variable name="maxWidth"
+                            value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{maxWidth}')}"/>
+                <f:variable name="maxHeight"
+                            value="{inthelper:calculateDensityImageSize(factor: 2, dimension: '{maxHeight}')}"/>
+
+                <f:if condition="!{width} && !{height} && !{maxWidth} && !{maxHeight}">
+                    <div class="">Missing Dimensions for {image.originalResource.publicUrl}</div>
+                </f:if>
+
+                <f:image image="{image}"
+                         alt="{alternative} – {description}"
+                         title="{title}"
+                         width="{width}"
+                         height="{height}"
+                         maxWidth="{maxWidth}"
+                         maxHeight="{maxHeight}"
+                         loading="{loading}"/>
+            </f:else>
+        </f:if>
+
+    </f:link.typolink>
+    <f:if condition="{description}">
+        <p class="partial-image--description">{description -> f:format.raw()}</p>
+    </f:if>
+
+</f:if>

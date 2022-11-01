@@ -1,0 +1,83 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Main navigation
+# ----------------------------------------------------------------------------------------------------------------------
+
+lib.navigation.main = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+lib.navigation.main {
+    as = mainMenu
+    levels = {$navigation.main.levels}
+    entryLevel = {$navigation.main.entryLevel}
+    expandAll = {$navigation.main.expandAll}
+    includeSpacer = {$navigation.main.includeSpacer}
+    includeNotInMenu = {$navigation.main.includeNotInMenu}
+    titleField = {$navigation.main.titleField}
+    dataProcessing {
+        10 = {$navigation.main.dataProcessor}
+    }
+}
+
+lib.navigation.layouts < lib.navigation.main
+lib.navigation.layouts {
+    as = layoutMenu
+    entryLevel = 2
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Language navigation
+# ----------------------------------------------------------------------------------------------------------------------
+
+lib.navigation.language = Int\Intbuilder\DataProcessing\LanguageMenuProcessor
+lib.navigation.language {
+    as = languageMenu
+}
+
+lib.navigation.fluidbase = COA
+lib.navigation.fluidbase {
+    10 = FLUIDTEMPLATE
+    10 {
+        templateName = Navigation/Hierarchical
+
+        templateRootPaths.200 = EXT:intbuilder/Resources/Private/Templates/
+
+        layoutRootPaths.200 = EXT:intbuilder/Resources/Private/Layouts/
+
+        partialRootPaths.200 = EXT:intbuilder/Resources/Private/Partials/
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                as = menuObject
+                special = directory
+                special.value.field = menuId
+                levels.field = levels
+                entryLevel.field = entryLevel
+                expandAll.field = expandAll
+                dataProcessing {
+                    10 = {$navigation.main.dataProcessor}
+                }
+            }
+        }
+
+        variables {
+            maxDepth = TEXT
+            maxDepth.value.field = levels
+            identifier = TEXT
+            identifier.value.field = identifier
+        }
+    }
+}
+
+lib.navigation.directory < lib.navigation.fluidbase
+
+lib.navigation.list < lib.navigation.fluidbase
+lib.navigation.list {
+    10 {
+        dataProcessing {
+            10 {
+                special = list
+                special.value.field = menuIds
+            }
+        }
+    }
+}

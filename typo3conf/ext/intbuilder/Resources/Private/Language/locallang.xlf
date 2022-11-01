@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:intbuilder/Resources/Private/Language/locallang.xlf" date="2022-07-25T09:28:16Z" product-name="intbuilder">
+		<header/>
+		<body>
+			<trans-unit id="main_navigation.is_new" resname="main_navigation.is_new">
+				<source>New</source>
+			</trans-unit>
+			<trans-unit id="main_navigation.search" resname="main_navigation.search">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="main_navigation.contact" resname="main_navigation.contact">
+				<source>Contact</source>
+			</trans-unit>
+			<trans-unit id="admin.logout" resname="admin.logout">
+				<source>Logout</source>
+			</trans-unit>
+			<trans-unit id="viewhelper.format.bytes.units" resname="viewhelper.format.bytes.units">
+				<source>B,KB,MB,GB,TB,PB,EB,ZB,YB</source>
+			</trans-unit>
+			<trans-unit id="item-type--0" resname="item-type--0">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="item-type--1" resname="item-type--1">
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="item-type--2" resname="item-type--2">
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="item_teaser_noresults" resname="item_teaser_noresults">
+				<source><![CDATA[No results]]></source>
+			</trans-unit>
+			<trans-unit id="references_noresults" resname="references_noresults">
+				<source><![CDATA[No results]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_trigger" resname="locations_sticky_trigger">
+				<source><![CDATA[Contact]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_headline_1" resname="locations_sticky_headline_1">
+				<source><![CDATA[Call us at]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_headline_2" resname="locations_sticky_headline_2">
+				<source><![CDATA[Fill out the form!]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_headline_3" resname="locations_sticky_headline_3">
+				<source><![CDATA[Write us!]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_cta" resname="locations_sticky_contact_cta">
+				<source><![CDATA[Contact Form]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_demo_text" resname="locations_sticky_contact_demo_text">
+				<source><![CDATA[Request a]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_demo_linktext" resname="locations_sticky_contact_demo_linktext">
+				<source><![CDATA[Demo]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_licence_text" resname="locations_sticky_contact_licence_text">
+				<source><![CDATA[Testlizenz]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_licence_linktext" resname="locations_sticky_contact_licence_linktext">
+				<source><![CDATA[anfordern]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_text1" resname="locations_sticky_contact_email_text1">
+				<source><![CDATA[Send us an]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_text2" resname="locations_sticky_contact_email_text2">
+				<source><![CDATA[For all addresses visit our]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_linktext1" resname="locations_sticky_contact_email_linktext1">
+				<source><![CDATA[E-Mail]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_linktext2" resname="locations_sticky_contact_email_linktext2">
+				<source><![CDATA[Contact page]]></source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_form_page_id" resname="locations_sticky_contact_form_page_id">
+				<source>2316</source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_demo_id" resname="locations_sticky_contact_demo_id">
+				<source>2515</source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_licence_id" resname="locations_sticky_contact_licence_id">
+				<source>1</source>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_page_id" resname="locations_sticky_contact_page_id">
+				<source>308</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

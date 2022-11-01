@@ -1,0 +1,42 @@
+plugin.tx_intitems {
+    view {
+        templateRootPaths.0 = EXT:intitems/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_intitems_itemdetail.view.templateRootPath}
+        templateRootPaths.3 = EXT:intbuilder/Resources/Private/Templates/Plugin/intitems/
+
+        partialRootPaths.0 = EXT:intitems/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_intitems_itemdetail.view.partialRootPath}
+        partialRootPaths.3 = EXT:intbuilder/Resources/Private/Partials/Plugin/intitems/
+        partialRootPaths.4 = EXT:intbuilder/Resources/Private/Partials/
+
+        layoutRootPaths.0 = EXT:intitems/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_intitems_itemdetail.view.layoutRootPath}
+        layoutRootPaths.3 = EXT:intbuilder/Resources/Private/Layouts/Plugin/intitems/
+    }
+
+    persistence {
+        storagePid = {$pageUid.intitems.storagePid}
+        recursive = 1
+    }
+
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+
+    settings {
+        pageUid {
+            detailPid = {$pageUid.intitems.detailPid}
+        }
+    }
+}
+
+plugin.tx_intitems_itemlist < plugin.tx_intitems
+plugin.tx_intitems_itemdetail < plugin.tx_intitems

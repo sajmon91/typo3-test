@@ -1,0 +1,65 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div class="width-desktop-m three-one-cols {divClass} image--container">
+                <div class="image--content">
+                    <div class="image--image wrapper-image">
+                        <f:if condition="{data.intImage1Current}">
+                            <f:variable name="imageLink"
+                                        value="{f:uri.image(image: data.intImage1Current)}"/>
+                            <f:render partial="Content/Image"
+                                      arguments="{
+                                            ce: '{data}',
+                                            image: '{data.intImage1Current}',
+                                            link: imageLink,
+                                            lightbox: 'lightbox-{data.uid}',
+                                            hideDescription: '1',
+                                            queries: {
+                                                0: { query: '(max-width:600px)', maxWidth: '600' },
+                                                1: { query: '(min-width:601px) and (max-width:1024px)', maxWidth: '740' },
+                                                2: { query: '(min-width:1025px)', maxWidth: '920' }
+                                            }
+                                      }"/>
+                        </f:if>
+                    </div>
+                </div>
+                <div class="image--description">
+                    <f:if condition="{data.intImage1Current.originalResource.description}">
+                        <p class="partial-image--description">
+                            {data.intImage1Current.originalResource.description -> f:format.raw()}
+                        </p>
+                    </f:if>
+                </div>
+            </div>
+
+            <f:if condition="{data.intText2}">
+                <div class="image--subline">
+                    {data.intText2 -> f:format.html()}
+                </div>
+            </f:if>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

@@ -1,0 +1,33 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Function</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.categories>
+                        <TCEforms>
+                            <label>Select categories</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectMultipleSideBySide</renderType>
+                                <internal_type>db</internal_type>
+                                <size>10</size>
+                                <maxitems>20</maxitems>
+                                <minitems>1</minitems>
+                                <foreign_table>tx_intbuilder_domain_model_category</foreign_table>
+                                <foreign_table_where>AND tx_intbuilder_domain_model_category.deleted = 0 AND
+                                    tx_intbuilder_domain_model_category.hidden = 0 AND
+                                    tx_intbuilder_domain_model_category.type = 100 ORDER BY
+                                    tx_intbuilder_domain_model_category.name
+                                </foreign_table_where>
+                            </config>
+                        </TCEforms>
+                    </settings.categories>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

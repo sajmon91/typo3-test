@@ -1,0 +1,114 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="width-desktop-m">
+
+        <div data-filter--wrapper>
+
+            <f:render partial="Category/Category"
+                      section="_Filter"
+                      arguments="{categories: '{inthelper:categoryGroup(categories: \'{categoryFilters}\')}'}"/>
+
+
+            <div class="width-desktop-m int-news--list-items"
+                 data-filter--container>
+                <f:for each="{newss}"
+                       as="news">
+                    <div class="int-news--list-item int-news--list-item--{news.newsType}"
+                         {news.newsDataFilter}>
+
+                        <f:switch expression="{news.newsType}">
+                            <f:case value="100">
+                                <f:variable name="detailPid"
+                                            value="{settings.pageUid.event.detailPid}"/>
+                            </f:case>
+                            <f:defaultCase>
+                                <f:variable name="detailPid"
+                                            value="{settings.pageUid.news.detailPid}"/>
+                            </f:defaultCase>
+                        </f:switch>
+
+                        <div class="wrapper-image int-news--list-image">
+                            <f:if condition="{news.listImage}">
+                                <f:link.action action="show"
+                                               pageUid="{detailPid}"
+                                               class="int-news--list-link--image"
+                                               arguments="{news: news}">
+                                    <f:image image="{news.listImage}"
+                                             maxWidth="300"/>
+                                </f:link.action>
+                            </f:if>
+                        </div>
+
+                        <div class="int-news--list-content">
+                            <f:link.action action="show"
+                                           pageUid="{detailPid}"
+                                           class="int-news--list-link--headline"
+                                           arguments="{news: news}">
+                                <h3 class="int-news--list-headline">{news.name -> f:format.raw()}</h3>
+                            </f:link.action>
+                            <f:if condition="{news.newsDate}">
+                                <div class="int-news--list-date">
+                                    <label>{news.newsDate -> f:format.date(format: 'd.m.Y')}</label>
+                                </div>
+                            </f:if>
+                            <f:if condition="{news.eventDuration}">
+                                <div class="int-news--list-event-duration">
+                                    {news.eventDuration -> f:format.nl2br() -> f:format.raw()}
+                                </div>
+                            </f:if>
+                            <f:if condition="{news.eventLocation}">
+                                <div class="int-news--list-event-location">
+                                    {news.eventLocation -> f:format.nl2br() -> f:format.raw()}
+                                </div>
+                            </f:if>
+
+                            <f:if condition="{news.description}">
+                                <div class="int-news--list-description">
+                                    {news.description -> f:format.html() -> f:format.crop(maxCharacters: '140', append:
+                                    '&nbsp;…')}
+                                </div>
+                            </f:if>
+
+                            <p class="int-news--list-link--wrapper">
+                                <f:link.action action="show"
+                                               pageUid="{detailPid}"
+                                               class="int-news--list-link"
+                                               arguments="{news: news}">
+                                    {f:translate(key: 'read_more', extensionName: 'intnews')}
+                                </f:link.action>
+                            </p>
+
+                            <f:if condition="{news.categories}">
+                                <div class="int-news--list--categories">
+                                    <f:render partial="Category/Category"
+                                              section="_ListSimple"
+                                              arguments="{categories: news.categories}"/>
+                                </div>
+                            </f:if>
+
+                            <f:if condition="{news.authors}">
+                                <div class="int-news--list--authors">
+                                    <f:render partial="Author/Author"
+                                              section="_NewsList"
+                                              arguments="{authors: news.authors}"/>
+                                </div>
+                            </f:if>
+                        </div>
+
+                    </div>
+                </f:for>
+            </div>
+
+            <div class="width-desktop-m news--no-results filter--no-results"
+                 data-masonry--no-results>
+                {f:translate(key: 'news_noresults', extensionName: 'intnews') -> f:format.html()}
+            </div>
+        </div>
+    </section>
+</f:section>

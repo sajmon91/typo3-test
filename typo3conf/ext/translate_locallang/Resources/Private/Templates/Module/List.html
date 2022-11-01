@@ -1,0 +1,39 @@
+<f:layout name="Backend" />
+
+<f:section name="Content">
+<div class="module-body">
+	<f:flashMessages />
+	<h1>{f:translate(key:'title')} {f:if(condition:'{extension}',then:' - {extension}')}</h1>
+	<f:if condition="{conf.translatorInfo}">
+		<div class="alert alert-warning">
+			<div class="media">
+				<div class="media-body">
+					<p class="alert-message">{conf.translatorInfo}</p>
+				</div>
+			</div>
+		</div>
+	</f:if>
+	<f:render partial="Module/Filter" arguments="{_all}" />
+	<br>
+	<f:if condition="{extension}">
+		<f:if condition="{file}">
+			<f:render partial="Module/List" arguments="{_all}" />
+		</f:if>
+		<f:if condition="{conf.modifyKeys}">
+			<f:form>
+				<f:form.hidden name="extension" value="{extension}" />
+				<div class="form-group">
+					<label>{f:translate(key:'create_file')}</label>
+					<div class="input-group">
+						<f:form.textfield name="newFile" value="" class="form-control" placeholder="{f:translate(key: 'dummy_filename')}"/>
+						<span class="input-group-btn">
+							<f:form.button formaction="{f:uri.action(action:'createFile')}" value="{f:translate(key:'create_file')}" class="btn btn-default">{f:translate(key:'create_file')}</f:form.button>
+						</span>
+					</div>
+				</div>
+			</f:form>
+		</f:if>
+	</f:if>
+	<br>
+</div>
+</f:section>

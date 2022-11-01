@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" product-name="intbuilder">
+        <header/>
+        <body>
+            <trans-unit id="sys_file_reference.field.int_lightbox">
+                <source><![CDATA[Show image in lightbox]]></source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

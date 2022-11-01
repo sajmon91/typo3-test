@@ -1,0 +1,154 @@
+<f:comment>
+    <!--
+        <f:render partial="Items/Navigation"
+                  arguments="{
+                        identifier: 'header-nav',
+                        maxDepth: 2,
+                        menuObject: {your-menu-object} || {f:cObject(typoscriptObjectPath: 'lib.navigation.list', data: '{menuIds: intBottomPages1, levels: 0, expandAll: 0, identifier: "footer-desktop--nav"}') -> f:format.raw()}
+                  }"/>
+    -->
+</f:comment>
+
+<f:if condition="!{maxDepth}">
+    <f:comment><!-- If maxLevel isn't set, set it here. Needed to avoid further validations --></f:comment>
+    <f:variable name="maxDepth"
+                value="0"/>
+</f:if>
+
+<f:comment><!-- Hide whole navigation if no pages found --></f:comment>
+<f:if condition="{menuObject -> f:count()} > 0">
+
+    <nav class="{identifier}"
+         data-container="{identifier}">
+
+
+        <ul class="{identifier}-list-level-0">
+            <f:for each="{menuObject}"
+                   as="singleRootPage">
+                <!-- LEVEL 0 BEGIN -->
+                <li class="{identifier}-item-level-0
+                            {f:if(condition: '{singleRootPage.children}', then:' item-has-sub')}
+                            {f:if(condition: '{singleRootPage.active}', then:' item-is-active')}
+                            {f:if(condition: '{singleRootPage.current}', then:' item-is-current')}
+                            page-uid-{singleRootPage.data.uid}">
+                    <f:if condition="{singleRootPage.children}">
+                        <f:comment><!-- Icon for toggling subnavigation --></f:comment>
+                        <div class="{identifier}-item-trigger-icon"></div>
+                    </f:if>
+                    <f:link.typolink parameter="{singleRootPage.link}"
+                                     class="{identifier}-link-level-0 {f:if(condition: '{singleRootPage.active}', then:' item-is-active')}">
+                        {singleRootPage.title -> f:format.raw()}
+                        <f:if condition="{singleRootPage.data.intNew}">
+                            <span class="is-new">{f:translate(id: 'main_navigation.is_new', extensionName:
+                                                 'intbuilder')}</span>
+                        </f:if>
+                    </f:link.typolink>
+                    <f:if condition="{singleRootPage.children}">
+                        <span class="{identifier}-toggle-level-0"
+                              data-subnav-toggle></span>
+                    </f:if>
+
+
+                    <f:if condition="{singleRootPage.children -> f:count()} > 0 && {maxDepth} >= 1">
+                        <!-- LEVEL 1 BEGIN -->
+                        <ul class="{identifier}-list-level-1"
+                            data-subnav-container>
+                            <f:comment><!-- SPLIT IN COLUMNS --></f:comment>
+                            <f:for each="{singleRootPage.children}"
+                                   as="singleChild1">
+                                <li class="{identifier}-item-level-1
+                                            {f:if(condition: '{singleChild1.children}', then:' item-has-sub')}
+                                            {f:if(condition: '{singleChild1.active}', then:' item-is-active')}
+                                            {f:if(condition: '{singleChild1.current}', then:' item-is-current')}
+                                            page-uid-{singleChild1.data.uid}">
+                                    <f:link.typolink parameter="{singleChild1.link}"
+                                                     class="{identifier}-link-level-1 {f:if(condition: '{singleChild1.active}', then:' item-is-active')}">
+                                        {singleChild1.title -> f:format.raw()}
+                                        <f:if condition="{singleChild1.data.intNew}">
+                                            <span class="is-new">{f:translate(id: 'main_navigation.is_new',
+                                                                 extensionName: 'intbuilder')}</span>
+                                        </f:if>
+                                    </f:link.typolink>
+                                    <f:if condition="{singleChild1.children}">
+                                        <span class="{identifier}-toggle-level-0"
+                                              data-subnav-toggle></span>
+                                    </f:if>
+
+
+                                    <f:if condition="{singleChild1.children -> f:count()} > 0 && {maxDepth} >= 2">
+                                        <!-- LEVEL 2 BEGIN -->
+                                        <ul class="{identifier}-list-level-2"
+                                            data-subnav-container>
+                                            <f:for each="{singleChild1.children}"
+                                                   as="singleChild2">
+                                                <li class="{identifier}-item-level-2
+                                                            {f:if(condition: '{singleChild2.children}', then:' item-has-sub')}
+                                                            {f:if(condition: '{singleChild2.active}', then:' item-is-active')}
+                                                            {f:if(condition: '{singleChild2.current}', then:' item-is-current')}
+                                                            page-uid-{singleChild2.data.uid}">
+                                                    <f:link.typolink parameter="{singleChild2.link}"
+                                                                     class="{identifier}-link-level-2 {f:if(condition: '{singleChild2.active}', then:' item-is-active')}">
+                                                        {singleChild2.title -> f:format.raw()}
+                                                        <f:if condition="{singleChild2.data.intNew}">
+                                                            <span class="is-new">{f:translate(id:
+                                                                                 'main_navigation.is_new',
+                                                                                 extensionName: 'intbuilder')}</span>
+                                                        </f:if>
+                                                    </f:link.typolink>
+                                                    <f:if condition="{singleChild2.children}">
+                                                        <span class="{identifier}-toggle-level-0"
+                                                              data-subnav-toggle></span>
+                                                    </f:if>
+
+
+                                                    <f:if condition="{singleChild2.children -> f:count()} > 0 && {maxDepth} >= 3">
+                                                        <!-- LEVEL 3 BEGIN -->
+                                                        <ul class="{identifier}-list-level-3"
+                                                            data-subnav-container>
+                                                            <f:for each="{singleChild2.children}"
+                                                                   as="singleChild3">
+                                                                <li class="{identifier}-item-level-3
+                                                                            {f:if(condition: '{singleChild3.active}', then:' item-is-active')}
+                                                                            {f:if(condition: '{singleChild3.current}', then:' item-is-current')}
+                                                                            page-uid-{singleChild3.data.uid}">
+                                                                    <f:link.typolink parameter="{singleChild3.link}"
+                                                                                     class="{identifier}-link-level-3 {f:if(condition: '{singleChild3.active}', then:' item-is-active')}">
+                                                                        {singleChild3.title -> f:format.raw()}
+                                                                        <f:if condition="{singleChild3.data.intNew}">
+                                                                            <span class="is-new">{f:translate(id:
+                                                                                                 'main_navigation.is_new',
+                                                                                                 extensionName:
+                                                                                                 'intbuilder')}</span>
+                                                                        </f:if>
+                                                                        <f:if condition="{singleChild3.children}">
+                                                                            <span class="{identifier}-toggle-level-0"
+                                                                                  data-subnav-toggle></span>
+                                                                        </f:if>
+                                                                    </f:link.typolink>
+                                                                </li>
+                                                            </f:for>
+                                                        </ul>
+                                                        <!-- LEVEL 3 END -->
+                                                    </f:if>
+
+
+                                                </li>
+                                            </f:for>
+                                        </ul>
+                                        <!-- LEVEL 2 END -->
+                                    </f:if>
+
+
+                                </li>
+                            </f:for>
+                        </ul>
+                        <!-- LEVEL 1 END -->
+                    </f:if>
+
+
+                </li>
+                <!-- LEVEL 0 END -->
+            </f:for>
+        </ul>
+    </nav>
+</f:if>

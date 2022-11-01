@@ -1,0 +1,82 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:switch expression="{data.intColumnCount}">
+                <f:case value="1">
+                    <f:variable name="columnCount" value="1"/>
+                    <f:variable name="divClass" value="one-col"/>
+                    <f:variable name="headlineClass" value="h4"/>
+                </f:case>
+                <f:case value="2">
+                    <f:variable name="columnCount" value="2"/>
+                    <f:variable name="divClass" value="two-cols"/>
+                    <f:variable name="headlineClass" value="h4"/>
+                </f:case>
+                <f:case value="4">
+                    <f:variable name="columnCount" value="4"/>
+                    <f:variable name="divClass" value="four-cols"/>
+                    <f:variable name="headlineClass" value="h5"/>
+                </f:case>
+                <f:defaultCase>
+                    <f:variable name="columnCount" value="3"/>
+                    <f:variable name="divClass" value="three-cols"/>
+                    <f:variable name="headlineClass" value="h5"/>
+                </f:defaultCase>
+            </f:switch>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div class="width-desktop-m {divClass} teaser-box-icon--items">
+                <f:for each="{data.intIrreTeaserboxicon}"
+                       as="singleItem">
+                    <div class="teaser-box-icon--item {f:if(condition: '{singleItem.link}', then: 'teaser-box-icon--item--has-link')} {f:if(condition: '!{singleItem.currentIcon}', then: 'teaser-box-icon--item--no-icon')}"
+                         data-linkparent-container>
+                        <f:if condition="{singleItem.currentIcon}">
+                            <div class="teaser-box-icon--item--icon wrapper-icon">
+                                <f:render partial="Content/Icon"
+                                          section="Default"
+                                          arguments="{
+                                            icon: '{singleItem.currentIcon}'
+                                      }"/>
+                            </div>
+                        </f:if>
+                        <div class="teaser-box-icon--item--text">
+                            <f:if condition="{singleItem.header}">
+                                <h3 class="{headlineClass}">
+                                    {singleItem.header -> f:format.raw()}
+                                </h3>
+                            </f:if>
+                            {singleItem.text -> f:format.html()}
+                            <f:link.typolink parameter="{singleItem.link}"
+                                             class="link-with-arrow teaser-box-icon--item--link"
+                                             additionalAttributes="{data-linkparent: 'data-linkparent'}">
+                                {inthelper:titleFromLink(link: singleItem.link) -> f:format.raw()}
+                            </f:link.typolink>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

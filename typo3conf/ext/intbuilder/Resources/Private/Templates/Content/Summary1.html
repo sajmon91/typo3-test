@@ -1,0 +1,126 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ------------------------------- --></f:comment>
+
+            <f:if condition="{data.intSubheader1} ||
+                             {data.intText3} ||
+                             {data.intLinkPhone1} ||
+                             {data.intLinkMail1} ||
+                             {data.intHeader2} ||
+                             {data.intText2} ||
+                             {data.intHeader3} ||
+                             {data.intImage1}">
+                <f:variable name="columns" value="two-cols"/>
+            </f:if>
+
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <div class="{columns} summary1-columns width-desktop-m">
+                <div class="summary1-column--left">
+                    <div class="summary1--block summary1--block-summary">
+                        <f:if condition="{data.intHeader1}">
+                            <h4>{data.intHeader1 -> f:format.raw()}</h4>
+                        </f:if>
+                        <f:if condition="{data.intText1}">
+                            {data.intText1 -> f:format.html()}
+                        </f:if>
+                    </div>
+                </div>
+
+                <div class="summary1-column--right">
+
+                    <div class="summary1--block summary1--block-contacts">
+                        <f:if condition="{data.intSubheader1}">
+                            <h4>{data.intSubheader1 -> f:format.raw()}</h4>
+                        </f:if>
+                        <f:if condition="{data.intText3}">
+                            {data.intText3 -> f:format.html()}
+                        </f:if>
+                        <f:if condition="{data.intLinkPhone1} || {data.intLinkMail1}">
+                            <ul class="summary1--contacts">
+                                <f:if condition="{data.intLinkPhone1}">
+                                    <li class="summary1--contact-single">
+                                        <f:link.typolink parameter="{data.intLinkPhone1}"
+                                                         class="summary1--phone">
+                                            {inthelper:getCleanPhoneMail(link: '{data.intLinkPhone1}')}
+                                        </f:link.typolink>
+                                    </li>
+                                </f:if>
+                                <f:if condition="{data.intLinkMail1}">
+                                    <li class="summary1--contact-single">
+                                        <f:link.typolink parameter="{data.intLinkMail1}"
+                                                         class="summary1--email">
+                                            {inthelper:getCleanPhoneMail(link: '{data.intLinkMail1}')}
+                                        </f:link.typolink>
+                                    </li>
+                                </f:if>
+                            </ul>
+                        </f:if>
+                    </div>
+
+                    <div class="summary1--block summary1--block-related">
+                        <f:if condition="{data.intHeader2}">
+                            <h4>{data.intHeader2 -> f:format.raw()}</h4>
+                        </f:if>
+                        <f:if condition="{data.intText2}">
+                            {data.intText2 -> f:format.html()}
+                        </f:if>
+                    </div>
+
+                    <div class="summary1--block summary1--block-downloads">
+                        <f:if condition="{data.intHeader3}">
+                            <h4>{data.intHeader3 -> f:format.raw()}</h4>
+                        </f:if>
+                        <f:if condition="{data.intImage1}">
+                            <ul class="summary1--downloads">
+                                <f:for each="{data.intImage1}"
+                                       as="singleDownload">
+                                    <li class="summary1--download-single">
+                                        <f:link.typolink parameter="{singleDownload.originalResource.publicUrl}"
+                                                         class="summary1-column--download">
+                                            <f:if condition="{singleDownload.originalResource.title}">
+                                                <strong>
+                                                    {singleDownload.originalResource.title -> f:format.raw()}
+                                                </strong><br/>
+                                            </f:if>
+                                            <f:if condition="{singleDownload.originalResource.description}">
+                                                {singleDownload.originalResource.description -> f:format.raw()}<br/>
+                                            </f:if>
+
+                                            <f:comment><!-- Show filename if no other data vailable --></f:comment>
+                                            <f:if condition="!{singleDownload.originalResource.title} && !{singleDownload.originalResource.description}">
+                                                <strong>{singleDownload.originalResource.name -> f:format.raw()}</strong><br/>
+                                            </f:if>
+
+                                        </f:link.typolink>
+
+                                        <span class="summary1-column--download--extension">
+                                            {singleDownload.originalResource.originalFile.extension -> f:format.raw()}
+                                        </span> |
+                                        <span class="summary1-column--download--size">
+                                            {singleDownload.originalResource.originalFile.size ->
+                                            f:format.bytes(decimals: '0', units: '{f:translate(key:\'viewhelper.format.bytes.units\', extensionName:\'intbuilder\')}')}
+                                        </span>
+                                    </li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

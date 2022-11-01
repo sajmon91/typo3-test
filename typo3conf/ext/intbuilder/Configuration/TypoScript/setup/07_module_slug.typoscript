@@ -1,0 +1,17 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# EXT:slug module configuration
+# ----------------------------------------------------------------------------------------------------------------------
+
+module.tx_slug {
+    settings {
+        additionalTables {
+            tx_intbuilder_domain_model_category {
+                pid = 0
+                label = Category
+                slugField = slug
+                titleField = name
+                icon = EXT:intbuilder/Resources/Public/Backend/Icons/RecordIcons/record-productcategory.svg
+            }
+        }
+    }
+}

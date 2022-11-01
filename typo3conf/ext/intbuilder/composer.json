@@ -1,0 +1,19 @@
+{
+  "name": "int/intbuilder",
+  "description": "TYPO3 main project extension",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Saša Stojanović",
+      "email": "stojanovic@intention.rs"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Int\\Intbuilder\\": "Classes/"
+    }
+  }
+}

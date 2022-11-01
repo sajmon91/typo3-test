@@ -1,0 +1,42 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <div class="width-desktop-m four-cols int-items--items">
+        <f:for each="{items}"
+               as="item">
+            <div class="int-items--item">
+                <f:link.action action="show"
+                               pageUid="{settings.pageUid.detailPid}"
+                               class="int-items--list-link"
+                               arguments="{item: item}">
+                    <h2 class="int-items--list-headline">{item.name}</h2>
+                    <span class="int-items--list-oid">{item.oid}</span>
+
+                    <f:if condition="{item.listImage}">
+                        <div class="wrapper-image int-items--list-image">
+                            <f:image image="{item.listImage}"
+                                     width="300c"
+                                     height="300c"/>
+                        </div>
+                    </f:if>
+
+                    <f:if condition="{item.categories}">
+                        <div class="int-items--list-categories">
+                            <f:for each="{item.categories}"
+                                   as="singleCategory">
+                                <span class="int-items--list-category-single">
+                                    {singleCategory.name}
+                                </span>
+                            </f:for>
+                        </div>
+                    </f:if>
+                </f:link.action>
+            </div>
+
+        </f:for>
+    </div>
+</f:section>

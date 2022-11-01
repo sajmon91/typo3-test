@@ -1,0 +1,48 @@
+plugin.tx_intnews {
+    view {
+        templateRootPaths.10 = {$plugin.tx_intnews_newsdetail.view.templateRootPath}
+        templateRootPaths.101 = EXT:intbuilder/Resources/Private/Templates/Plugin/intnews/
+
+        partialRootPaths.10 = {$plugin.tx_intnews_newsdetail.view.partialRootPath}
+        partialRootPaths.101 = EXT:intbuilder/Resources/Private/Partials/
+        partialRootPaths.102 = EXT:intbuilder/Resources/Private/Partials/Plugin/intnews/
+
+        layoutRootPaths.10 = EXT:intnews/Resources/Private/Layouts/
+        layoutRootPaths.101 = EXT:intbuilder/Resources/Private/Layouts/
+        layoutRootPaths.102 = EXT:intbuilder/Resources/Private/Layouts/Plugin/intnews/
+    }
+
+    persistence {
+        storagePid = {$pageUid.intnews.storagePid}
+        recursive = 1
+    }
+
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+
+    settings {
+        pageUid {
+            news {
+                listPid = {$pageUid.intnews.news.listPid}
+                detailPid = {$pageUid.intnews.news.detailPid}
+            }
+
+            event {
+                listPid = {$pageUid.intnews.event.listPid}
+                detailPid = {$pageUid.intnews.event.detailPid}
+            }
+        }
+    }
+}
+
+plugin.tx_intnews_newslist < plugin.tx_intnews
+plugin.tx_intnews_newsdetail < plugin.tx_intnews

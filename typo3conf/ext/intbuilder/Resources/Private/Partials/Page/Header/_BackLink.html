@@ -1,0 +1,10 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<!-- intbuilder/Resources/Private/Partials/Header/BackLink.html BEGIN -->
+
+<f:link.page
+        pageUid="{inthelper:backLink(pageUid: '{pageUid}', samePage:'{samePage}', includeSpacer: '{includeSpacer}', showHidden: '{showHidden}')}"
+        class="page-back-arrow {additionalClass}" />
+
+<!-- intbuilder/Resources/Private/Partials/Header/BackLink.html END -->

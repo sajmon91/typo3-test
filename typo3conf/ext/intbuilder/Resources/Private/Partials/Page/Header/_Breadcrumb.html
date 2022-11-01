@@ -1,0 +1,34 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<!-- inthelper/Resources/Private/Partials/Header/Breadcrumb.html BEGIN -->
+
+<div class="nav-horizontal breadcrumb--container" data-breadcrumb>
+    <ul class="breadcrumb--item-wrap">
+
+        <f:if condition="!{breadcrumbMenu}">
+            <f:variable name="breadcrumbMenu"
+                        value="{inthelper:breadcrumb(pageUid: '{pageUid}', showHidden: '{showHidden}', hideLatest: '{hideLatest}', lastItem: '{lastItem}')}"/>
+        </f:if>
+
+        <f:for each="{breadcrumbMenu}"
+               as="singleBreadcrumbItem"
+               iteration="breadcrumbIteration">
+            <li class="breadcrumb--item">
+                <f:if condition="{singleBreadcrumbItem.link}">
+                    <f:then>
+                        <a class="breadcrumb--item-link {f:if(condition: '{breadcrumbIteration.isLast}', then: 'active')}"
+                           href="{singleBreadcrumbItem.link}">
+                            {singleBreadcrumbItem.title -> f:format.raw()}
+                        </a>
+                    </f:then>
+                    <f:else>
+                        {singleBreadcrumbItem.title -> f:format.raw()}
+                    </f:else>
+                </f:if>
+            </li>
+        </f:for>
+    </ul>
+</div>
+
+<!-- inthelper/Resources/Private/Partials/Header/Breadcrumb.html END -->

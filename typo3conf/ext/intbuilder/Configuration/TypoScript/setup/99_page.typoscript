@@ -1,0 +1,180 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Default Page settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+page = PAGE
+page {
+    10 = FLUIDTEMPLATE
+    10 {
+        templateName = Homepage
+
+        templateRootPaths.200 = EXT:intbuilder/Resources/Private/Templates/
+
+        layoutRootPaths.200 = EXT:intbuilder/Resources/Private/Layouts/
+
+        partialRootPaths.200 = EXT:intbuilder/Resources/Private/Partials/
+
+        dataProcessing {
+            10 = Int\Intbuilder\DataProcessing\PagesProcessor
+            20 < lib.navigation.main
+            30 < lib.navigation.language
+        }
+
+        templateName.stdWrap.cObject = CASE
+        templateName.stdWrap.cObject {
+            key.data = pagelayout
+
+            # Add Page Templates here
+            pagets__blank = TEXT
+            pagets__blank.value = Page/Blank
+
+            pagets__oneColumn = TEXT
+            pagets__oneColumn.value = Page/OneColumn
+
+            pagets__twoColumns = TEXT
+            pagets__twoColumns.value = Page/TwoColumns
+
+            pagets__adminLayout = TEXT
+            pagets__adminLayout.value = Page/AdminLayout
+
+            default = TEXT
+            default.value = Page/OneColumn
+
+        }
+
+        settings < plugin.tx_intbuilder.settings
+    }
+
+    config {
+        index_enable = {$config.enableIndexedSearch}
+        index_externals = {$config.enableIndexedSearchExternals}
+        index_metatags =
+
+        pageTitleFirst = 1
+        pageTitleSeparator = |
+        pageTitleSeparator.noTrimWrap = | | |
+    }
+
+    headTag (
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+    )
+
+    headerData.10 = COA
+    headerData.10 {
+        1639413929 = TEXT
+        1639413929.value (
+            <link rel="manifest" href="/manifest.json">
+        )
+        1639413930 = TEXT
+        1639413930.value (
+            <noscript>
+                <link rel="stylesheet" type="text/css" href="/assets/dist/css/main.min.css" media="all">
+            </noscript>
+        )
+        1639413931 = TEXT
+        1639413931.value (
+        )
+    }
+
+    # All CSS files with media='lazy' will be parsed via cssLazy.js
+    includeCSS {
+        # Full path due to inclusion
+        critical = EXT:intbuilder/Resources/Public/Frontend/dist/css/critical.min.css
+        critical {
+            inline = 1
+            forceOnTop = 1
+            media = all
+        }
+
+        mainCss = /assets/dist/css/main.min.css
+        mainCss.external = 1
+        mainCss.media = lazy
+    }
+
+    includeJSFooter {
+        critical = /assets/dist/js/critical.min.js
+        mainJs = /assets/dist/js/main.min.js
+        mainJs.external = 1
+        mainJs.async = 1
+    }
+
+    footerData.10 = COA
+    footerData.10 {
+        10 = TEXT
+        10.value (
+
+        )
+    }
+}
+
+[tree.pagelayout == 'pagets__adminLayout']
+    page {
+        10 {
+            dataProcessing {
+                20 >
+                30 >
+                40 < lib.navigation.layouts
+            }
+        }
+
+        includeCSS {
+            adminCss = /assets/dist/css/admin.min.css
+        }
+
+        headerData.10 {
+            1639413932 = TEXT
+            1639413932.value (
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet"
+            )
+        }
+    }
+[global]
+
+# Include Google Tag Manager
+[{$apis.googleAnalyticsActive} == 1 && {$apis.googleAnalytics} != '']
+    page {
+        headerData {
+            10 {
+                # External includes e.g. Google Analytics etc.
+                1611147526 = TEXT
+                # @TODO: Add cookie script check
+                1611147526.value (
+                    <script async>
+                        <!-- Google Tag Manager -->
+                        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                        })(window,document,'script','dataLayer','{$apis.googleAnalytics}');
+                        <!-- End Google Tag Manager -->
+                    </script>
+                )
+            }
+        }
+    }
+[global]
+
+# Include marker.io
+["{$apis.markerIo}" != ""]
+    page {
+        headerData {
+            10 {
+                1639404166 = TEXT
+                1639404166.value (
+                <script>
+                window.markerConfig = {
+                destination: '{$apis.markerIo}',
+                source: 'snippet'
+                };
+                </script>
+
+                <script>
+                !function(e,r,a){if(!e.__Marker){e.__Marker={};var t=[],n={__cs:t};["show","hide","isVisible","capture","cancelCapture","unload","reload","isExtensionInstalled","setReporter","setCustomData","on","off"].forEach(function(e){n[e]=function(){var r=Array.prototype.slice.call(arguments);r.unshift(e),t.push(r)}}),e.Marker=n;var s=r.createElement("script");s.async=1,s.src="https://edge.marker.io/latest/shim.js";var i=r.getElementsByTagName("script")[0];i.parentNode.insertBefore(s,i)}}(window,document);
+                </script>
+                )
+            }
+        }
+    }
+[END]

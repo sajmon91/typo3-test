@@ -1,0 +1,103 @@
+<f:comment>
+    <!--
+        Main MOBILE Header – copy to theme and change as needed
+    -->
+</f:comment>
+
+<footer id="footer-mobile"
+        class="footer-mobile hide-from-desktop-s background-inverted {f:if(condition: data.intFooterTeaser, then: 'footer-mobile--has-teaser')}">
+    <div class="footer-mobile--container-top width-full">
+        <f:if condition="{data.intFooterTeaser}">
+            <div class="footer-mobile--container-teaser width-full">
+                <f:if condition="{data.intFooterTeaserTitle}">
+                    <div class="width-tablet footer-mobile--container-teaser--header">
+                        <h3>{data.intFooterTeaserTitle -> f:format.raw()}</h3>
+                    </div>
+                </f:if>
+                <div class="footer-mobile--teaser--items width-tablet three-cols">
+                    <f:for each="{data.intFooterTeaser}"
+                           as="singleFooterTeaser">
+                        <div class="footer-mobile--teaser--item"
+                             data-linkparent-container>
+                            <f:image image="{singleFooterTeaser}"
+                                     class="footer-mobile--teaser--image"
+                                     width="320c"
+                                     height="220c"/>
+                            <span class="footer-mobile--teaser--title h5">
+                                {singleFooterTeaser.originalResource.title -> f:format.raw()}
+                            </span>
+                            <f:if condition="{singleFooterTeaser.originalResource.link}">
+                                <f:link.typolink parameter="{singleFooterTeaser.originalResource.link}"
+                                                 class="hide"
+                                                 additionalAttributes="{
+                                                    data-linkparent: 'data-linkparent'
+                                             }">{singleFooterTeaser.originalResource.title -> f:format.raw()}
+                                </f:link.typolink>
+                            </f:if>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+        </f:if>
+
+        <div class="footer-mobile--container-inner width-tablet">
+            <div class="footer-mobile--left">
+                <f:if condition="{root.intIcons1}">
+                    <f:if condition="{root.intHeader1}">
+                        <h5>{root.intHeader1 -> f:format.raw()}</h5>
+                    </f:if>
+                    <div class="footer-mobile--left--icons">
+                        <f:for each="{root.intIcons1}"
+                               as="singleIcon">
+                            <f:link.typolink parameter="{singleIcon.originalResource.link}"
+                                             title="{singleIcon.originalResource.title}">
+                                <f:image image="{singleIcon}"
+                                         maxWidth="120"
+                                         maxHeight="80"
+                                         alt="{singleIcon.originalResource.alternative}"
+                                         title="{singleIcon.originalResource.title}"/>
+                            </f:link.typolink>
+                        </f:for>
+                    </div>
+                </f:if>
+            </div>
+
+            <div class="footer-mobile--right">
+                <f:if condition="{root.intIcons2}">
+                    <f:if condition="{root.intHeader2}">
+                        <h5>{root.intHeader2 -> f:format.raw()}</h5>
+                    </f:if>
+                    <div class="footer-mobile--right--icons">
+                        <f:for each="{root.intIcons2}"
+                               as="singleIcon">
+                            <f:link.typolink parameter="{singleIcon.originalResource.link}"
+                                             title="{singleIcon.originalResource.title}">
+                                <f:image image="{singleIcon}"
+                                         maxWidth="80"
+                                         maxHeight="80"
+                                         alt="{singleIcon.originalResource.alternative}"
+                                         title="{singleIcon.originalResource.title}"/>
+                            </f:link.typolink>
+                        </f:for>
+                    </div>
+                </f:if>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-mobile--container-bottom width-full">
+        <div class="footer-mobile--container-inner width-tablet">
+            <div class="footer-mobile--navigation">
+                <f:if condition="{root.intBottomPages1}">
+                    {f:cObject(typoscriptObjectPath: 'lib.navigation.list', data: '{menuIds: root.intBottomPages1,
+                    levels: 0, expandAll: 0, identifier: "footer-mobile--nav"}') -> f:format.raw()}
+                </f:if>
+            </div>
+            <div class="footer-mobile--copyright">
+                ©
+                <f:format.date format="Y" date="now"/>
+                {root.intHeader3 -> f:format.raw()}
+            </div>
+        </div>
+    </div>
+</footer>

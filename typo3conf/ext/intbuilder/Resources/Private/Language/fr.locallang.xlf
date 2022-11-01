@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="fr" datatype="plaintext" original="EXT:intbuilder/Resources/Private/Language/locallang.xlf" date="2022-07-25T09:28:16Z" product-name="intbuilder">
+		<header/>
+		<body>
+			<trans-unit id="main_navigation.is_new" resname="main_navigation.is_new">
+				<source>New</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="main_navigation.search" resname="main_navigation.search">
+				<source>Search</source>
+				<target>Chercher</target>
+			</trans-unit>
+			<trans-unit id="main_navigation.contact" resname="main_navigation.contact">
+				<source>Contact</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="admin.logout" resname="admin.logout">
+				<source>Logout</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="viewhelper.format.bytes.units" resname="viewhelper.format.bytes.units">
+				<source>B,KB,MB,GB,TB,PB,EB,ZB,YB</source>
+				<target>B,Ko,Mo,Go,To,Po,Eo,Zo,Yo</target>
+			</trans-unit>
+			<trans-unit id="item-type--0" resname="item-type--0">
+				<source>Page</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="item-type--1" resname="item-type--1">
+				<source>Event</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="item-type--2" resname="item-type--2">
+				<source>News</source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="item_teaser_noresults" resname="item_teaser_noresults">
+				<source><![CDATA[No results]]></source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="references_noresults" resname="references_noresults">
+				<source><![CDATA[No results]]></source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_trigger" resname="locations_sticky_trigger">
+				<source><![CDATA[Contact]]></source>
+				<target>Contact</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_headline_1" resname="locations_sticky_headline_1">
+				<source><![CDATA[Call us at]]></source>
+				<target>Appelez-nous au</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_headline_2" resname="locations_sticky_headline_2">
+				<source><![CDATA[Fill out the form!]]></source>
+				<target>Remplir le formulaire!</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_headline_3" resname="locations_sticky_headline_3">
+				<source><![CDATA[Write us!]]></source>
+				<target>Écrivez-nous!</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_cta" resname="locations_sticky_contact_cta">
+				<source><![CDATA[Contact Form]]></source>
+				<target>Contacter</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_demo_text" resname="locations_sticky_contact_demo_text">
+				<source><![CDATA[Request a]]></source>
+				<target>Demandez une </target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_demo_linktext" resname="locations_sticky_contact_demo_linktext">
+				<source><![CDATA[Demo]]></source>
+				<target>démonstration en ligne</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_licence_text" resname="locations_sticky_contact_licence_text">
+				<source><![CDATA[Testlizenz]]></source>
+				<target>Testlizenz</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_licence_linktext" resname="locations_sticky_contact_licence_linktext">
+				<source><![CDATA[anfordern]]></source>
+				<target>anfordern</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_text1" resname="locations_sticky_contact_email_text1">
+				<source><![CDATA[Send us an]]></source>
+				<target>Envoyez-nous un </target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_text2" resname="locations_sticky_contact_email_text2">
+				<source><![CDATA[For all addresses visit our]]></source>
+				<target>Pour toutes les adresses : </target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_linktext1" resname="locations_sticky_contact_email_linktext1">
+				<source><![CDATA[E-Mail]]></source>
+				<target>e-mail</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_email_linktext2" resname="locations_sticky_contact_email_linktext2">
+				<source><![CDATA[Contact page]]></source>
+				<target>page contact</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_form_page_id" resname="locations_sticky_contact_form_page_id">
+				<source>2316</source>
+				<target>2316</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_demo_id" resname="locations_sticky_contact_demo_id">
+				<source>2515</source>
+				<target>2515</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_licence_id" resname="locations_sticky_contact_licence_id">
+				<source>1</source>
+				<target>1</target>
+			</trans-unit>
+			<trans-unit id="locations_sticky_contact_page_id" resname="locations_sticky_contact_page_id">
+				<source>308</source>
+				<target>308</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,41 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Default RTE Configuration
+# ----------------------------------------------------------------------------------------------------------------------
+
+# Load default options
+imports:
+  - { resource: "EXT:intbuilder/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:intbuilder/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:intbuilder/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Custom RTE Configuration
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    # Formats
+    format_tags: "p;h2;h3;h4;h5"
+
+    # Block styles
+    stylesSet:
+      - { name: "Lead", element: 'p', attributes: { 'class': 'text-lead' } }
+      - { name: "Quote", element: 'p', attributes: { 'class': 'blockquote' } }
+      - { name: "Inline Label", element: 'span', attributes: { 'class': 'label-txt' } }
+      - { name: "List without square", element: 'ul', attributes: { 'class': 'reset-list' } }
+      - { name: "CTA", element: 'a', attributes: { 'class': 'link-cta' } }
+      - { name: "Link with arrow", element: 'a', attributes: { 'class': 'link-with-arrow' } }
+      - { name: "Icon Phone", element: 'a', attributes: { 'class': 'link-with-icon link-with-phone' } }
+      - { name: "Icon Website", element: 'a', attributes: { 'class': 'link-with-icon link-with-website' } }
+      - { name: "Icon E-Mail", element: 'a', attributes: { 'class': 'link-with-icon link-with-email' } }
+      - { name: "Icon WhatsApp", element: 'a', attributes: { 'class': 'link-with-icon link-with-whatsapp' } }
+      - { name: "Icon demo 1", element: 'a', attributes: { 'class': 'link-with-icon link-with-demo1' } }
+      - { name: "Icon demo 2", element: 'a', attributes: { 'class': 'link-with-icon link-with-demo2' } }
+
+    # Custom toolbar
+    toolbar:
+      - { name: styles, items: [ Format, Styles ] }
+      - { name: basicstyles, items: [ Bold, Italic, Subscript, Superscript ] }
+      - { name: paragraph, items: [ BulletedList ] }
+      - { name: blockQuote, items: [ ] }
+      - { name: links, items: [ Link, Unlink ] }
+      - { name: clipboard, items: [ PasteText, RemoveFormat, -, Undo, Redo, ] }
+      - { name: tools, items: [ Table, HorizontalRule, Maximize, -, Source, SpecialChar ] }

@@ -1,0 +1,81 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="teaser-box-irre-spacer--begin">&nbsp;</div>
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:variable name="flickityContainer"
+                        value=""/>
+            <f:variable name="noFlickityClass"
+                        value="teaser-box-irre--content--no-slider"/>
+
+            <f:if condition="{data.intIrreTeaserbox -> f:count()} > 4">
+                <f:variable name="flickityContainer"
+                            value="data--flickity--teaser-box"/>
+                <f:variable name="noFlickityClass"
+                            value=""/>
+            </f:if>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div class="teaser-box-irre--content">
+                <div class="teaser-box-irre--content-inner {noFlickityClass}" {flickityContainer}>
+                    <f:for each="{inthelper:chunkRows(itemsPerChunk: '2', list: data.intIrreTeaserbox)}"
+                           as="singleItemGroup">
+                        <div class="teaser-box-irre--item--wrap">
+                            <f:for each="{singleItemGroup}"
+                                   as="singleItem">
+                                <div class="teaser-box-irre--item">
+                                    <div class="teaser-box-irre--item--inner {f:if(condition: '{data.intBackgroundColor} != 10', then: 'background-inverted')}"
+                                         data-linkparent-container>
+                                        <f:link.typolink parameter="{singleItem.link}"
+                                                         class="hide"
+                                                         additionalAttributes="{data-linkparent: 'data-linkparent'}"/>
+                                        <h3 class="h5 teaser-box-irre--item-headline">
+                                            {singleItem.header -> f:format.raw()}
+                                        </h3>
+                                        <div class="teaser-box-irre--item-content">
+                                            {singleItem.text -> f:format.html()}
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:for>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+            <f:if condition="{data.intLink1}">
+                <f:link.typolink parameter="{data.intLink1}"
+                                 class="teaser-box-irre--link link-with-arrow">
+                    {inthelper:titleFromLink(link: data.intLink1) -> f:format.raw()}
+                </f:link.typolink>
+            </f:if>
+            <f:if condition="{data.intLink2}">
+                <f:link.typolink parameter="{data.intLink2}"
+                                 class="teaser-box-irre--link link-with-arrow">
+                    {inthelper:titleFromLink(link: data.intLink2) -> f:format.raw()}
+                </f:link.typolink>
+            </f:if>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+        <div class="teaser-box-irre-spacer--end"></div>
+    </section>
+
+</f:section>

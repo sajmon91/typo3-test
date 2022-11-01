@@ -1,0 +1,142 @@
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+<f:comment>
+    <!--
+        Main Desktop Header – copy to theme and change as needed
+    -->
+</f:comment>
+
+<header id="header-desktop" data-header-main
+        class="header-desktop show-from-desktop-m width-full {f:if(condition: '{data.uid} == 1', then: 'header-desktop-root')}">
+    <div class="header-desktop--container width-desktop-m">
+
+        <f:comment><!-- LOGO --></f:comment>
+        <div class="header-desktop--logo">
+            <f:link.page pageUid="{root.uid}">
+                <f:comment><!--
+                <f:image src="###LOGO###"
+                         maxWidth="180"
+                         maxHeight="44"
+                         class="header-mobile--logo-icon"
+                         alt="{siteConfig.configuration.websiteTitle}"
+                         title="{siteConfig.configuration.websiteTitle}"/>
+                         --></f:comment>
+            </f:link.page>
+        </div>
+
+        <f:comment><!-- TOP NAVIGATION --></f:comment>
+
+        <f:if condition="{root.intTopPages}">
+            {f:cObject(typoscriptObjectPath: 'lib.navigation.list', data: '{menuIds: root.intTopPages, levels: 0, expandAll: 0, identifier: "header-desktop--topnav"}') -> f:format.raw()}
+        </f:if>
+
+        <div class="header-desktop--search">
+            <f:comment><!-- SEARCH --></f:comment>
+            <div class="header-desktop--search">
+                <!--<f:form.textfield type="text"
+                                  class="header-desktop&#45;&#45;search&#45;&#45;input"
+                                  placeholder="Search"/>
+                <button class="header-desktop&#45;&#45;btn-search"
+                        type="submit"
+                        name="#"
+                        value=""></button>-->
+
+                <f:link.page pageUid="{root.uid}">
+                    Search
+                </f:link.page>
+            </div>
+
+            <f:comment><!-- LANG NAVIGATION --></f:comment>
+            <f:variable name="activeMenu"
+                        value="{inthelper:parseLanguageMenu(langObject: '{languageMenu}')}"/>
+
+            <div class="header-desktop--lang">
+                <div class="header-desktop--langnav nav-horizontal">
+                    <span class="header-desktop--langnav--active {f:if(condition: '{activeMenu.languages -> f:count()} === 0', then: 'header-desktop--langnav--active--no-translation')}">
+                        {activeMenu.activeLanguage.navigationTitle -> f:format.raw()}
+                    </span>
+                    <f:render partial="Navigation/Language"
+                              arguments="{
+                                            menuObject: activeMenu,
+                                            identifier: 'header-desktop--langnav',
+                                            maxDepth: 1
+                                      }"/>
+                </div>
+            </div>
+
+        </div>
+
+
+        <f:comment><!-- MAIN NAVIGATION --></f:comment>
+        <div class="header-desktop--mainnav--container nav-horizontal">
+            <nav class="header-desktop--mainnav">
+                <ul class="header-desktop--mainnav-list-level-0">
+                    <f:for each="{mainMenu}"
+                           as="singleMainNav"
+                           iteration="mainNavPopupIterator">
+                        <li class="header-desktop--mainnav-item-level-0 item-has-sub">
+                            <f:link.typolink parameter="{singleMainNav.link}"
+                                             class="header-desktop--mainnav-link-level-0">
+                                {singleMainNav.title -> f:format.raw()}
+                                <f:if condition="{singleMainNav.data.intNew}">
+                                    <span class="is-new">{f:translate(id: 'main_navigation.is_new', extensionName:
+                                                         'intbuilder')}</span>
+                                </f:if>
+                            </f:link.typolink>
+
+                            <f:if condition="{singleMainNav.children}">
+                                <f:comment><!-- Subnav popup --></f:comment>
+                                <div class="header-desktop--mainnav--subnav--container header-desktop--mainnav--subnav-{singleMainNav.data.uid} has-sidebar">
+                                    <div class="header-desktop--mainnav--subnav--container--inner">
+                                        <f:for each="{inthelper:chunkColumns(list: singleMainNav.children, cols: '2')}"
+                                               as="singleMenuColumn">
+                                            <f:render partial="Navigation/Hierarchical"
+                                                      arguments="{
+                                                            menuObject: singleMenuColumn,
+                                                            identifier: 'header-desktop--mainnav--subnav',
+                                                            maxDepth: 2
+                                                      }"/>
+                                        </f:for>
+                                    </div>
+                                    <div class="header-desktop--mainnav--subnav--links">
+                                        <f:if condition="{singleMainNav.data.intImage1}">
+                                            <f:for each="{inthelper:getTranslatedPageFal(pageUid: '{singleMainNav.data.uid}', field: 'int_image1')}"
+                                                   as="singleImage">
+                                                   as="singleImage">
+                                                <div class="header-desktop--mainnav--subnav--single-link"
+                                                     data-linkparent-container>
+                                                    <f:image class="header-desktop--mainnav--subnav--single-link--image"
+                                                             image="{singleImage}"
+                                                             alt="{singleImage.originalResource.alternative}"/>
+                                                    <div>
+                                                        <f:if condition="{singleImage.originalResource.title}">
+                                                            <h5>{singleImage.originalResource.title}</h5>
+                                                        </f:if>
+                                                        <f:link.typolink parameter="{singleImage.originalResource.link}"
+                                                                         class="header-desktop--mainnav--subnav--single-link--link"
+                                                                         additionalAttributes="{data-linkparent: 'data-linkparent'}">
+                                                            {singleImage.originalResource.description}
+                                                        </f:link.typolink>
+                                                    </div>
+                                                </div>
+                                            </f:for>
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </f:if>
+                        </li>
+                    </f:for>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+</header>
+
+<header id="header-mobile"
+        class="show-until-desktop-m">
+    <div class="header-mobile--header-container"
+         data-mobile-header-target></div>
+    <div class="header-mobile--container"
+         data-mobile-target></div>
+</header>

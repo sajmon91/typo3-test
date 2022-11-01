@@ -1,0 +1,53 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:switch expression="{singleItem.contentType}">
+    <f:case value="20">
+        <f:variable name="columnClass" value="two-cols"/>
+        <f:variable name="imageWidth" value="414c"/>
+        <f:variable name="imageHeight" value="276c"/>
+    </f:case>
+    <f:case value="21">
+        <f:variable name="columnClass" value="three-cols"/>
+        <f:variable name="imageWidth" value="263c"/>
+        <f:variable name="imageHeight" value="179c"/>
+    </f:case>
+    <f:case value="22">
+        <f:variable name="columnClass" value="four-cols"/>
+        <f:variable name="imageWidth" value="187c"/>
+        <f:variable name="imageHeight" value="125c"/>
+    </f:case>
+    <f:case value="23">
+        <f:variable name="columnClass" value="six-cols"/>
+        <f:variable name="imageWidth" value="768c"/>
+        <f:variable name="imageHeight" value="512c"/>
+    </f:case>
+    <f:defaultCase>
+        <f:variable name="columnClass" value="two-cols"/>
+        <f:variable name="imageWidth" value="414c"/>
+        <f:variable name="imageHeight" value="276c"/>
+    </f:defaultCase>
+</f:switch>
+
+<div class="partial-irre--content {columnClass}">
+    <f:for each="{singleItem.images}"
+           as="singleImage">
+        <f:if condition="{singleImage}">
+            <f:variable name="imageLink"
+                        value="{f:uri.image(image: singleImage)}"/>
+            <div class="partial-irre--image-single">
+                <f:render partial="Content/Image"
+                          arguments="{
+                                ce: '{data}',
+                                image: '{singleImage}',
+                                link: '{imageLink}',
+                                lightbox: 'lightbox-{singleItem.uid}',
+                                queries: {
+                                    0: { query: '(max-width:767px)', width: '768c', height: '512c' },
+                                    1: { query: '(min-width:768px)', width: imageWidth, height: imageHeight }
+                                }
+                          }"/>
+            </div>
+        </f:if>
+    </f:for>
+</div>

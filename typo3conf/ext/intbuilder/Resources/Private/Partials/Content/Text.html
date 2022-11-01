@@ -1,0 +1,35 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:if condition="!{headerTag}">
+    <f:variable name="headerTag" value="h2"/>
+</f:if>
+
+<f:if condition="{header} || {content}">
+    <div class="partial-text--container-inner {f:if(condition: '{width}', then: 'width', else: 'width-desktop-m')}">
+        <f:if condition="{header}">
+            <f:switch expression="{headerTag}">
+                <f:case value="h1">
+                    <h1 class="{headerClass}">{header -> f:format.raw()}</h1>
+                </f:case>
+                <f:case value="h2">
+                    <h2 class="{headerClass}">{header -> f:format.raw()}</h2>
+                </f:case>
+                <f:case value="h3">
+                    <h3 class="{headerClass}">{header -> f:format.raw()}</h3>
+                </f:case>
+                <f:case value="h4">
+                    <h4 class="{headerClass}">{header -> f:format.raw()}</h4>
+                </f:case>
+                <f:case value="h5">
+                    <h5 class="{headerClass}">{header -> f:format.raw()}</h5>
+                </f:case>
+            </f:switch>
+        </f:if>
+        <f:if condition="{content}">
+            <div class="{f:if(condition: '{lead}', then: 'text--lead', else: 'text--content')} {contentClass}">
+                {content -> f:format.html()}
+            </div>
+        </f:if>
+    </div>
+</f:if>

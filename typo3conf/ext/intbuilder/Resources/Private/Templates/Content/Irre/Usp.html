@@ -1,0 +1,74 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <f:comment><!-- VARIABLES ------------------------------- --></f:comment>
+
+    <f:if condition="{data.intImage1}">
+        <f:variable name="additionalClass"
+                    value="usp-irre--with-image"/>
+    </f:if>
+
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')} {additionalClass}">
+        <div class="usp-irre-spacer--begin">&nbsp;</div>
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:if condition="{data.intImage1}">
+                <div class="usp-irre--image-container">
+                    <f:render partial="Content/Image"
+                              arguments="{
+                                    ce: '{data}',
+                                    image: '{data.intImage1Current}',
+                                    queries: {
+                                        0: { query: '(max-width:1024px)', maxWidth: '1024' },
+                                        1: { query: '(min-width:1025px)', maxWidth: '460' }
+                                    }
+                              }"/>
+                </div>
+            </f:if>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1
+                      }"/>
+
+            <ul class="usp-irre--content">
+                <f:for each="{data.intIrreUsp}"
+                       as="singleItem">
+                    <li class="usp-irre--text"
+                        data-linkparent-container>
+                        <f:link.typolink parameter="{singleItem.link}"
+                                         class="hide"
+                                         additionalAttributes="{data-linkparent: 'data-linkparent'}"/>
+                        <h4 class="usp-irre--content-headline">
+                            {singleItem.header -> f:format.raw()}
+                        </h4>
+                        {singleItem.text -> f:format.html()}
+                    </li>
+                </f:for>
+            </ul>
+
+            <f:if condition="{data.intLink1}">
+                <f:link.typolink parameter="{data.intLink1}"
+                                 class="usp-irre--content link-with-arrow">
+                    {inthelper:titleFromLink(link: data.intLink1) -> f:format.raw()}
+                </f:link.typolink>
+            </f:if>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+
+        <div class="usp-irre-spacer--end"></div>
+    </section>
+
+</f:section>

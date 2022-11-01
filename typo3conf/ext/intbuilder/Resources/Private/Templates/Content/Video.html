@@ -1,0 +1,121 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <f:if condition="{data.intVideo1}">
+                <f:if condition="{data.intVideo1 -> f:count()} == 1">
+                    <f:then>
+                        <f:render section="_VideoSingle"
+                                  arguments="{_all}"/>
+                    </f:then>
+                    <f:else>
+                        <f:render section="_VideoMultiple"
+                                  arguments="{_all}"/>
+                    </f:else>
+                </f:if>
+            </f:if>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>
+
+
+<f:section name="_VideoSingle">
+    <div class="video--video-single width-desktop-m three-one-cols">
+        <div class="wrapper-video">
+            <f:media file="{data.intVideo1Current}"
+                     loading="lazy"
+                     title="{data.intVideo1Current.originalResource.title}"
+                     additionalConfig="{
+                            relatedVideos: 0,
+                            showinfo: 0,
+                            no-cookie: 1
+                     }"
+                     additionalAttributes="{loading: 'lazy'}"
+                     class="video--video-single"/>
+        </div>
+        <div class="video--video-side">&nbsp;</div>
+    </div>
+    <div class="width-desktop-m">
+        <div class="partial-video--description">
+            <f:if condition="{data.intVideo1Current.originalResource.title}">
+                <h5>{data.intVideo1Current.originalResource.title -> f:format.raw()}</h5>
+            </f:if>
+            <f:if condition="{data.intVideo1Current.originalResource.description}">
+                <p>{data.intVideo1Current.originalResource.description -> f:format.raw()}</p>
+            </f:if>
+        </div>
+    </div>
+</f:section>
+
+
+<f:section name="_VideoMultiple">
+    <div class="video--video-multiple width-desktop-m two-one-cols gap-small"
+         data-video-wrapper>
+        <div class="wrapper-video">
+            <f:for each="{data.intVideo1}"
+                   as="singleVideo"
+                   iteration="videoCountContainer">
+                <f:media file="{singleVideo}"
+                         loading="lazy"
+                         title="{singleVideo.originalResource.title}"
+                         additionalConfig="{
+                                relatedVideos: 0,
+                                showinfo: 0,
+                                no-cookie: 1
+                         }"
+                         additionalAttributes="{data-video-container: '{data.uid}-{videoCountContainer.cycle}', loading: 'lazy'}"
+                         class="video--video-single {f:if(condition: '{videoCountContainer.isFirst}', else: 'hide')}"/>
+            </f:for>
+        </div>
+        <div class="video--video-side">
+            <f:for each="{data.intVideo1}"
+                   as="singleVideo"
+                   iteration="videoCount">
+                <div class="video--video-side--single video--video-side--single-{videoCount.cycle}  {f:if(condition: '{videoCount.isFirst}', then: 'active')}"
+                     data-video-trigger="{data.uid}-{videoCount.cycle}">
+                    <span class="h5">
+                        {singleVideo.originalResource.title -> f:format.raw()}
+                    </span>
+                </div>
+            </f:for>
+        </div>
+    </div>
+    <div class="width-desktop-m two-one-cols gap-small"
+         data-video-wrapper-description>
+        <div>
+            <f:for each="{data.intVideo1}"
+                   as="singleVideo"
+                   iteration="videoCountContainer">
+                <div class="video--video-description--single {f:if(condition: '!{videoCountContainer.isFirst}', then: 'hide')}"
+                     data-video-description-container="{data.uid}-{videoCountContainer.cycle}">
+                    <f:if condition="{singleVideo.originalResource.title}">
+                        <h5>{singleVideo.originalResource.title -> f:format.raw()}</h5>
+                    </f:if>
+                    <f:if condition="{singleVideo.originalResource.description}">
+                        <p>{singleVideo.originalResource.description -> f:format.raw()}</p>
+                    </f:if>
+                </div>
+            </f:for>
+        </div>
+        <div>&nbsp;</div>
+    </div>
+</f:section>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:intitems/Resources/Private/Language/locallang" date="2021-05-24T15:06:28Z" product-name="intitems">
+		<header/>
+		<body>
+			<trans-unit id="tx_intitems_domain_model_item" resname="tx_intitems_domain_model_item">
+				<source>Item</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.oid" resname="tx_intitems_domain_model_item.oid">
+				<source>Oid</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.name" resname="tx_intitems_domain_model_item.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.description_short" resname="tx_intitems_domain_model_item.description_short">
+				<source>Description Short</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.description" resname="tx_intitems_domain_model_item.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.images" resname="tx_intitems_domain_model_item.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.files1" resname="tx_intitems_domain_model_item.files1">
+				<source>Files1</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.files2" resname="tx_intitems_domain_model_item.files2">
+				<source>Files2</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.files3" resname="tx_intitems_domain_model_item.files3">
+				<source>Files3</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.properties" resname="tx_intitems_domain_model_item.properties">
+				<source>Properties</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_item.categories" resname="tx_intitems_domain_model_item.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty" resname="tx_intitems_domain_model_itemproperty">
+				<source>Item Property</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_label" resname="tx_intitems_domain_model_itemproperty.value_label">
+				<source>Value Label</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_type" resname="tx_intitems_domain_model_itemproperty.value_type">
+				<source>Value Type</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_int" resname="tx_intitems_domain_model_itemproperty.value_int">
+				<source>Value Int</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_float" resname="tx_intitems_domain_model_itemproperty.value_float">
+				<source>Value Float</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_input" resname="tx_intitems_domain_model_itemproperty.value_input">
+				<source>Value Input</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_bool" resname="tx_intitems_domain_model_itemproperty.value_bool">
+				<source>Value Bool</source>
+			</trans-unit>
+			<trans-unit id="tx_intitems_domain_model_itemproperty.value_text" resname="tx_intitems_domain_model_itemproperty.value_text">
+				<source>Value Text</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

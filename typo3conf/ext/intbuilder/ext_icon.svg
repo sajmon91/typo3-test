@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="28px" viewBox="0 0 26 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HEADER-small" transform="translate(-190.000000, -1.000000)" fill="#292C3C">
+            <path d="M198,14 L208,14 L208,13 L198,13 L198,14 Z M198,18 L206,18 L206,17 L198,17 L198,18 Z M198,10 L204,10 L204,9 L198,9 L198,10 Z M202.596945,1 C195.639652,1 190,6.69876792 190,13.728988 C190,20.7592081 195.639652,26.457976 202.596945,26.457976 C204.740525,26.457976 206.758555,25.9152968 208.525487,24.961047 L215.193889,29.0037736 L215.193889,13.728988 C215.193889,6.69876792 209.554237,1 202.596945,1 L202.596945,1 Z" id="logo-int"></path>
+        </g>
+    </g>
+</svg>

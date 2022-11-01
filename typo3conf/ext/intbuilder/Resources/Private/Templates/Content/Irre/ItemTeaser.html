@@ -1,0 +1,132 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="width-desktop-m {f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div data-filter--wrapper>
+                <f:render partial="Category/Category"
+                          section="_Filter"
+                          arguments="{categories: '{inthelper:categoryGroup(categories: \'{data.intIrreItemteaserCategories}\')}'}"/>
+                <div class="width-desktop-m item-teaser--items "
+                     data-filter--container data-masonry--container data-masonry--container--columns="2">
+                    <f:for each="{data.intIrreItemteaser}"
+                           as="singleItem">
+                        <f:variable name="imageDimensions1"
+                                    value="{
+                                    0: { query: '(max-width:767px)', maxWidth: '744', maxHeight: '420' },
+                                    1: { query: '(min-width:769px)', width: '744c', height: '420c' }
+                                }"/>
+                        <f:variable name="imageDimensions2"
+                                    value="{
+                                    0: { query: '(max-width:767px)', maxWidth: '744', maxHeight: '420' },
+                                    1: { query: '(min-width:769px)', width: '615c', height: '420c' }
+                                }"/>
+                        <f:variable name="imageDimensions3"
+                                    value="{
+                                    0: { query: '(max-width:767px)', maxWidth: '744', maxHeight: '420' },
+                                    1: { query: '(min-width:769px)', width: '482c', height: '420c' }
+                                }"/>
+
+                        <div class="item-teaser-item item-teaser-item--priority-{singleItem.itemPriority} background-inverted background-color-{singleItem.backgroundColor}"
+                             data-linkparent-container {singleItem.intIrreItemteaserFilterCategories} data-masonry--item
+                             data-masonry--priority="{singleItem.itemPriority}">
+
+                            <f:if condition="{singleItem.image1}">
+                                <f:if condition="{singleItem.greyOverlay}">
+                                    <div class="item-teaser--item--image--background">&nbsp;</div>
+                                </f:if>
+                                <div class="item-teaser--item--image item-teaser--item--image-1 wrapper-image">
+                                    <f:render partial="Content/Image"
+                                              arguments="{
+                                            ce: '{data}',
+                                            image: '{singleItem.image1}',
+                                            queries: imageDimensions1,
+                                            hideDescription: 1
+                                      }"/>
+                                </div>
+                                <div class="item-teaser--item--image item-teaser--item--image-2 wrapper-image">
+                                    <f:render partial="Content/Image"
+                                              arguments="{
+                                            ce: '{data}',
+                                            image: '{singleItem.image2}',
+                                            queries: imageDimensions2,
+                                            hideDescription: 1
+                                      }"/>
+                                </div>
+                                <div class="item-teaser--item--image item-teaser--item--image-3 wrapper-image">
+                                    <f:render partial="Content/Image"
+                                              arguments="{
+                                            ce: '{data}',
+                                            image: '{singleItem.image3}',
+                                            queries: imageDimensions3,
+                                            hideDescription: 1
+                                      }"/>
+                                </div>
+                            </f:if>
+                            <f:if condition="{singleItem.logo}">
+                                <div class="item-teaser--item--logo">
+                                    <f:image image="{singleItem.logo}"
+                                             maxHeight="100"
+                                             maxWidth="300"/>
+                                </div>
+                            </f:if>
+
+                            <div class="item-teaser--item--content">
+                                <div class="item-teaser--item--top-line">
+                                    <f:translate key="item-type--{singleItem.itemType}"
+                                                 extensionName="intbuilder"/>
+                                    —
+                                    {singleItem.itemDate -> f:format.date(format:'d.m.Y')}
+                                </div>
+                                <h3 class="h5 item-teaser--item--headline">
+                                    {singleItem.header -> f:format.raw()}
+                                </h3>
+                                <f:if condition="{singleItem.subheader}">
+                                    <p>{singleItem.subheader -> f:format.raw()}</p>
+                                </f:if>
+                                <div class="item-teaser--item--tags">
+                                    <f:render partial="Category/Category"
+                                              section="_ListSimple"
+                                              arguments="{categories: singleItem.tags}"/>
+                                </div>
+                            </div>
+                            <div class="item-teaser--item--text">
+                                <f:link.typolink parameter="{singleItem.link}"
+                                                 class="hide"
+                                                 additionalAttributes="{data-linkparent: 'data-linkparent'}">
+                                    {inthelper:titleFromLink(link: singleItem.link) -> f:format.raw()}
+                                </f:link.typolink>
+                            </div>
+
+                        </div>
+
+
+                    </f:for>
+                </div>
+                <div class="width-desktop-m item-teaser--no-results filter--no-results"
+                     data-masonry--no-results>
+                    {f:translate(key: 'item_teaser_noresults', extensionName: 'intbuilder') -> f:format.html()}
+                </div>
+            </div>
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

@@ -1,0 +1,286 @@
+<!-- intbuilder/Resources/Private/Partials/Page/Header/SearchPopup.html BEGIN -->
+
+<div class="search-popup--top"></div>
+<div class="search-popup--inner">
+    <div class="search-popup--left">
+        <div class="search-popup--left-grid">
+            <div class="search-popup--left-grid-row search-popup--left-grey">
+                <div class="search-popup--headline">
+                    <f:translate id="search.categories"
+                                 extensionName="intbuilder"/>
+                </div>
+
+                <f:if condition="{pages}">
+                    <f:then>
+                        <ul class="search-popup--category-list">
+                            <f:for each="{pages}"
+                                   as="singlePage">
+                                <li class="search-popup--category-list-item">
+                                    <f:link.page pageUid="{singlePage.uid}"
+                                                 class="search-popup--category-item-link">
+                                        {singlePage.title}
+                                    </f:link.page>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:then>
+                    <f:else>
+                        <div class="search-popup--category--no-result">
+                            <div class="search-popup--no-result">
+                                <f:translate id="search.no_results"
+                                             extensionName="intbuilder"/>
+                            </div>
+                        </div>
+                    </f:else>
+                </f:if>
+
+
+            </div>
+            <div class="search-popup--left-grid-row">
+                <div class="search-popup--headline">
+                    <f:translate id="search.blog"
+                                 extensionName="intbuilder"/>
+                </div>
+                <f:if condition="{blogs}">
+                    <f:then>
+                        <f:for each="{blogs}"
+                               as="singleBlog">
+                            <f:link.action action="show"
+                                           pageUid="{settings.pageUid.blogDetailPid}"
+                                           extensionName="Intblog"
+                                           pluginName="Blog"
+                                           controller="BlogPost"
+                                           arguments="{blogPost: singleBlog}"
+                                           class="search-popup--ambient-item">
+                                <div class="search-popup--ambient-image-wrap">
+                                    <f:if condition="{singleBlog.listImage}">
+                                        <f:image image="{singleBlog.listImage}"
+                                                 width="90c"
+                                                 height="60c"
+                                                 class="search-popup--ambient-image"/>
+                                    </f:if>
+                                </div>
+                                <div class="search-popup--ambient-text">
+                                    {singleBlog.title}
+                                </div>
+                            </f:link.action>
+                        </f:for>
+                    </f:then>
+                    <f:else>
+                        <div class="search-popup--no-result">
+                            <f:translate id="search.no_results"
+                                         extensionName="intbuilder"/>
+                        </div>
+                    </f:else>
+                </f:if>
+            </div>
+            <div class="search-popup--left-grid-row">
+                <div class="search-popup--headline">
+                    <f:translate id="search.ambients"
+                                 extensionName="intbuilder"/>
+                </div>
+                <div class="search-popup--ambient-list">
+                    <f:if condition="{ambients}">
+                        <f:then>
+                            <f:for each="{ambients}"
+                                   as="singleAmbient">
+                                <f:link.action action="showAmbient"
+                                               pageUid="{settings.pageUid.ambientDetailPid}"
+                                               pluginName="Ambients"
+                                               controller="Category"
+                                               arguments="{ambient: singleAmbient}"
+                                               class="search-popup--ambient-item">
+                                    <div class="search-popup--ambient-image-wrap">
+                                        <f:if condition="{singleAmbient.imageCurrent}">
+                                            <f:image image="{singleAmbient.imageCurrent}"
+                                                     width="90c"
+                                                     height="60c"
+                                                     class="search-popup--ambient-image"/>
+                                        </f:if>
+                                    </div>
+                                    <div class="search-popup--ambient-text">
+                                        {singleAmbient.name}
+                                    </div>
+                                </f:link.action>
+                            </f:for>
+                        </f:then>
+                        <f:else>
+                            <div class="search-popup--no-result">
+                                <f:translate id="search.no_results"
+                                             extensionName="intbuilder"/>
+                            </div>
+                        </f:else>
+                    </f:if>
+
+                </div>
+            </div>
+            <div class="search-popup--left-grid-row">
+                <div class="search-popup--headline">
+                    <f:translate id="search.news"
+                                 extensionName="intbuilder"/>
+                </div>
+
+                <f:if condition="{news}">
+                    <f:then>
+                        <ul class="search-popup--blog-list">
+                            <f:for each="{news}"
+                                   as="singleNews">
+                                <li class="search-popup--blog-item">
+                                    <f:link.action action="show"
+                                                   pageUid="{settings.pageUid.newsDetailPid}"
+                                                   extensionName="Intnews"
+                                                   pluginName="Newsdetail"
+                                                   controller="News"
+                                                   arguments="{news: singleNews}"
+                                                   class="search-popup--blog-link">
+                                        {singleNews.title}
+                                    </f:link.action>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:then>
+                    <f:else>
+                        <div class="search-popup--no-result">
+                            <f:translate id="search.no_results"
+                                         extensionName="intbuilder"/>
+                        </div>
+                    </f:else>
+                </f:if>
+
+            </div>
+            <div class="search-popup--left-grid-row search-popup--left-links">
+
+                <div class="search-popup--all-button-wrap">
+                    <f:link.page pageUid="{settings.pageUid.productSearchPid}"
+                                 additionalAttributes="{
+                                    data-search-button:''
+                                 }"
+                                 class="search-popup--all-button">
+                        <f:translate id="search.look_all_articles"
+                                     extensionName="intbuilder"/>
+                        <span class="link-with-arrow"></span>
+                    </f:link.page>
+                </div>
+                <div>
+                    <f:link.page pageUid="{settings.pageUid.pageSearchPid}"
+                                 additionalAttributes="{
+                                    data-search-button:''
+                                 }"
+                                 class="search-popup--all-link">
+                        <f:translate id="search.search_whole_site"
+                                     extensionName="intbuilder"/>
+                        <span class="link-with-arrow"></span>
+                    </f:link.page>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-popup--right">
+        <div class="search-popup--right-inner">
+
+            <f:if condition="{products}">
+                <f:then>
+
+                    <div class="search-popup--headline">
+                        <f:translate id="search.products"
+                                     extensionName="intbuilder"/>
+                    </div>
+                    <div class="search-popup--product-grid">
+                        <!-- BEGIN: Repeatable search-popup--product-grid -->
+                        <f:for each="{products}"
+                               as="singleProduct">
+                            <f:link.action action="show"
+                                           pageUid="{settings.pageUid.productDetailPid}"
+                                           extensionName="Intproduct"
+                                           controller="Product"
+                                           pluginName="ProductDetail"
+                                           arguments="{product: singleProduct.uid}"
+                                           class="search-popup--product">
+                                <f:if condition="{singleProduct.image}">
+                                    <div class="search-popup--product-image-wrap">
+                                        <img src="{singleProduct.image}"
+                                             alt="{singleProduct.name}"
+                                             class="search-popup--product-image"
+                                             width="150"
+                                             height="150">
+                                    </div>
+                                </f:if>
+                                <div class="search-popup--product-info">
+                                    <div class="search-popup--product-title">
+                                        {singleProduct.name}
+                                    </div>
+                                    <div class="search-popup--product-price">
+                                        <f:if condition="{singleProduct.old_price}">
+                                            <div class="search-popup--product-price-old">
+                                                <f:format.number decimals="0"
+                                                                 thousandsSeparator=".">
+                                                    {singleProduct.old_price}
+                                                </f:format.number>
+                                                <f:translate id="currency.sr"/>
+                                            </div>
+                                        </f:if>
+                                        <div class="search-popup--product-price-new">
+                                            <f:format.number decimals="0"
+                                                             thousandsSeparator=".">
+                                                {singleProduct.price}
+                                            </f:format.number>
+                                            <f:translate id="currency.sr"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </f:link.action>
+                        </f:for>
+                        <!-- END: Repeatable search-popup--product-grid -->
+                    </div>
+                </f:then>
+                <f:else>
+                    <f:if condition="{swordNotFound}">
+                        <h3 class="search-popup--no-products">
+                            <f:translate id="header.no_results"
+                                         extensionName="intbuilder"/>
+                        </h3>
+                    </f:if>
+                    <!-- START No results block START -->
+                    <div class="search-popup--search-list">
+                        <f:for each="{searchWords}"
+                               as="singleSearchWord">
+                            <div>
+                                <span class="search-popup--search-item"
+                                      data-searchword="{singleSearchWord.searchWord}">
+                                    {singleSearchWord.searchWord}
+                                </span>
+                            </div>
+                        </f:for>
+                    </div>
+                    <!-- END No results block END -->
+                </f:else>
+            </f:if>
+        </div>
+        <div class="search-popup--product-links">
+            <div class="search-popup--all-button-wrap">
+                <f:link.page pageUid="{settings.pageUid.productSearchPid}"
+                             additionalAttributes="{
+                                    data-search-button:''
+                                 }"
+                             class="search-popup--all-button">
+                    <f:translate id="search.look_all_articles"
+                                 extensionName="intbuilder"/>
+                    <span class="link-with-arrow"></span>
+                </f:link.page>
+            </div>
+            <div>
+                <f:link.page pageUid="{settings.pageUid.pageSearchPid}"
+                             additionalAttributes="{
+                                    data-search-button:''
+                                 }"
+                             class="search-popup--all-link">
+                    <f:translate id="search.search_whole_site"
+                                 extensionName="intbuilder"/>
+                    <span class="link-with-arrow"></span>
+                </f:link.page>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- intbuilder/Resources/Private/Partials/Page/Header/SearchPopup.html END -->

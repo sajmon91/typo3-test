@@ -1,0 +1,23 @@
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:if condition="!{maxDepth}">
+    <f:comment><!-- If maxLevel isn't set, set it here. Needed to avoid further validations --></f:comment>
+    <f:variable name="maxDepth"
+                value="0"/>
+</f:if>
+<f:comment><!-- Hide whole navigation if no pages found --></f:comment>
+<f:if condition="{menuObject.languages -> f:count()} > 0">
+    <div class="{identifier}-list">
+        <div class="{identifier}-list--inner"
+             data-toggle-container
+             data-container="{identifier}-list">
+            <f:for each="{menuObject.languages}"
+                   as="singleRootPage">
+                    <a href="{singleRootPage.link}"
+                       class="{identifier}-link-select {identifier}-link-select--{singleRootPage.twoLetterIsoCode}">
+                        {singleRootPage.navigationTitle -> f:format.raw()}
+                    </a>
+            </f:for>
+        </div>
+    </div>
+</f:if>

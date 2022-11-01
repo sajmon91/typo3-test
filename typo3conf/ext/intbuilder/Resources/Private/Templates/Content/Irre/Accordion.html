@@ -1,0 +1,99 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <!--    <section class="fullwidth">-->
+    <!--        <div class="flex-left">11</div>-->
+    <!--        <div class="content">22</div>-->
+    <!--        <div class="flex-right">33</div>-->
+    <!--    </section>-->
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div class="width-desktop-m">
+                <div class="accordion--items">
+                    <f:for each="{data.intIrreAccordion}"
+                           as="singleItem">
+                        <div class="accordion--item"
+                             data-accordion>
+                            <div class="accordion--item--trigger"
+                                 data-accordion-trigger>
+                                <h5 class="accordion--item--trigger-content">
+                                    {singleItem.header -> f:format.raw()}
+                                </h5>
+                            </div>
+                            <div class="accordion--item--content"
+                                 data-accordion-container>
+                                <div class="accordion--item--content--inner">
+                                    <f:switch expression="{singleItem.contentType}">
+                                        <f:case value="10">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="11">
+                                            <f:render partial="Content/Irre/TextImage"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="12">
+                                            <f:render partial="Content/Irre/ImageText"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="20">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="21">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="22">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="23">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:defaultCase>
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                        </f:defaultCase>
+                                    </f:switch>
+
+                                </div>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+
+        </div>
+    </section>
+
+</f:section>

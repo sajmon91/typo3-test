@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:intitems/Resources/Private/Language/locallang_csh" date="2021-05-24T15:06:28Z" product-name="intitems">
+		<header/>
+		<body>
+			<trans-unit id="value_label.description" resname="value_label.description">
+				<source>valueLabel</source>
+			</trans-unit>
+			<trans-unit id="value_type.description" resname="value_type.description">
+				<source>valueType</source>
+			</trans-unit>
+			<trans-unit id="value_int.description" resname="value_int.description">
+				<source>valueInt</source>
+			</trans-unit>
+			<trans-unit id="value_float.description" resname="value_float.description">
+				<source>valueFloat</source>
+			</trans-unit>
+			<trans-unit id="value_input.description" resname="value_input.description">
+				<source>valueInput</source>
+			</trans-unit>
+			<trans-unit id="value_bool.description" resname="value_bool.description">
+				<source>valueBool</source>
+			</trans-unit>
+			<trans-unit id="value_text.description" resname="value_text.description">
+				<source>valueText</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

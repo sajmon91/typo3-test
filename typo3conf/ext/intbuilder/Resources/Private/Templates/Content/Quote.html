@@ -1,0 +1,64 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')} {f:if(condition: data.intImage1Current, then: 'quote--has-image')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:variable name="imageDesktop" value="{data.intImage1Current}"/>
+            <f:if condition="{data.intImage2Current}">
+                <f:then>
+                    <f:variable name="imageMobile" value="{data.intImage2Current}"/>
+                </f:then>
+                <f:else>
+                    <f:variable name="imageMobile" value="{data.intImage1Current}"/>
+                </f:else>
+            </f:if>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:if condition="{data.intText1}">
+                <div class="width-desktop-m {f:if(condition: imageDesktop, then: 'two-cols')} quote--content {f:if(condition: data.intCheckbox1, then: 'background-inverted')} {f:if(condition: imageDesktop, then: 'quote--with-image', else: 'quote--no-image')}">
+                    <div class="quote--content--inner">
+                        {data.intText1 -> f:format.html()}
+                    </div>
+                    <div class="{f:if(condition: imageDesktop, then:'hide-until-desktop-l', else: 'hide')}">
+                        &nbsp;
+                    </div>
+                </div>
+            </f:if>
+
+            <div class="quote--image {f:if(condition: imageDesktop, else: 'quote--backgroundcolor')} {f:if(condition: imageDesktop, then: 'quote--with-image wrapper-image', else: 'quote--no-image')}">
+                <f:if condition="{imageDesktop}">
+                    <picture>
+                        <source srcset="
+                                    {f:uri.image(image: imageMobile, maxWidth: '1024')} 1x,
+                                    {f:uri.image(image: imageMobile, maxWidth: '1024')} 2x"
+                                media="(max-width:1024px)">
+                        <source srcset="
+                                    {f:uri.image(image: imageDesktop, maxWidth: '1536')} 1x,
+                                    {f:uri.image(image: imageDesktop, maxWidth: '1536')} 2x"
+                                media="(min-width:1025px) and (max-width:1536px)">
+                        <source srcset="
+                                    {f:uri.image(image: imageDesktop, maxWidth: '2200')} 1x,
+                                    {f:uri.image(image: imageDesktop, maxWidth: '2200')} 2x"
+                                media="(min-width:1537px)">
+                        <f:image image="{imageDesktop}"
+                                 alt="{imageDesktop.originalResource.alternative} – {imageDesktop.originalResource.description}"
+                                 title="{imageDesktop.originalResource.title}"
+                                 maxWidth="100"
+                                 loading="lazy"/>
+                    </picture>
+                </f:if>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

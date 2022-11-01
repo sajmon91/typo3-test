@@ -1,0 +1,19 @@
+<!-- intbuilder/Resources/Private/Partials/Page/Header/Language.html BEGIN -->
+
+<nav id="language-menu">
+    <ul class="language-menu">
+        <f:for each="{menuObj}"
+               as="singleLanguage"
+               iteration="counter">
+            <f:if condition="{singleLanguage.available}">
+                <li class="{f:if(condition: '{singleLanguage.active}', then: 'language-selected')}">
+                    <a href="{singleLanguage.link}">
+                        {singleLanguage.title}
+                    </a>
+                </li>
+            </f:if>
+        </f:for>
+    </ul>
+</nav>
+
+<!-- intbuilder/Resources/Private/Partials/Page/Header/Language.html END -->

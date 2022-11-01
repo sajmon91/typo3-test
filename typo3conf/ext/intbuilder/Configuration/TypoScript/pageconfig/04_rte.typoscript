@@ -1,0 +1,4 @@
+RTE {
+    # Custom styles can be defined in intbuilder/ext_localconf.php
+    default.preset = default
+}

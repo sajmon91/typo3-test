@@ -1,0 +1,118 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClassReference', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <div class="width-desktop-m">
+                <f:render partial="Content/Text"
+                          arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+            </div>
+            <div data-filter--wrapper>
+
+                <div class="width-desktop-m">
+                    <f:render partial="Category/Category"
+                              section="_Filter"
+                              arguments="{categories: '{inthelper:categoryGroup(categories: \'{data.intIrreReferencesCategories}\')}'}"/>
+                </div>
+
+                <div class="references--items--wrapper {f:if(condition: '{data.intBackgroundColor}', then: 'background-color-{data.intBackgroundColor}')}">
+                    <div class="width-desktop-m references--items three-cols"
+                         data-filter--container>
+                        <f:for each="{data.intIrreReferences}"
+                               as="singleItem">
+                            <f:variable name="imageDimensions"
+                                        value="{
+                                    0: { query: '(max-width:767px)', width: '774c', height: '542c' },
+                                    1: { query: '(min-width:769px)', width: '387c', height: '271c' }
+                                }"/>
+                            <div class="references--item {f:if(condition: '{singleItem.greyOverlay}', then: 'gray-image-background')}"
+                                 data-linkparent-container {singleItem.intIrreReferencesFilterCategories}>
+                                <f:if condition="{singleItem.image}">
+                                    <div class="references--item--image wrapper-image ">
+                                        <f:render partial="Content/Image"
+                                                  arguments="{
+                                            ce: '{data}',
+                                            image: '{singleItem.image}',
+                                            queries: imageDimensions,
+                                            hideDescription: 1
+                                      }"/>
+                                    </div>
+                                </f:if>
+
+                                <div class="references--item--content">
+                                    <h3 class="h5 references--item--headline">
+                                        {singleItem.header -> f:format.raw()}
+                                    </h3>
+                                    <f:if condition="{singleItem.subheader}">
+                                        <p>{singleItem.subheader -> f:format.raw()}</p>
+                                    </f:if>
+                                    <div class="references--item--tags">
+                                        <f:render partial="Category/Category"
+                                                  section="_ListSimple"
+                                                  arguments="{categories: singleItem.tags}"/>
+                                    </div>
+                                </div>
+                                <div class="references--item--text">
+                                    <f:link.typolink parameter="{singleItem.link}"
+                                                     class="hide"
+                                                     additionalAttributes="{data-linkparent: 'data-linkparent'}">
+                                        {inthelper:titleFromLink(link: singleItem.link) -> f:format.raw()}
+                                    </f:link.typolink>
+                                </div>
+                            </div>
+                        </f:for>
+                    </div>
+                </div>
+
+
+
+            <div class="width-desktop-m references--no-results filter--no-results"
+                 data-masonry--no-results>
+                {f:translate(key: 'references_noresults', extensionName: 'intnews') -> f:format.html()}
+            </div>
+            </div>
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>
+
+
+<!--
+subheader => protected'Subheader' (9 chars)
+itemType => protected0 (integer)
+itemPriority => protected1 (integer)
+backgroundColor => protected'0' (1 chars)
+itemDate => protectedDateTimeprototypeobject (2022-05-19T00:00:00+02:00, 1652911200)
+tags => protectedInt\Intbuilder\Domain\Model\FileReferenceprototypepersistent entity (uid=8,
+pid=356)
+image1 => protectedInt\Intbuilder\Domain\Model\FileReferenceprototypepersistent entity
+(uid=13077, pid=96)
+image2 => protectedInt\Intbuilder\Domain\Model\FileReferenceprototypepersistent entity
+(uid=13078, pid=96)
+image3 => protectedInt\Intbuilder\Domain\Model\FileReferenceprototypepersistent entity
+(uid=13079, pid=96)
+logo => protectedNULL
+uid => protected1 (integer)
+_localizedUid => protected1 (integer)modified
+_languageUid => protected0 (integer)modified
+_versionedUid => protected1 (integer)modified
+pid => protected96 (integer)
+header => protected'Header' (6 chars)
+text => protected'<p>adsfasdf</p>' (15 chars)
+link => protected'155' (3 chars)
+-->

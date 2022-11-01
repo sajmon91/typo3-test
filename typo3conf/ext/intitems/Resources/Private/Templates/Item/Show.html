@@ -1,0 +1,156 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+
+    <inthelper:metaTags title="{item.name}"
+                        image="{item.listImage}"
+                        description="{item.descriptionShort}"/>
+
+    <div class="width-desktop-m two-cols">
+        <div class="int-items--detail--images">
+            <f:if condition="{item.images}">
+                <div class="int-items--detail--images">
+                    <f:for each="{item.images}"
+                           as="singleImage"
+                           iteration="imagesIterator">
+                        <f:if condition="{imagesIterator.cycle} == 1">
+                            <div class="wrapper-image int-items--detail--image-single">
+                                <f:render partial="Content/Image"
+                                          arguments="{
+                                                image: '{singleImage}',
+                                                lightbox: 'lightbox-{item.uid}',
+                                                link: '{f:uri.image(image: singleImage)}',
+                                                queries: {
+                                                    0: { query: '(max-width:767px)', maxWidth: '768' },
+                                                    1: { query: '(min-width:768px)', maxWidth: '800' }
+                                                }
+                                          }"/>
+                            </div>
+                        </f:if>
+                    </f:for>
+                </div>
+                <f:if condition="{item.images -> f:count()} > 1">
+                    <div class="four-cols int-items--detail--thumbnails">
+                        <f:for each="{item.images}"
+                               as="singleImage"
+                               iteration="imagesIterator">
+                            <f:if condition="{imagesIterator.cycle} > 1">
+                                <div class="wrapper-image int-items--detail--thumbnails-single">
+                                    <f:render partial="Content/Image"
+                                              arguments="{
+                                                    image: '{singleImage}',
+                                                    lightbox: 'lightbox-{item.uid}',
+                                                    link: '{f:uri.image(image: singleImage)}',
+                                                    queries: {
+                                                        0: { query: '(max-width:767px)', width: '100c', height: '100c' },
+                                                        1: { query: '(min-width:768px)', width: '200c', height: '200c' }
+                                                    }
+                                              }"/>
+                                </div>
+                            </f:if>
+                        </f:for>
+                    </div>
+                </f:if>
+            </f:if>
+        </div>
+        <div class="int-items--detail--content">
+            <h1 class="int-items--detail--headline">{item.name}</h1>
+            <p class="int-items--detail--oid">
+                <strong>{item.oid}</strong>
+            </p>
+
+            <f:if condition="{item.categories}">
+                <div class="int-items--detail--categories">
+                    <f:for each="{item.categories}"
+                           as="singleCategory">
+                        <span class="int-items--detail--category-single">
+                            {singleCategory.name}
+                        </span>
+                    </f:for>
+                </div>
+            </f:if>
+
+            <f:if condition="{item.description}">
+                <div class="int-items--detail--description">
+                    {item.description -> f:format.html()}
+                </div>
+            </f:if>
+
+            <f:if condition="{item.properties}">
+                <ul class="int-items--detail--properties">
+                    <f:for each="{item.properties}"
+                           as="singleProperty">
+                        <li class="int-items--detail--property-single">
+                            <f:render partial="Item/ValueRendering"
+                                      section="_SingleProperty{singleProperty.valueType}"
+                                      arguments="{_all}"/>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+
+            <f:if condition="{item.files1}">
+                <h3>Files 1</h3>
+
+                <ul class="int-items--detail--files1">
+                    <f:for each="{item.files1}"
+                           as="singleFile">
+                        <li class="int-items--detail--file1-single">
+                            <a href="{singleFile.originalResource.publicUrl}"
+                               class="int-items--detail--file1-single--link"
+                               download>
+                                <f:render partial="Item/FileRendering"
+                                          section="_SingleFile"
+                                          arguments="{singleFile: singleFile}"/>
+                            </a>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+
+            <f:if condition="{item.files2}">
+                <h3>Files 2</h3>
+
+                <ul class="int-items--detail--files1">
+                    <f:for each="{item.files1}"
+                           as="singleFile">
+                        <li class="int-items--detail--file1-single">
+                            <a href="{singleFile.originalResource.publicUrl}"
+                               class="int-items--detail--file2-single--link"
+                               download>
+                                <f:render partial="Item/FileRendering"
+                                          section="_SingleFile"
+                                          arguments="{singleFile: singleFile}"/>
+                            </a>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+
+            <f:if condition="{item.files3}">
+                <h3>Files 3</h3>
+
+                <ul class="int-items--detail--files3">
+                    <f:for each="{item.files3}"
+                           as="singleFile">
+                        <li class="int-items--detail--file3-single">
+                            <a href="{singleFile.originalResource.publicUrl}"
+                               class="int-items--detail--file3-single--link"
+                               download>
+                                <f:render partial="Item/FileRendering"
+                                          section="_SingleFile"
+                                          arguments="{singleFile: singleFile}"/>
+                            </a>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:if>
+
+        </div>
+
+    </div>
+
+</f:section>

@@ -1,0 +1,276 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Default settings for new Content elements
+#
+# Important!!! Finally includes CONTENT ELEMENTS settings from Build
+# ----------------------------------------------------------------------------------------------------------------------
+
+mod {
+    wizards {
+        newContentElement {
+            renderMode = tabs
+            wizardItems {
+                common {
+                    elements {
+                        text {
+                            iconIdentifier = text
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.text.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.text.description
+                            tt_content_defValues {
+                                CType = text
+                            }
+                        }
+
+                        text-with-image {
+                            iconIdentifier = text-with-image
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.text-with-image.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.text-with-image.description
+                            tt_content_defValues {
+                                CType = text-with-image
+                            }
+                        }
+
+                        quote {
+                            iconIdentifier = quote
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.quote.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.quote.description
+                            tt_content_defValues {
+                                CType = quote
+                            }
+                        }
+
+                        video {
+                            iconIdentifier = video
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.video.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.video.description
+                            tt_content_defValues {
+                                CType = video
+                            }
+                        }
+
+                        teaser-box-irre {
+                            iconIdentifier = teaser-box-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-box-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-box-irre.description
+                            tt_content_defValues {
+                                CType = teaser-box-irre
+                            }
+                        }
+
+                        teaser-box-icon-irre {
+                            iconIdentifier = teaser-box-icon-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-box-icon-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-box-icon-irre.description
+                            tt_content_defValues {
+                                CType = teaser-box-icon-irre
+                            }
+                        }
+
+                        teaser-box-image-irre {
+                            iconIdentifier = teaser-box-image-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-box-image-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-box-image-irre.description
+                            tt_content_defValues {
+                                CType = teaser-box-image-irre
+                            }
+                        }
+
+                        accordion-irre {
+                            iconIdentifier = accordion-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.accordion-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.accordion-irre.description
+                            tt_content_defValues {
+                                CType = accordion-irre
+                            }
+                        }
+
+                        hero-slider-irre {
+                            iconIdentifier = hero-slider-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.hero-slider-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.hero-slider-irre.description
+                            tt_content_defValues {
+                                CType = hero-slider-irre
+                            }
+                        }
+
+                        tabs-irre {
+                            iconIdentifier = tabs-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.tabs-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.tabs-irre.description
+                            tt_content_defValues {
+                                CType = tabs-irre
+                            }
+                        }
+
+                        gallery {
+                            iconIdentifier = gallery
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.gallery.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.gallery.description
+                            tt_content_defValues {
+                                CType = gallery
+                            }
+                        }
+
+                        admin-images-detail {
+                            iconIdentifier = admin-images-detail
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.admin-images-detail.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.admin-images-detail.description
+                            tt_content_defValues {
+                                CType = admin-images-detail
+                            }
+                        }
+
+                        image {
+                            iconIdentifier = image
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.image.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.image.description
+                            tt_content_defValues {
+                                CType = image
+                            }
+                        }
+
+                        summary1 {
+                            iconIdentifier = summary1
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.summary1.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.summary1.description
+                            tt_content_defValues {
+                                CType = summary1
+                            }
+                        }
+
+                        summary2 {
+                            iconIdentifier = summary2
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.summary2.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.summary2.description
+                            tt_content_defValues {
+                                CType = summary2
+                            }
+                        }
+
+                        download-irre {
+                            iconIdentifier = download-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.download-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.download-irre.description
+                            tt_content_defValues {
+                                CType = download-irre
+                            }
+                        }
+
+                        usp-irre {
+                            iconIdentifier = usp-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.usp-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.usp-irre.description
+                            tt_content_defValues {
+                                CType = usp-irre
+                            }
+                        }
+
+                        box-teaser-irre {
+                            iconIdentifier = box-teaser-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.box-teaser-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.box-teaser-irre.description
+                            tt_content_defValues {
+                                CType = box-teaser-irre
+                            }
+                        }
+
+                        teaser-slider-box-irre {
+                            iconIdentifier = teaser-slider-box-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-slider-box-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-slider-box-irre.description
+                            tt_content_defValues {
+                                CType = teaser-slider-box-irre
+                            }
+                        }
+
+                        teaser-slider-image-irre {
+                            iconIdentifier = teaser-slider-image-irre
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-slider-image-irre.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.teaser-slider-image-irre.description
+                            tt_content_defValues {
+                                CType = teaser-slider-image-irre
+                            }
+                        }
+
+                        page-hero {
+                            iconIdentifier = page-hero
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.page-hero.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.page-hero.description
+                            tt_content_defValues {
+                                CType = page-hero
+                            }
+                        }
+
+                        page-header {
+                            iconIdentifier = page-header
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.page-header.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.page-header.description
+                            tt_content_defValues {
+                                CType = page-header
+                            }
+                        }
+
+                        divider {
+                            iconIdentifier = divider
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.divider.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.divider.description
+                            tt_content_defValues {
+                                CType = divider
+                            }
+                        }
+
+                        sticky-box {
+                            iconIdentifier = sticky-box
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.sticky-box.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.sticky-box.description
+                            tt_content_defValues {
+                                CType = sticky-box
+                            }
+                        }
+
+                        item-teaser {
+                            iconIdentifier = item-teaser
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.item-teaser.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.item-teaser.description
+                            tt_content_defValues {
+                                CType = item-teaser
+                            }
+                        }
+
+                        references {
+                            iconIdentifier = references
+                            title = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.references.title
+                            description = LLL:EXT:intbuilder/Resources/Private/Language/locallang_content_db.xlf:new_ce.references.description
+                            tt_content_defValues {
+                                CType = references
+                            }
+                        }
+                    }
+
+                    show = text, page-hero, page-header, text-with-image, image, video, admin-images-detail, quote, tabs-irre, teaser-box-irre, teaser-box-icon-irre, teaser-box-image-irre, accordion-irre, hero-slider-irre, gallery, summary1, summary2, download-irre, usp-irre, box-teaser-irre, teaser-slider-box-irre, teaser-slider-image-irre, teaser-sliderImage-irre, divider, sticky-box, item-teaser, references
+                }
+
+                # Add Special elements in folder EXT:intbuilder/BuildTypoScript/ContentelEments
+                special {
+                    show =
+                }
+
+                # Add Forms in folder EXT:intbuilder/BuildTypoScript/ContentelEments
+                forms {
+                    show =
+                }
+
+                # Add Menu items in folder EXT:intbuilder/BuildTypoScript/ContentelEments
+                menu {
+                    show =
+                }
+
+                # Add Plugins in folder EXT:intbuilder/BuildTypoScript/ContentelEments
+                plugins {
+                    elements {
+
+                    }
+                }
+            }
+        }
+    }
+}

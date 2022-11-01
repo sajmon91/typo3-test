@@ -1,0 +1,57 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')} background-inverted"
+             data-sticky-box>
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+            <div class="sticky-box--trigger"
+                 data-sticky-box--trigger>
+                <div class="sticky-box--trigger--content">
+                    <f:if condition="{data.intImage1Current}">
+                        {f:image(image: data.intImage1Current, maxWidth: 33, maxHeight: 29, class:
+                        'sticky-box--trigger--content-image')}
+                    </f:if>
+                    <span class="sticky-box--trigger--content-text"
+                          data-sticky-box--trigger--content-text>
+                        Title Placeholder
+                    </span>
+                </div>
+            </div>
+            <div class="sticky-box--container"
+                 data-sticky-box--container>
+
+                <f:if condition="{data.intText1}">
+                    <div class="sticky-box--content1">
+                        <div class="sticky-box--content1--inner"
+                             data-sticky-box--content1--inner>
+                            Content 1 Placeholder
+                        </div>
+                    </div>
+                </f:if>
+                <f:if condition="{data.intText2}">
+                    <div class="sticky-box--content2"
+                         data-sticky-box--content2--inner>
+                        Content 2 Placeholder
+                    </div>
+                </f:if>
+                <f:if condition="{data.intText3}">
+                    <div class="sticky-box--content3"
+                         data-sticky-box--content3--inner>
+                        Content 3 Placeholder
+                    </div>
+                </f:if>
+
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

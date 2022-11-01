@@ -1,0 +1,220 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Default Content element settings
+#
+# Important!!! Finally includes CONTENT ELEMENTS settings from Build
+# ----------------------------------------------------------------------------------------------------------------------
+
+lib.columns = COA
+lib.columns {
+    10 = LOAD_REGISTER
+    10.colPos.cObject = TEXT
+    10.colPos.cObject {
+        field = colPos
+        ifEmpty.cObject = TEXT
+        ifEmpty.cObject {
+            value.current = 1
+            ifEmpty = 0
+        }
+    }
+
+    20 = CONTENT
+    20 {
+        table = tt_content
+        select {
+            orderBy = sorting
+            where = colPos={register:colPos}
+            where.insertData = 1
+        }
+    }
+
+    90 = RESTORE_REGISTER
+}
+
+lib {
+    contentElement {
+        templateRootPaths.200 = EXT:intbuilder/Resources/Private/Templates/FluidStyledContent
+
+        layoutRootPaths.200 = EXT:intbuilder/Resources/Private/Layouts/FluidStyledContent
+
+        partialRootPaths.200 = EXT:intbuilder/Resources/Private/Partials/FluidStyledContent
+    }
+}
+
+lib.defaultIntCe = COA
+lib.defaultIntCe {
+    10 = FLUIDTEMPLATE
+    10 {
+        templateRootPaths.200 = EXT:intbuilder/Resources/Private/Templates/
+
+        layoutRootPaths.200 = EXT:intbuilder/Resources/Private/Layouts/
+
+        partialRootPaths.200 = EXT:intbuilder/Resources/Private/Partials/
+
+        dataProcessing {
+            10 = Int\Intbuilder\DataProcessing\ContentProcessor
+        }
+
+        settings < plugin.tx_intbuilder.settings
+    }
+
+    variables {
+        fragmentIdentifier = COA
+        fragmentIdentifier {
+            #if.isTrue.field = tx_content_slug_fragment
+
+            10 =< plugin.tx_contentslug.urlFragmentPrefix
+
+            20 = TEXT
+            20.field = tx_content_slug_fragment
+
+            30 =< plugin.tx_contentslug.urlFragmentSuffix
+
+            stdWrap.trim = 1
+        }
+    }
+}
+
+lib.defaultIntCeUncached = COA_INT
+lib.defaultIntCeUncached.10 < lib.defaultIntCe.10
+lib.defaultIntCeUncached.variables < lib.defaultIntCe.variables
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# INCLUDE CONTENT ELEMENTS
+# ----------------------------------------------------------------------------------------------------------------------
+
+tt_content {
+    # Admin items
+    admin-images-detail < lib.defaultIntCe
+    admin-images-detail {
+        10.templateName = Content/Administration/AdminImagesDetail
+    }
+
+    # Text and Media Items
+    text < lib.defaultIntCe
+    text {
+        10.templateName = Content/Text
+    }
+
+    text-with-image < lib.defaultIntCe
+    text-with-image {
+        10.templateName = Content/TextWithImage
+    }
+
+    video < lib.defaultIntCe
+    video {
+        10.templateName = Content/Video
+    }
+
+    quote < lib.defaultIntCe
+    quote {
+        10.templateName = Content/Quote
+    }
+
+    # Teaser
+    teaser-box-image-irre < lib.defaultIntCe
+    teaser-box-image-irre {
+        10.templateName = Content/Irre/TeaserBoxImage
+    }
+
+    teaser-box-irre < lib.defaultIntCe
+    teaser-box-irre {
+        10.templateName = Content/Irre/TeaserBox
+    }
+
+    teaser-box-icon-irre < lib.defaultIntCe
+    teaser-box-icon-irre {
+        10.templateName = Content/Irre/TeaserBoxIcon
+    }
+
+    # Other IRRE Items
+    hero-slider-irre < lib.defaultIntCe
+    hero-slider-irre {
+        10.templateName = Content/Irre/HeroSlider
+    }
+
+    accordion-irre < lib.defaultIntCe
+    accordion-irre {
+        10.templateName = Content/Irre/Accordion
+    }
+
+    tabs-irre < lib.defaultIntCe
+    tabs-irre {
+        10.templateName = Content/Irre/Tabs
+    }
+
+    gallery < lib.defaultIntCe
+    gallery {
+        10.templateName = Content/Gallery
+    }
+
+    image < lib.defaultIntCe
+    image {
+        10.templateName = Content/Image
+    }
+
+    summary1 < lib.defaultIntCe
+    summary1 {
+        10.templateName = Content/Summary1
+    }
+
+    summary2 < lib.defaultIntCe
+    summary2 {
+        10.templateName = Content/Summary2
+    }
+
+    download-irre < lib.defaultIntCe
+    download-irre {
+        10.templateName = Content/Irre/Download
+    }
+
+    usp-irre < lib.defaultIntCe
+    usp-irre {
+        10.templateName = Content/Irre/Usp
+    }
+
+    box-teaser-irre < lib.defaultIntCe
+    box-teaser-irre {
+        10.templateName = Content/Irre/BoxTeaser
+    }
+
+    teaser-slider-box-irre < lib.defaultIntCe
+    teaser-slider-box-irre {
+        10.templateName = Content/Irre/TeaserSliderBox
+    }
+
+    teaser-slider-image-irre < lib.defaultIntCe
+    teaser-slider-image-irre {
+        10.templateName = Content/Irre/TeaserSliderImage
+    }
+
+    page-hero < lib.defaultIntCe
+    page-hero {
+        10.templateName = Content/PageHero
+    }
+
+    page-header < lib.defaultIntCe
+    page-header {
+        10.templateName = Content/PageHeader
+    }
+
+    divider < lib.defaultIntCe
+    divider {
+        10.templateName = Content/Divider
+    }
+
+    sticky-box < lib.defaultIntCe
+    sticky-box {
+        10.templateName = Content/StickyBox
+    }
+
+    item-teaser < lib.defaultIntCe
+    item-teaser {
+        10.templateName = Content/Irre/ItemTeaser
+    }
+
+    references < lib.defaultIntCe
+    references {
+        10.templateName = Content/Irre/References
+    }
+}

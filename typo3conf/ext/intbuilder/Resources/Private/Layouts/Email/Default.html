@@ -1,0 +1,183 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:v="urn:schemas-microsoft-com:vml"
+      xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+<head>
+    <!--[if gte mso 15]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        p {
+            margin: 10px 0;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 36px;
+            color: #263c75;
+            text-align: left;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 22px;
+            color: #263c75;
+        }
+
+        img,
+        a img {
+            border: 0;
+            height: auto;
+            outline: none;
+            text-decoration: none;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        table {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        .header {
+            padding: 30px 60px;
+            background-color: #263c75;
+        }
+
+        .clear-both {
+            clear: both;
+        }
+
+        p,
+        a,
+        td {
+            mso-line-height-rule: exactly;
+        }
+
+        a[href^=tel],
+        a[href^=sms] {
+            color: inherit;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        #bodyTable {
+            background-color: #fff;
+        }
+
+        .footer-delivery {
+            color: #333333;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        p,
+        a,
+        td,
+        body,
+        table,
+        blockquote {
+            color: #333333;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+    </style>
+</head>
+<body>
+
+
+<table align="center"
+       border="0"
+       cellpadding="0"
+       cellspacing="0"
+       id="bodyTable">
+    <tr>
+        <td align="center"
+            valign="top"
+            id="bodyCell">
+            <table border="0"
+                   cellpadding="0"
+                   cellspacing="0">
+
+                <!-- HEADER START -->
+                <tr>
+                    <td valign="top"
+                        id="templateHeader">
+
+                        <f:render partial="Header"
+                                  arguments="{_all}"/>
+
+                    </td>
+                </tr>
+                <!-- HEADER END -->
+
+
+                <!-- BODY START -->
+                <tr>
+                    <td valign="top"
+                        id="templateBody">
+
+                        <f:render section="Main"/>
+
+                    </td>
+                </tr>
+                <!-- BODY END -->
+
+                <!-- FOOTER START -->
+                <tr>
+                    <td valign="top"
+                        id="templateFooter">
+
+                        <f:render partial="Footer"
+                                  arguments="{_all}"/>
+                    </td>
+                </tr>
+                <!-- FOOTER END -->
+
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

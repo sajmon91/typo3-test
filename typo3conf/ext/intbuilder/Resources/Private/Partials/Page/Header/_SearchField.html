@@ -1,0 +1,30 @@
+<!-- intbuilder/Resources/Private/Partials/Page/Header/SearchField.html BEGIN -->
+
+<f:form class="header-search-form"
+        extensionName="indexedsearch"
+        pluginName="pi2"
+        controller="Search"
+        pageUid="{settings.pageUid.searchResultPid}"
+        action="search"
+        method="post"
+        id="tx_indexedsearch_header">
+    <label class="sr-only"
+           for="tx-indexedsearch-searchbox-sword-header">
+        {f:translate(key: 'header.search.placeholder', extensionName: 'intbuilder')}
+    </label>
+    <f:form.textfield id="tx-indexedsearch-searchbox-sword-header"
+                      class=""
+                      type="text"
+                      name="search[sword]"
+                      placeholder="{f:translate(key: 'header.search.placeholder', extensionName: 'intbuilder')}"
+                      value=""
+                      required="required"/>
+    <f:form.button type="submit"
+                   name="search-btn"
+                   id="search-btn"
+                   class="">
+        {f:translate(key: 'header.search.submit', extensionName: 'intbuilder')}
+    </f:form.button>
+</f:form>
+
+<!-- intbuilder/Resources/Private/Partials/Page/Header/SearchField.html END -->

@@ -1,0 +1,64 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Page/Empty"/>
+
+<f:section name="Main">
+
+    <div class="admin-layout">
+
+        <div class="admin-layout--columns">
+            <div class="background-inverted admin-layout--navigation">
+                <f:render partial="Navigation/Hierarchical"
+                          arguments="{
+                                    menuObject: layoutMenu,
+                                    identifier: 'layout',
+                                    maxDepth: 3
+                              }"/>
+
+                <f:security.ifAuthenticated>
+                    <f:link.page additionalParams="{logintype:'logout'}"
+                                 class="layout-item-level-0">
+                        {f:translate(key: 'admin.logout', extensionName: 'intbuilder')}
+                    </f:link.page>
+                </f:security.ifAuthenticated>
+            </div>
+            <div class="admin-layout--breadcrumb admin-layout--content">
+                <div class="nav-horizontal admin-layout--breadcrumb--container">
+                    <ul class="admin-layout--breadcrumb--item-wrap">
+
+                        <f:if condition="!{breadcrumbMenu}">
+                            <f:variable name="breadcrumbMenu"
+                                        value="{inthelper:breadcrumb(pageUid: '{pageUid}', showHidden: '{showHidden}', hideLatest: '{hideLatest}', lastItem: '{lastItem}')}"/>
+                        </f:if>
+
+                        <f:for each="{breadcrumbMenu}"
+                               as="singleBreadcrumbItem"
+                               iteration="breadcrumbIteration">
+                            <li class="admin-layout--breadcrumb--item">
+                                <f:if condition="{singleBreadcrumbItem.link}">
+                                    <f:then>
+                                        <a class="admin-layout--breadcrumb--item-link {f:if(condition: '{breadcrumbIteration.isLast}', then: 'active')}"
+                                           href="{singleBreadcrumbItem.link}">
+                                            {singleBreadcrumbItem.title -> f:format.raw()}
+                                        </a>
+                                    </f:then>
+                                    <f:else>
+                                        {singleBreadcrumbItem.title -> f:format.raw()}
+                                    </f:else>
+                                </f:if>
+                            </li>
+                        </f:for>
+                    </ul>
+                </div>
+
+                <main class="admin-layout--main">
+                    <f:cObject typoscriptObjectPath="lib.columns"
+                               data="{colPos: '0'}"/>
+                </main>
+            </div>
+        </div>
+
+    </div>
+
+</f:section>

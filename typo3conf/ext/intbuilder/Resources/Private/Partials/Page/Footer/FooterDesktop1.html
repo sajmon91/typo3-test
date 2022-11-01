@@ -1,0 +1,66 @@
+<f:comment>
+    <!--
+        Main Desktop Footer – copy to theme and change as needed
+    -->
+</f:comment>
+
+
+<footer id="footer-desktop"
+        class="footer-desktop show-from-desktop-s">
+    <div class="footer-desktop--inner">
+
+        <f:comment><!-- Icons 1 --></f:comment>
+        <f:if condition="{root.intIcons1}">
+            <f:if condition="{root.intHeader1}">
+                <h5>{root.intHeader1 -> f:format.raw()}</h5>
+            </f:if>
+            <div>
+                <f:for each="{root.intIcons1}"
+                       as="singleIcon">
+                    <f:link.typolink parameter="{singleIcon.originalResource.link}"
+                                     title="{singleIcon.originalResource.title}">
+                        <f:image image="{singleIcon}"
+                                 maxWidth="80"
+                                 maxHeight="80"
+                                 alt="{singleIcon.originalResource.alternative}"
+                                 title="{singleIcon.originalResource.title}"/>
+                    </f:link.typolink>
+                </f:for>
+            </div>
+        </f:if>
+
+        <f:comment><!-- Icons 2 --></f:comment>
+        <f:if condition="{root.intIcons2}">
+            <f:if condition="{root.intHeader2}">
+                <h5>{root.intHeader2 -> f:format.raw()}</h5>
+            </f:if>
+            <div>
+                <f:for each="{root.intIcons2}"
+                       as="singleIcon">
+                    <f:link.typolink parameter="{singleIcon.originalResource.link}"
+                                     title="{singleIcon.originalResource.title}">
+                        <f:image image="{singleIcon}"
+                                 maxWidth="80"
+                                 maxHeight="80"
+                                 alt="{singleIcon.originalResource.alternative}"
+                                 title="{singleIcon.originalResource.title}"/>
+                    </f:link.typolink>
+                </f:for>
+            </div>
+        </f:if>
+
+        <f:comment><!-- Page Navigation --></f:comment>
+        <f:if condition="{root.intBottomPages1}">
+            {f:cObject(typoscriptObjectPath: 'lib.navigation.list', data: '{menuIds: intBottomPages1, levels: 0, expandAll: 0, identifier: "footer-desktop--nav"}') -> f:format.raw()}
+<!---->
+        </f:if>
+
+        <f:comment><!-- Copyright message --></f:comment>
+        <div>
+            © {f:format.date(format: 'Y', date: 'now')} {root.intHeader3 -> f:format.raw()}
+        </div>
+    </div>
+</footer>
+
+
+<f:render partial="Debug/DebuggerResponsive"/>

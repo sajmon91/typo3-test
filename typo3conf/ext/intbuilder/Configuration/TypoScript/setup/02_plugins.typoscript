@@ -1,0 +1,59 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Default intbuilder settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+plugin.tx_intbuilder {
+
+    view {
+        templateRootPaths.10 = EXT:intbuilder/Resources/Private/Templates/Content/
+        templateRootPaths.100 = {$paths.ce.templates}Content/
+        
+        partialRootPaths.10 = EXT:intbuilder/Resources/Private/Partials/
+        partialRootPaths.100 = {$paths.ce.partials}
+
+        layoutRootPaths.10 = EXT:intbuilder/Resources/Private/Layouts/
+        layoutRootPaths.100 = {$paths.ce.layouts}
+    }
+
+    settings {
+        theme {
+            config {
+                identifier = {$theme.config.base}
+                path = {$theme.config.path}
+                paths {
+                    languageIcons = {$theme.config.paths.languageIcons}
+                }
+            }
+
+            header {
+                layoutDesktop = {$theme.header.layoutDesktop}
+                layoutMobile = {$theme.header.layoutMobile}
+            }
+
+            footer {
+                layoutDesktop = {$theme.footer.layoutDesktop}
+                layoutMobile = {$theme.footer.layoutMobile}
+            }
+        }
+
+        pageUid {
+            rootPid = {$pageUid.rootPid}
+        }
+
+        contentUid {
+
+        }
+
+    }
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Remove default Styles
+# ----------------------------------------------------------------------------------------------------------------------
+
+plugin {
+    tx_felogin_pi1._CSS_DEFAULT_STYLE >
+    tx_indexedsearch._CSS_DEFAULT_STYLE >
+    tx_frontend._CSS_DEFAULT_STYLE >
+}

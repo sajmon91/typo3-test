@@ -1,0 +1,97 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+
+            <div class="tabs--content"
+                 data-tabs>
+                <div class="tabs--triggers width-desktop-m">
+                    <f:for each="{data.intIrreTabs}"
+                           as="singleItem"
+                           iteration="tabsCounter">
+                        <div class="tabs--trigger {f:if(condition: '{tabsCounter.cycle} == 1', then: 'opened')}"
+                             data-tabs-trigger="tab-{data.uid}-{tabsCounter.cycle}">
+                            <h5 class="tabs--trigger--content">{singleItem.header ->
+                                                               f:format.raw()}</h5>
+                        </div>
+                    </f:for>
+                </div>
+                <div class="tabs--items width-desktop-m">
+                    <f:for each="{data.intIrreTabs}"
+                           as="singleItem"
+                           iteration="tabsCounter">
+                        <div class="tabs--item {f:if(condition: '{tabsCounter.cycle} == 1', then: 'opened')}"
+                             data-tabs-container="tab-{data.uid}-{tabsCounter.cycle}">
+                            <div class="tabs--item--content">
+                                <div class="tabs--item--content--inner">
+                                    <f:switch expression="{singleItem.contentType}">
+                                        <f:case value="10">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="11">
+                                            <f:render partial="Content/Irre/TextImage"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="12">
+                                            <f:render partial="Content/Irre/ImageText"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="20">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="21">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="22">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:case value="23">
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                            <f:render partial="Content/Irre/Images"
+                                                      arguments="{_all}"/>
+                                        </f:case>
+                                        <f:defaultCase>
+                                            <f:render partial="Content/Irre/Text"
+                                                      arguments="{_all}"/>
+                                        </f:defaultCase>
+                                    </f:switch>
+
+                                </div>
+                            </div>
+                        </div>
+                    </f:for>
+                </div>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

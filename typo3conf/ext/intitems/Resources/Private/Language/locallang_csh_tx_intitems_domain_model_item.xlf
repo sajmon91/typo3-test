@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:intitems/Resources/Private/Language/locallang_csh" date="2021-05-24T15:06:28Z" product-name="intitems">
+		<header/>
+		<body>
+			<trans-unit id="oid.description" resname="oid.description">
+				<source>oid</source>
+			</trans-unit>
+			<trans-unit id="name.description" resname="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="description_short.description" resname="description_short.description">
+				<source>descriptionShort</source>
+			</trans-unit>
+			<trans-unit id="description.description" resname="description.description">
+				<source>description</source>
+			</trans-unit>
+			<trans-unit id="images.description" resname="images.description">
+				<source>images</source>
+			</trans-unit>
+			<trans-unit id="files1.description" resname="files1.description">
+				<source>files1</source>
+			</trans-unit>
+			<trans-unit id="files2.description" resname="files2.description">
+				<source>files2</source>
+			</trans-unit>
+			<trans-unit id="files3.description" resname="files3.description">
+				<source>files3</source>
+			</trans-unit>
+			<trans-unit id="properties.description" resname="properties.description">
+				<source>properties</source>
+			</trans-unit>
+			<trans-unit id="categories.description" resname="categories.description">
+				<source>categories</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

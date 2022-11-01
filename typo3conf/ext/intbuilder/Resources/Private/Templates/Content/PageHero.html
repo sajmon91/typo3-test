@@ -1,0 +1,56 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')} {backgroundImage}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <div class="page-hero--image">
+                <f:if condition="{data.intImage1Current}">
+                    <picture>
+                        <source srcset="
+                                    {f:uri.image(image: data.intImage1Current, width: '1000c', height: '350c')} 1x,
+                                    {f:uri.image(image: data.intImage1Current, width: '2000c', height: '700c')} 2x"
+                                media="(max-width:1024px)">
+                        <source srcset="
+                                    {f:uri.image(image: data.intImage1Current, width: '1600c', height: '525c')} 1x,
+                                    {f:uri.image(image: data.intImage1Current, width: '2000c', height: '700c')} 2x"
+                                media="(min-width:1025px) and (max-width:1536px)">
+                        <source srcset="
+                                    {f:uri.image(image: data.intImage1Current, width: '2000c', height: '700c')} 1x,
+                                    {f:uri.image(image: data.intImage1Current, width: '3000c', height: '1050c')} 2x"
+                                media="(min-width:1537px)">
+                        <f:image image="{data.intImage1Current}"
+                                 alt="{data.intImage1Current.originalResource.alternative} – {data.intImage1Current.originalResource.description}"
+                                 title="{data.intImage1Current.originalResource.title}"
+                                 maxWidth="100"/>
+                    </picture>
+                </f:if>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+
+            <f:if condition="{data.intText1}">
+                <div class="page-hero--content--wrapper">
+                    <div class="width-desktop-m page-hero--content background-inverted">
+                        <h1>{data.intText1 -> f:format.nl2br() -> f:format.raw()}</h1>
+                        <f:if condition="{data.intLink1}">
+                            <f:link.typolink parameter="{data.intLink1}"
+                                             class="page-hero--cta link-with-arrow">
+                                {inthelper:titleFromLink(link: '{data.intLink1}') -> f:format.raw()}
+                            </f:link.typolink>
+                        </f:if>
+                    </div>
+                </div>
+            </f:if>
+    </section>
+
+</f:section>

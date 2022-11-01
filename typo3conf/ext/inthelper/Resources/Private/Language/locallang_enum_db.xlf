@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" product-name="inthelper">
+        <header/>
+        <body>
+            <!-- Enums Category Type -->
+            <trans-unit id="category_type.item_category">
+                <source>Item categories</source>
+            </trans-unit>
+            <trans-unit id="category_type.news_category">
+                <source>News categories</source>
+            </trans-unit>
+            <trans-unit id="category_type.event_category">
+                <source>Event categories</source>
+            </trans-unit>
+            <trans-unit id="category_type.location_category">
+                <source>Location categories</source>
+            </trans-unit>
+            <trans-unit id="category_type.reference_category">
+                <source>Reference categories</source>
+            </trans-unit>
+
+            <!-- Enums Property Type -->
+            <trans-unit id="property_type.string">
+                <source>String</source>
+            </trans-unit>
+            <trans-unit id="property_type.number">
+                <source>Number</source>
+            </trans-unit>
+            <trans-unit id="property_type.text">
+                <source>Textfield</source>
+            </trans-unit>
+            <trans-unit id="property_type.bool">
+                <source>Boolean</source>
+            </trans-unit>
+
+            <!-- Enums Author type -->
+            <trans-unit id="author_type.editor">
+                <source>Editor</source>
+            </trans-unit>
+
+            <!-- Enums News type -->
+            <trans-unit id="news_type.news">
+                <source>News</source>
+            </trans-unit>
+            <trans-unit id="news_type.event">
+                <source>Event</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

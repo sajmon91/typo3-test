@@ -1,0 +1,34 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Global User settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+options {
+    pageTree {
+        showPageIdWithTitle = 0
+        showNavTitle = 1
+    }
+
+    clearCache {
+        pages = 1
+        all = 0
+        system = 0
+    }
+}
+
+setup {
+    override {
+        edit_docModuleUpload = 0
+    }
+}
+
+[backend.user.isAdmin]
+    options {
+        pageTree {
+            showPageIdWithTitle = 1
+        }
+        clearCache {
+            all = 1
+            system = 1
+        }
+    }
+[GLOBAL]

@@ -1,0 +1,92 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+            <div class="two-cols width-desktop-m download-irre--wrapper {divClass} {f:if(condition: '{data.intBackgroundColor} == 2', then:'background-inverted')}">
+                <f:for each="{data.intIrreDownload}"
+                       as="singleItem">
+                    <div class="two-cols download-irre--content"
+                         data-linkparent-container
+                         data-linkparent-download="{singleItem.currentFile.originalResource.name}">
+                        <div class="download-irre--image wrapper-image">
+                            <f:if condition="{singleItem.currentImage}">
+                                <f:then>
+                                    <f:variable name="previewFile"
+                                                value="{singleItem.currentImage}"/>
+                                </f:then>
+                                <f:else>
+                                    <f:variable name="previewFile"
+                                                value="{singleItem.currentFile}"/>
+                                </f:else>
+                            </f:if>
+
+                            <f:render partial="Content/Image"
+                                      arguments="{
+                                            ce: '{data}',
+                                            image: '{previewFile}',
+                                            hideDescription: 1,
+                                            queries: {
+                                                0: { query: '', width: '264c', height: '350c' }
+                                            }
+                                      }"/>
+                        </div>
+                        <div class="background-inverted download-irre--text">
+                            <div class="download--header">
+                                <h5 class="{headlineClass}">
+                                    {singleItem.header -> f:format.raw()}
+                                </h5>
+                                <p>
+                                    {singleItem.header2 -> f:format.raw()}
+                                </p>
+                            </div>
+                            <div class="download--footer">
+                                <p>
+                                    <f:if condition="{singleItem.subheader1}">
+                                        {singleItem.subheader1 -> f:format.raw()}<br/>
+                                    </f:if>
+                                    <small>
+                                        <f:if condition="{singleItem.subheader2}">
+                                            {singleItem.subheader2} –
+                                        </f:if>
+                                        <span class="download--extension">
+                                            {singleItem.currentFile.originalResource.originalFile.extension}
+                                        </span> |
+                                        <span class="download--size">
+                                            {singleItem.currentFile.originalResource.originalFile.size ->
+                                            f:format.bytes(decimals: '0', units: '{f:translate(key:\'viewhelper.format.bytes.units\', extensionName:\'intbuilder\')}')}
+                                        </span>
+                                    </small>
+                                </p>
+                            </div>
+
+                            <f:link.typolink parameter="{singleItem.currentFile.originalResource.publicUrl}"
+                                             class="hide"
+                                             additionalAttributes="{
+                                                    download: 'download',
+                                                    data-linkparent: 'data-linkparent'
+                                             }"/>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

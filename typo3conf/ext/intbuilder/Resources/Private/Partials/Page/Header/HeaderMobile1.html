@@ -1,0 +1,77 @@
+<f:comment>
+    <!--
+        Main MOBILE Header – copy to theme and change as needed
+    -->
+</f:comment>
+
+<header id="header-mobile"
+        class="header-mobile show-until-desktop-s width-full">
+    <div class="header-mobile--container width-desktop-m">
+        <div class="header-mobile--container-inner">
+            <f:comment><!-- LOGO --></f:comment>
+            <div class="header-mobile--logo">
+                <f:link.page pageUid="{root.uid}">
+                    <f:comment>
+                        <!--
+                        <f:image src="/theme/assets/img/logo.svg"
+                                 maxWidth="180"
+                                 maxHeight="44"
+                                 class="header-mobile--logo-icon"
+                                 alt="{siteConfig.configuration.websiteTitle}"
+                                 title="{siteConfig.configuration.websiteTitle}"/>
+                        -->
+                    </f:comment>
+                </f:link.page>
+            </div>
+            <div class="header-mobile--navigation-wrap-overflow">
+                <f:comment><!--  Toggled navigation  --></f:comment>
+                <div class="header-mobile--navigation-wrap"
+                     data-header-mobile--navigation-toggle>
+                    <f:comment><!-- LANG NAVIGATION --></f:comment>
+                    <div class="header-mobile--language">
+                        <f:render partial="Navigation/Language"
+                                  arguments="{
+                        menuObject: languageMenu,
+                        identifier: 'header-nav--language--mobile',
+                        maxDepth: 1
+                  }"/>
+                    </div>
+                    <f:comment><!-- SEARCH --></f:comment>
+                    <div class="header-mobile--search">
+                        <f:form.textfield type="text"
+                                          class="header-mobile--search-input"
+                                          placeholder="Search"/>
+                        <button class="header-mobile--btn-search"
+                                type="submit"
+                                name="#"
+                                value=""></button>
+                    </div>
+                    <f:comment><!-- MAIN NAVIGATION --></f:comment>
+                    <div class="header-mobile--navigation">
+                        <f:render partial="Navigation/Hierarchical"
+                                  arguments="{
+                        menuObject: mainMenu,
+                        identifier: 'header-nav--mobile',
+                        maxDepth: 3
+                  }"/>
+                    </div>
+                </div>
+            </div>
+            <f:comment><!--  Hamburger icon for toggling mobile navigation  --></f:comment>
+            <div class="header-mobile--trigger-nav">
+                <div class="header-mobile--trigger-wrap">
+                    <input type="checkbox"
+                           id="header-mobile--trigger"
+                           data-header-mobile--trigger
+                           class="header-mobile--trigger"/>
+                    <label for="header-mobile--trigger"
+                           class="header-mobile--trigger-label">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

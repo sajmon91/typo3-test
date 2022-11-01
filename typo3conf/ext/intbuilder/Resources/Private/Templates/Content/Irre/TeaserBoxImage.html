@@ -1,0 +1,76 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- VARIABLES ----------------------------- --></f:comment>
+
+            <f:switch expression="{data.intColumnCount}">
+                <f:case value="2">
+                    <f:variable name="columnCount" value="2"/>
+                    <f:variable name="divClass" value="two-cols"/>
+                    <f:variable name="headlineClass" value="h4"/>
+                    <f:variable name="imageDimensions" value="{
+                            0: { query: '(max-width:767px)', width: '768c', height: '512c' },
+                            1: { query: '(min-width:768px)', width: '600c', height: '400c' }
+                    }"/>
+                </f:case>
+                <f:defaultCase>
+                    <f:variable name="columnCount" value="3"/>
+                    <f:variable name="divClass" value="three-cols"/>
+                    <f:variable name="headlineClass" value="h5"/>
+                    <f:variable name="imageDimensions" value="{
+                            0: { query: '(max-width:767px)', width: '768c', height: '512c' },
+                            1: { query: '(min-width:768px)', width: '387c', height: '258c' }
+                    }"/>
+                </f:defaultCase>
+            </f:switch>
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:render partial="Content/Text"
+                      arguments="{
+                        header: data.header,
+                        content: data.intText1,
+                        lead: 1
+                      }"/>
+            <div class="width-desktop-m teaser-box-image--items {divClass} {f:if(condition: '{data.intBackgroundColor} == 2', then:'background-inverted')}">
+                <f:for each="{data.intIrreTeaserboximage}"
+                       as="singleItem">
+                    <div class="teaser-box-image-item"
+                         data-linkparent-container>
+                        <div class="teaser-box-image--item--image wrapper-image">
+                            <f:render partial="Content/Image"
+                                      arguments="{
+                                            ce: '{data}',
+                                            image: '{singleItem.currentImage}',
+                                            queries: imageDimensions,
+                                            hideDescription: 1
+                                      }"/>
+                        </div>
+                        <div class="teaser-box-image--item--text">
+                            <h3 class="{headlineClass}">
+                                {singleItem.header -> f:format.raw()}
+                            </h3>
+                            {singleItem.text -> f:format.html()}
+                            <f:link.typolink parameter="{singleItem.link}"
+                                             class="link-with-arrow"
+                                             additionalAttributes="{data-linkparent: 'data-linkparent'}">
+                                {inthelper:titleFromLink(link: singleItem.link) -> f:format.raw()}
+                            </f:link.typolink>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

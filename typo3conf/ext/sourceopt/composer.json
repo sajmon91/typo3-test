@@ -1,0 +1,58 @@
+{
+	"name": "lochmueller/sourceopt",
+	"type": "typo3-cms-extension",
+	"description": "Optimization of the final page: reformatting the (x)html output, removal of new lines, quotes and optional combine referenced SVGs into one symbol-file via <use/>.",
+	"homepage": "https://github.com/lochmueller/sourceopt",
+	"license": "GPL-2.0-or-later",
+	"autoload": {
+		"psr-4": {
+			"HTML\\Sourceopt\\": "Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"HTML\\Sourceopt\\Tests\\": "Tests",
+			"TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/"
+		}
+	},
+	"require": {
+		"php": "^7.4||^8.0",
+		"typo3/cms-core": "^9.5||^10.4||^11.5"
+	},
+	"replace": {
+		"typo3-ter/sourceopt": "self.version"
+	},
+	"require-dev": {
+		"typo3/testing-framework": "^6.4",
+		"friendsofphp/php-cs-fixer": "^3.3",
+		"phpmd/phpmd": "^2.10"
+	},
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "sourceopt",
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"web-dir": ".Build/Web"
+		}
+	},
+	"scripts": {
+		"test": [
+			"phpunit -c Tests/UnitTests.xml"
+		],
+		"code": [
+			"@code:php-cs-fixer"
+		],
+		"code:php-cs-fixer": [
+			"php-cs-fixer fix --config Resources/Private/Build/PhpCsFixer.php --cache-file=.Build/phpcs.cache"
+		],
+		"code:php-cs-fixer:ci": [
+			"php-cs-fixer fix --dry-run --diff --config Resources/Private/Build/PhpCsFixer.php --cache-file=.Build/phpcs.cache"
+		],
+		"code:phpmd": [
+			"phpmd Classes/ text cleancode,codesize,controversial,design,naming --ignore-errors-on-exit --ignore-violations-on-exit"
+		]
+	}
+}

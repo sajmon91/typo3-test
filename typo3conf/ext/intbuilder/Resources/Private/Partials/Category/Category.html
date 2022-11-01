@@ -1,0 +1,104 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:section name="Default">
+    <div class="partial-category--container partial-category--items">
+        <f:for each="{categories}"
+               as="singleCategory">
+            <f:if condition="{singleCategory.showInList}">
+                <div class="partial-category--container--item">
+                    <f:if condition="{singleCategory.image1}">
+                        <f:image image="{singleCategory.image1}"
+                                 class="partial-category--image partial-category--image1"
+                                 width="100c"
+                                 height="100c"/>
+                    </f:if>
+                    <f:if condition="{singleCategory.image2}">
+                        <f:image image="{singleCategory.image2}"
+                                 class="partial-category--image partial-category--image1"
+                                 width="100c"
+                                 height="100c"/>
+                    </f:if>
+                    <f:if condition="{singleCategory.icon1}">
+                        <f:image image="{singleCategory.icon1}"
+                                 class="partial-category--image partial-category--icon1"
+                                 maxWidth="100"
+                                 maxHeight="100"/>
+                    </f:if>
+                    <f:if condition="{singleCategory.icon2}">
+                        <f:image image="{singleCategory.icon2}"
+                                 class="partial-category--image partial-category--icon2"
+                                 maxWidth="100"
+                                 maxHeight="100"/>
+                    </f:if>
+                    <f:if condition="{singleCategory.name}">
+                        <span class="partial-category--name">
+                            {singleCategory.name}
+                            <f:if condition="{singleCategory.oid}">({singleCategory.oid})</f:if>
+                        </span>
+                    </f:if>
+                </div>
+            </f:if>
+        </f:for>
+    </div>
+</f:section>
+
+
+<f:section name="_ListSimple">
+    <div class="partial-category--container--list">
+        <div class="partial-category--container--list--items">
+            <f:for each="{categories}"
+                   as="singleCategory">
+                <f:if condition="{singleCategory.showInList}">
+                    <span class="partial-category--container--item partial-category--container--item--no-hover">
+                        <f:if condition="{singleCategory.name}">
+                            <span class="partial-category--name">
+                                {singleCategory.name}
+                            </span>
+                        </f:if>
+                    </span>
+                </f:if>
+            </f:for>
+        </div>
+    </div>
+</f:section>
+
+
+<f:section name="_Filter">
+    <f:if condition="{categories -> f:count()}">
+        <div class="partial-category--container--filter"
+             data-filter--trigger>
+            <f:for each="{categories}"
+                   key="singleCategoryType"
+                   as="singleCategoryGroup">
+                <div class="partial-category--container--filter--{singleCategoryType}">
+                    <span class="partial-category--container--filter--header">
+                        <f:translate key="category-type-{singleCategoryType}"
+                                     extensionName="intbuilder"/>
+                    </span>
+                    <div class="partial-category--container--filter--items">
+                        <f:for each="{inthelper:sortByKey(arrayToSort: singleCategoryGroup)}"
+                               as="singleCategory">
+                            <f:if condition="{singleCategory.showInFilter}">
+                                <span class="partial-category--container--item"
+                                      {singleCategory.categoryDataTrigger}>
+                                    <f:if condition="{singleCategory.icon1}">
+                                        <f:image image="{singleCategory.icon1}"
+                                                 class="partial-category--image partial-category--icon1"
+                                                 maxWidth="100"
+                                                 maxHeight="100"/>
+                                    </f:if>
+                                    <f:if condition="{singleCategory.name}">
+                                        <span class="partial-category--name">
+                                            {singleCategory.name}
+                                        </span>
+                                    </f:if>
+                                </span>
+                            </f:if>
+                        </f:for>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+</f:section>

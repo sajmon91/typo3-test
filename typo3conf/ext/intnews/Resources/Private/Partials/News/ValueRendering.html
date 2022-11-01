@@ -1,0 +1,47 @@
+<!--
+    const NONE   = 0;
+    const STRING = 10;
+    const NUMBER = 20;
+    const TEXT   = 30;
+    const BOOL   = 40;
+-->
+
+<f:section name="_SingleProperty0">
+    <f:comment><!-- Fallback, render as string --></f:comment>
+    <f:render section="_SingleProperty10"
+              arguments="{_all}"/>
+</f:section>
+
+<f:section name="_SingleProperty10">
+    <f:comment><!-- Render as string --></f:comment>
+    <label class="int-news--detail--property-label int-news--detail--property-label-string">{singleProperty.valueLabel}: </label>
+    <span class="int-news--detail--property-value int-news--detail--property-value-string">{singleProperty.valueInput}</span>
+</f:section>
+
+<f:section name="_SingleProperty20">
+    <f:comment><!-- Render as number --></f:comment>
+    <label class="int-news--detail--property-label int-news--detail--property-label-number">{singleProperty.valueLabel}: </label>
+    <span class="int-news--detail--property-value int-news--detail--property-value-number">{singleProperty.valueInt}</span>
+</f:section>
+
+<f:section name="_SingleProperty30">
+    <f:comment><!-- Render as text --></f:comment>
+    <label class="int-news--detail--property-label int-news--detail--property-label-text">{singleProperty.valueLabel}: </label>
+    <span class="int-news--detail--property-value int-news--detail--property-value-text">{singleProperty.valueText ->
+                                                                                           f:format.html()}</span>
+</f:section>
+
+<f:section name="_SingleProperty40">
+    <f:comment><!-- Render as bool --></f:comment>
+    <label class="int-news--detail--property-label int-news--detail--property-label-bool">{singleProperty.valueLabel}: </label>
+    <span class="int-news--detail--property-value int-news--detail--property-value-bool">
+        <f:if condition="{singleProperty.valueBool}">
+            <f:then>
+                <span class="int-news--detail--property-value-bool--true">Yes</span>
+            </f:then>
+            <f:else>
+                <span class="int-news--detail--property-value-bool--false">No</span>
+            </f:else>
+        </f:if>
+    </span>
+</f:section>

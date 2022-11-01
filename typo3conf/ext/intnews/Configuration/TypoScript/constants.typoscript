@@ -1,0 +1,35 @@
+plugin.tx_intnews {
+    view {
+        # cat=plugin.tx_intnews_newslist/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:intnews/Resources/Private/Templates/
+
+        # cat=plugin.tx_intnews_newslist/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:intnews/Resources/Private/Partials/
+
+        # cat=plugin.tx_intnews_newslist/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:intnews/Resources/Private/Layouts/
+    }
+
+    persistence {
+        # cat=plugin.tx_intnews_newslist//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+pageUid {
+    intnews {
+        storagePid = 353,354
+        news {
+            listPid = 304
+            detailPid = 355
+        }
+
+        event {
+            listPid = 305
+            detailPid = 534
+        }
+    }
+}
+
+plugin.tx_intnews_newslist < plugin.tx_intnews
+plugin.tx_intnews_newsdetail < plugin.tx_intnews

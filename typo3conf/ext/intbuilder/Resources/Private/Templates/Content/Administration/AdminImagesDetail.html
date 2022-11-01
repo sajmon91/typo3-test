@@ -1,0 +1,47 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')}">
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:if condition="{data.header}">
+                <h1>{data.header}</h1>
+            </f:if>
+            <f:if condition="{data.intText1}">
+                <div class="text--content">
+                    {data.intText1 -> f:format.html()}
+                </div>
+            </f:if>
+
+            <f:if condition="{data.intImage1}">
+                <f:for each="{data.intImage1}"
+                       as="singleImage"
+                       iteration="imageIterator">
+                    <f:image image="{singleImage}"/>
+                    <f:if condition="{singleImage.originalResource.title}">
+                        <strong>{singleImage.originalResource.title}</strong>
+                    </f:if>
+                    <f:if condition="{singleImage.originalResource.description}">
+                        <p>{singleImage.originalResource.description}</p>
+                    </f:if>
+                    <f:if condition="!{imageIterator.isLast}">
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </f:if>
+                    
+                </f:for>
+            </f:if>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+    </section>
+
+</f:section>

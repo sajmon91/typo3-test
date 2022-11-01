@@ -1,0 +1,63 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+{namespace inthelper=Int\Inthelper\ViewHelpers}
+
+<f:layout name="Content/Default"/>
+
+<f:section name="Main">
+
+    <f:comment><!-- VARIABLES ------------------------------- --></f:comment>
+
+
+    <section data-anchor="{data.txContentSlugFragment}" data-anchor-title="{data.anchorIdentifier}"
+             class="{f:render(partial: 'Classes/CeContainerClass', arguments: '{data: data}')}">
+        <div class="{f:render(partial: 'Classes/CeContainerInnerClass', arguments: '{data: data}')} {f:if(condition: '{data.intText2}', then: 'summary2--two-cols')}">
+
+
+            <f:comment><!-- CONTENT ------------------------------- --></f:comment>
+
+            <f:if condition="!{data.intText2}">
+                <f:then>
+                    <f:render partial="Content/Text"
+                              arguments="{
+                                header: data.header,
+                                content: data.intText1,
+                                contentClass: 'width-tablet'
+                              }"/>
+                </f:then>
+                <f:else>
+                    <f:render partial="Content/Text"
+                              arguments="{
+                                header: data.header,
+                                content: ''
+                              }"/>
+                    <div class="width-tablet two-cols">
+                        <f:render partial="Content/Text"
+                                  arguments="{
+                                header: '',
+                                content: data.intText1
+                              }"/>
+                        <f:render partial="Content/Text"
+                                  arguments="{
+                                header: '',
+                                content: data.intText2
+                              }"/>
+                    </div>
+                </f:else>
+            </f:if>
+
+            <div class="width-tablet">
+                <f:if condition="{data.intLink1}">
+                    <f:link.typolink parameter="{data.intLink1}"
+                                     class="text--content link-with-arrow">
+                        {inthelper:titleFromLink(link: data.intLink1) -> f:format.raw()}
+                    </f:link.typolink>
+                </f:if>
+            </div>
+
+            <f:comment><!-- END: CONTENT -------------------------- --></f:comment>
+
+        </div>
+
+    </section>
+
+</f:section>

@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:section name="Default">
+
+    <f:if condition="{image}">
+
+        <f:if condition="!{imageMobile}">
+            <f:variable name="imageMobile" value="{image}"/>
+        </f:if>
+
+        <f:if condition="!{imageTablet}">
+            <f:variable name="imageTablet" value="{image}"/>
+        </f:if>
+
+        style=""
+        data-bckg-lazy
+        data-bckg-color="{backgroundColor}"
+        data-bckg-mobile="{f:uri.image(image: imageMobile, maxWidth: '{sizes.mobile.0}', maxHeight: '{sizes.mobile.1}')}"
+        data-bckg-tablet="{f:uri.image(image: imageTablet, maxWidth: '{sizes.tablet.0}', maxHeight: '{sizes.tablet.1}')}"
+        data-bckg-desktop="{f:uri.image(image: image, maxWidth: '{sizes.desktop.0}', maxHeight: '{sizes.desktop.1}')}"
+        data-bckg-desktopLarge="{f:uri.image(image: image, maxWidth:'{sizes.desktopLarge.0}', maxHeight:'{sizes.desktopLarge.1}')}"
+        data-bckg-widescreen="{f:uri.image(image: image, maxWidth:'{sizes.widescreen.0}', maxHeight:'{sizes.widescreen.1}')}"
+
+    </f:if>
+</f:section>

@@ -1,0 +1,84 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Recordlinks for linking directly to Record items, e.g. products
+# Extend in plugins if needed
+# ----------------------------------------------------------------------------------------------------------------------
+
+config.recordLinks {
+
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Indexed Search settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+plugin.tx_indexedsearch {
+    view {
+        templateRootPaths {
+            100 = EXT:intbuilder/Resources/Private/Templates/IndexedSearch/
+            110 = {$paths.ce.templates}IndexedSearch
+        }
+
+        partialRootPaths {
+            100 = EXT:intbuilder/Resources/Private/Partials/IndexedSearch/
+            110 = {$paths.ce.partials}IndexedSearch
+        }
+    }
+}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# FE Login settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+plugin.tx_felogin {
+    view {
+        templateRootPaths {
+            100 = EXT:intbuilder/Resources/Private/Templates/FeLogin/
+            110 = {$paths.ce.templates}FeLogin
+        }
+
+        partialRootPaths {
+            100 = EXT:intbuilder/Resources/Private/Partials/FeLogin/
+            110 = {$paths.ce.partials}FeLogin/
+        }
+    }
+}
+
+# !!! BREAKING: FE Login plugin is usually USER_INT, thus breaking the page cache if added on all pages
+# We set it here to USER and back to USER_INT only if specific $_GET params are set
+
+# Set FE login to cacheable
+plugin.tx_felogin_pi1 = USER
+
+# Set FE login to USER_INT depending of $_GET params
+[loginUser('*')] || [request.getQueryParams()['tx_felogin_pi1']['forgot'] > 0] || [request.getQueryParams()['tx_felogin_pi1']['forgothash'] > 0] || [request.getParsedBody()['logintype']] || [request.getParsedBody()['redirect_url']]
+    plugin.tx_felogin_pi1 = USER_INT
+[global]
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Powermail settings
+# ----------------------------------------------------------------------------------------------------------------------
+
+plugin.tx_powermail {
+    view {
+        templateRootPaths {
+            0 = EXT:powermail/Resources/Private/Templates/
+            1 = {$plugin.tx_powermail.view.templateRootPath}
+            200 = EXT:intbuilder/Resources/Private/Templates/Plugin/powermail
+        }
+
+        partialRootPaths {
+            0 = EXT:powermail/Resources/Private/Partials/
+            1 = {$plugin.tx_powermail.view.partialRootPath}
+            200 = EXT:intbuilder/Resources/Private/Partials/Plugin/powermail
+        }
+
+        layoutRootPaths {
+            0 = EXT:powermail/Resources/Private/Layouts/
+            1 = {$plugin.tx_powermail.view.layoutRootPath}
+            200 = EXT:intbuilder/Resources/Private/Layouts/Plugin/powermail
+        }
+    }
+}
