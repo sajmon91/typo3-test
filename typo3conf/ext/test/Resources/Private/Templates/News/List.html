@@ -18,25 +18,22 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:flashMessages />
 
-    <table class="tx_test">
-        <tr>
-            <th><f:translate key="tx_test_domain_model_news.title" /></th>
-            <th><f:translate key="tx_test_domain_model_news.description" /></th>
-            <th><f:translate key="tx_test_domain_model_news.img" /></th>
-            <th></th>
-            <th></th>
-        </tr>
+    
+
+ 
         <f:for each="{news}" as="news">
-            <tr>
-                <td><f:link.action action="show" arguments="{news : news}">{news.title}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{news : news}">{news.description-> f:format.html()}</f:link.action></td>
-                <td><img src="{f:uri.image(image:news.img,width:'150c',height:'150c')}"/></td>
-                <!-- <td><f:link.action action="show" arguments="{news : news}"><f:image src="fileadmin/user_upload/{news.img.originalResource.name}" width="40c" height="40c" alt="alt text" /></f:link.action></td> -->
-                <!-- <td><f:link.action action="edit" arguments="{news : news}">Edit</f:link.action></td> -->
-                <!-- <td><f:link.action action="delete" arguments="{news : news}">Delete</f:link.action></td> -->
-            </tr>
+
+          <div class="card" style="width: 18rem;">
+            <img src="{f:uri.image(image:news.img)}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{news.title}</h5>
+              <p class="card-text">{news.description-> f:format.html()}</p>
+              <f:link.action class="btn btn-primary" action="show" arguments="{news : news}">See</f:link.action>
+            </div>
+          </div>
+
         </f:for>
-    </table>
+   
 
     <!-- <f:link.action action="new">New News</f:link.action> -->
 </f:section>

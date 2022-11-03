@@ -14,11 +14,22 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Single View for News</h1>
+    <f:debug>{_all}</f:debug>
 
     <f:flashMessages />
-    <f:render partial="News/Properties" arguments="{news:news}" />
+
+    <h1>{news.title}</h1>
+    <f:if condition="{news.categories}">
+        <p>Categories:</p>
+        <f:for each="{news.categories}" as="category">
+          <li>{category.name}</li>
+      </f:for>
+    </f:if>
+
+    {news.description-> f:format.html()}
+    <img src="{f:uri.image(image:news.img,width:'150c',height:'150c')}"/>
+    <!-- <f:render partial="News/Properties" arguments="{news:news}" /> -->
     <f:link.action action="list">Back to list</f:link.action><br />
-    <f:link.action action="new">New News</f:link.action>
+    <!-- <f:link.action action="new">New News</f:link.action> -->
 </f:section>
 </html>
