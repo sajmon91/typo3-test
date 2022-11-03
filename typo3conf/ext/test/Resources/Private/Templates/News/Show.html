@@ -18,18 +18,29 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:flashMessages />
 
-    <h1>{news.title}</h1>
-    <f:if condition="{news.categories}">
-        <p>Categories:</p>
-        <f:for each="{news.categories}" as="category">
-          <li>{category.name}</li>
-      </f:for>
-    </f:if>
+    <div class="row">
+        <h1>{news.title}</h1>
+        <f:if condition="{news.categories}">
+          
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+              Categories
+            </a>
+            
+            <f:for each="{news.categories}" as="category">
+              <a href="#" class="list-group-item list-group-item-action">{category.name}</a>
+          </f:for>
+          </div>
 
-    {news.description-> f:format.html()}
-    <img src="{f:uri.image(image:news.img,width:'150c',height:'150c')}"/>
-    <!-- <f:render partial="News/Properties" arguments="{news:news}" /> -->
-    <f:link.action action="list">Back to list</f:link.action><br />
-    <!-- <f:link.action action="new">New News</f:link.action> -->
+        </f:if>
+
+        {news.description-> f:format.html()}
+        <img src="{f:uri.image(image:news.img,width:'150c',height:'150c')}" height="500px" style="object-fit: cover;"/>
+        <!-- <f:render partial="News/Properties" arguments="{news:news}" /> -->
+        
+    </div>
+    <f:link.action class="btn btn-dark mt-3" action="list">Back to list</f:link.action><br />
+  
+   
 </f:section>
 </html>

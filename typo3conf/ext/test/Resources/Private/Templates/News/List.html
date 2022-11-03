@@ -18,12 +18,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:flashMessages />
 
-    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
 
- 
-        <f:for each="{news}" as="news">
-
-          <div class="card" style="width: 18rem;">
+      <f:for each="{news}" as="news">
+        <div class="col">
+          <div class="card">
             <img src="{f:uri.image(image:news.img)}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{news.title}</h5>
@@ -31,9 +30,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
               <f:link.action class="btn btn-primary" action="show" arguments="{news : news}">See</f:link.action>
             </div>
           </div>
-
-        </f:for>
-   
+        </div>
+      </f:for>
+      
+    </div>
+ 
 
     <!-- <f:link.action action="new">New News</f:link.action> -->
 </f:section>
