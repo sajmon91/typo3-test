@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Sajmon\Test\Controller;
 
+use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * This file is part of the "test" Extension for TYPO3 CMS.
@@ -57,5 +60,13 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         $this->view->assign('news', $news);
         return $this->htmlResponse();
+    }
+
+    public function searchAction(){
+        DebuggerUtility::var_dump(GeneralUtility::_POST());
+
+
+        // $this->view->assign('news', $news);
+        // return $this->htmlResponse();
     }
 }

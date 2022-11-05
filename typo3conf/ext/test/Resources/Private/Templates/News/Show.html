@@ -28,7 +28,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
             </a>
             
             <f:for each="{news.categories}" as="category">
-              <a href="#" class="list-group-item list-group-item-action">{category.name}</a>
+
+              <f:link.action class="list-group-item list-group-item-action" pageUid="2"  action="show" pluginName="Newscategories" controller="NewsCategory" arguments="{newsCategory : category}">{category.name}</f:link.action>
+
           </f:for>
           </div>
 
@@ -36,7 +38,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
         {news.description-> f:format.html()}
         <img src="{f:uri.image(image:news.img,width:'150c',height:'150c')}" height="500px" style="object-fit: cover;"/>
-        <!-- <f:render partial="News/Properties" arguments="{news:news}" /> -->
         
     </div>
     <f:link.action class="btn btn-dark mt-3" action="list">Back to list</f:link.action><br />

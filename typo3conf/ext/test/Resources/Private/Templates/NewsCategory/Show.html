@@ -8,37 +8,33 @@ in /Configuration/ExtensionBuilder/settings.yaml:
   Resources:
     Private:
       Templates:
-        News:
+        NewsCategory:
           List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Listing for News</h1>
+    <h1>News for NewsCategory</h1>
 
     <f:flashMessages />
 
-    <form action="{f:uri.action(action:'search')}" method="post">
-      <input type="text" name="searchValue">
-      <input type="submit" value="submit">
-    </form>
-
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-      <f:for each="{news}" as="news">
+      <f:for each="{newsCategory.news}" as="news">
         <div class="col">
           <div class="card">
             <img src="{f:uri.image(image:news.img)}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{news.title}</h5>
               <p class="card-text">{news.description-> f:format.html()}</p>
-              <f:link.action class="btn btn-primary" action="show" arguments="{news : news}">See</f:link.action>
+              <f:link.action class="btn btn-primary" action="show" pluginName="Newslist" pageUid="1" controller="News" arguments="{news : news}">See</f:link.action>
             </div>
           </div>
         </div>
       </f:for>
       
     </div>
- 
+
+    <f:debug>{_all}</f:debug>
 </f:section>
 </html>

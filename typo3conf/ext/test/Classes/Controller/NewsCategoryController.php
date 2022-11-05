@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Sajmon\Test\Controller;
 
+use TYPO3\CMS\Core\Utility\DebugUtility;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * This file is part of the "test" Extension for TYPO3 CMS.
@@ -44,6 +46,14 @@ class NewsCategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
     {
         $newsCategories = $this->newsCategoryRepository->findAll();
         $this->view->assign('newsCategories', $newsCategories);
+        return $this->htmlResponse();
+    }
+
+    public function showAction(\Sajmon\Test\Domain\Model\NewsCategory $newsCategory)
+    {
+        // DebuggerUtility::var_dump($newsCategory);
+        // return "hello world";
+        $this->view->assign('newsCategory', $newsCategory);
         return $this->htmlResponse();
     }
 }

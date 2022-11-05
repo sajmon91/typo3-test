@@ -6,12 +6,11 @@ defined('TYPO3') || die();
         'Test',
         'Newslist',
         [
-            \Sajmon\Test\Controller\NewsController::class => 'list, show'
+            \Sajmon\Test\Controller\NewsController::class => 'list, show, search'
         ],
         // non-cacheable actions
         [
-            \Sajmon\Test\Controller\NewsController::class => '',
-            \Sajmon\Test\Controller\NewsCategoryController::class => ''
+            \Sajmon\Test\Controller\NewsController::class => 'list, show, search',
         ]
     );
 
@@ -19,12 +18,11 @@ defined('TYPO3') || die();
         'Test',
         'Newscategories',
         [
-            \Sajmon\Test\Controller\NewsCategoryController::class => 'list'
+            \Sajmon\Test\Controller\NewsCategoryController::class => 'list, show'
         ],
         // non-cacheable actions
         [
-            \Sajmon\Test\Controller\NewsController::class => '',
-            \Sajmon\Test\Controller\NewsCategoryController::class => ''
+            \Sajmon\Test\Controller\NewsCategoryController::class => 'list, show'
         ]
     );
 
