@@ -1,1 +1,41 @@
-bbbv
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        News:
+          List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+    <h1>Search for News</h1>
+
+    <f:flashMessages />
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <f:for each="{news}" as="news">
+
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{news.title}</h5>
+              <p class="card-text">{news.description-> f:format.html()}</p>
+              <f:link.action class="btn btn-primary" action="show" arguments="{news : news}">See</f:link.action>
+            </div>
+          </div>
+        </div>
+
+      </f:for>
+      
+    </div>
+ 
+</f:section>
+</html>

@@ -7,6 +7,7 @@ namespace Sajmon\Test\Controller;
 use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
  * This file is part of the "test" Extension for TYPO3 CMS.
@@ -63,10 +64,26 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     }
 
     public function searchAction(){
-        DebuggerUtility::var_dump(GeneralUtility::_POST());
 
+        $searchValue = trim(filter_var(GeneralUtility::_POST('searchValue'), FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_test_domain_model_news');
+        
+        $sel = $queryBuilder->select('*')->from('tx_test_domain_model_news')
+                ->where(
+                    $queryBuilder->expr()->like(
+                        'title',
+                        $queryBuilder->createNamedParameter('%' . $searchValue . '%')
+                    )
+                )
+                ->execute();
 
-        // $this->view->assign('news', $news);
-        // return $this->htmlResponse();
+        $news = $sel->fetchAllAssociative();
+
+        DebuggerUtility::var_dump($news);
+
+        $this->view->assign('news', $news);
+        return $this->htmlResponse();
+
     }
 }
