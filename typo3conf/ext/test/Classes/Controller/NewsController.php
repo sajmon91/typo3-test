@@ -69,7 +69,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_test_domain_model_news');
         
-        $sel = $queryBuilder->select('*')->from('tx_test_domain_model_news')
+        $sel = $queryBuilder->select('uid')->from('tx_test_domain_model_news')
                 ->where(
                     $queryBuilder->expr()->like(
                         'title',
@@ -78,9 +78,13 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 )
                 ->execute();
 
-        $news = $sel->fetchAllAssociative();
+        $newsIds = $sel->fetchAllAssociative();
 
-        DebuggerUtility::var_dump($news);
+        $news = array_map(function($el){
+            return $this->newsRepository->findByUid($el['uid']);
+        },$newsIds);
+
+        // DebuggerUtility::var_dump($news);
 
         $this->view->assign('news', $news);
         return $this->htmlResponse();
