@@ -63,31 +63,20 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         return $this->htmlResponse();
     }
 
-    public function searchAction(){
-
-        $searchValue = trim(filter_var(GeneralUtility::_POST('searchValue'), FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    /**
+     * action search
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function searchAction(): \Psr\Http\Message\ResponseInterface
+    {
+        $searchValue = trim(GeneralUtility::_POST('searchValue'));
         
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_test_domain_model_news');
-        
-        $sel = $queryBuilder->select('uid')->from('tx_test_domain_model_news')
-                ->where(
-                    $queryBuilder->expr()->like(
-                        'title',
-                        $queryBuilder->createNamedParameter('%' . $searchValue . '%')
-                    )
-                )
-                ->execute();
-
-        $newsIds = $sel->fetchAllAssociative();
-
-        $news = array_map(function($el){
-            return $this->newsRepository->findByUid($el['uid']);
-        },$newsIds);
+        $news = $this->newsRepository->findBySearchWord($searchValue);
 
         // DebuggerUtility::var_dump($news);
 
         $this->view->assign('news', $news);
         return $this->htmlResponse();
-
     }
 }
