@@ -21,7 +21,7 @@ return [
         'iconfile' => 'EXT:test/Resources/Public/Icons/tx_test_domain_model_news.gif'
     ],
     'types' => [
-        '1' => ['showitem' => 'title, description, img, categories, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'title, description, img, categories, important, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -200,6 +200,19 @@ return [
                 ],
             ],
             
+        ],
+        'important' => [
+            'exclude' => true,
+            'label' => 'Important News',
+            'config' => [
+                'type' => 'check',
+                'items' => [
+                    [
+                        0 => false,
+                        1 => true
+                    ],
+                ],
+            ],
         ],
     
     ],

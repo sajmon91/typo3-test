@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sajmon\Test\Domain\Model;
 
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * This file is part of the "test" Extension for TYPO3 CMS.
@@ -48,6 +49,13 @@ class News extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $img = null;
+
+     /**
+     * important news
+     *
+     * @var integer
+     */
+    protected $important = null;
 
     /**
      * __construct
@@ -176,5 +184,26 @@ class News extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setImg(\TYPO3\CMS\Extbase\Domain\Model\FileReference $img)
     {
         $this->img = $img;
+    }
+
+    /**
+     * Returns the important news
+     *
+     * @return integer
+     */
+    public function getImportant()
+    {
+        return $this->important;
+    }
+
+    /**
+     * Sets the important news
+     *
+     * @param integer $important
+     * @return void
+     */
+    public function setImportant(Integer $important)
+    {
+        $this->important = $important;
     }
 }
