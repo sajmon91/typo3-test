@@ -58,6 +58,14 @@ class News extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $important = null;
 
     /**
+     * News date
+     *
+     * @var \DateTime|null
+     */
+    protected $newsdate = null;
+
+
+    /**
      * __construct
      */
     public function __construct()
@@ -206,4 +214,26 @@ class News extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->important = $important;
     }
+
+     /**
+     * Returns the news date
+     *
+     * @return \DateTime
+     */
+    public function getNewsdate()
+    {
+        return $this->newsdate;
+    }
+
+    /**
+     * Sets the news date
+     *
+     * @param \DateTime|null $newsdate
+     * @return void
+     */
+    public function setNewsdate(?\DateTime $newsdate)
+    {
+        $this->newsdate = $newsdate;
+    }
+
 }

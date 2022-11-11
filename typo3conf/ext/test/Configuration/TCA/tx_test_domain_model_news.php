@@ -21,7 +21,7 @@ return [
         'iconfile' => 'EXT:test/Resources/Public/Icons/tx_test_domain_model_news.gif'
     ],
     'types' => [
-        '1' => ['showitem' => 'title, description, img, categories, important, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'title, description, img, categories, important, newsdate, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -214,6 +214,15 @@ return [
                 ],
             ],
         ],
-    
+        'newsdate' => [
+            'exclude' => true,
+            'label' => 'News date',
+            'config' => [
+               'type' => 'input',
+               'renderType' => 'inputDateTime',
+               'dbType' => 'datetime',
+               'eval' => 'datetime,null',
+            ],
+         ],
     ],
 ];

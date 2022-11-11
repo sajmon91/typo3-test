@@ -3,7 +3,8 @@ CREATE TABLE tx_test_domain_model_news (
 	description text,
 	img int(11) unsigned NOT NULL DEFAULT '0',
 	categories int(11) unsigned NOT NULL DEFAULT '0',
-	important int(11) unsigned NOT NULL DEFAULT '0'
+	important int(11) unsigned NOT NULL DEFAULT '0',
+	newsdate datetime default NULL
 );
 
 CREATE TABLE tx_test_domain_model_newscategory (
