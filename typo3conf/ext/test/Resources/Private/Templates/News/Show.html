@@ -18,7 +18,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <f:flashMessages />
 
     <div class="row">
-        <h1>{news.title}</h1>
+        <h1>
+          {news.title}
+          <small class="text-muted">{news.newsdate->f:format.date(format: 'd.m.Y')}</small>
+
+          <f:if condition="{news.important}">
+                <span class="badge bg-success">Important</span>
+            </f:if>
+          
+        </h1>
         <f:if condition="{news.categories}">
           
           <div class="list-group">
