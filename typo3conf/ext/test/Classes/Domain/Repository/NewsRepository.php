@@ -36,17 +36,35 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param string $searchValue
      * @return array
      */
-    public function findBySearchWord(string $searchValue): array 
+    public function findBySearch(string $searchValue, string $fromDate, string $toDate): array 
     {
         $searchValue = filter_var($searchValue, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $fromDate = filter_var($fromDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $toDate = filter_var($toDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_test_domain_model_news');
         $queryBuilder->getRestrictions()->removeByType(WorkspaceRestriction::class);
 
+        $whereExpressions = [];
+
+
+        if($searchValue){
+            $whereExpressions[] = $queryBuilder->expr()->like('title', $queryBuilder->createNamedParameter('%' . $searchValue . '%'));
+        }
+
+        if($fromDate){
+            $whereExpressions[] = $queryBuilder->expr()->gte('newsdate', $queryBuilder->createNamedParameter($fromDate));
+        }
+
+        if($toDate){
+            $whereExpressions[] = $queryBuilder->expr()->lte('newsdate', $queryBuilder->createNamedParameter($toDate));
+        }
+
+
         $selectNews = $queryBuilder->select('*')->from('tx_test_domain_model_news')
-                ->where(
-                    $queryBuilder->expr()->like('title', $queryBuilder->createNamedParameter('%' . $searchValue . '%'))
-                )
+                ->where(...$whereExpressions)
                 ->executeQuery();
 
         $results = $selectNews->fetchAllAssociative();

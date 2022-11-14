@@ -76,7 +76,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $importantCheck = (int) GeneralUtility::_POST('importantCheck');
         $selectCategory = (int) GeneralUtility::_POST('selectCategory');
         
-        $news = $this->newsRepository->findBySearchWord($searchValue);
+        $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate);
 
         $data = [
             'search' => $searchValue,
@@ -88,7 +88,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         // DebuggerUtility::var_dump(GeneralUtility::_POST());
 
-        DebuggerUtility::var_dump($data);
+        // DebuggerUtility::var_dump($data);
 
 
         $this->view->assign('news', $news);
