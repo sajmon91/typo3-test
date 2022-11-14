@@ -71,10 +71,25 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function searchAction(): \Psr\Http\Message\ResponseInterface
     {
         $searchValue = trim(GeneralUtility::_POST('searchValue'));
+        $fromDate = trim(GeneralUtility::_POST('fromDate'));
+        $toDate = trim(GeneralUtility::_POST('toDate'));
+        $importantCheck = (int) GeneralUtility::_POST('importantCheck');
+        $selectCategory = (int) GeneralUtility::_POST('selectCategory');
         
         $news = $this->newsRepository->findBySearchWord($searchValue);
 
-        // DebuggerUtility::var_dump($news);
+        $data = [
+            'search' => $searchValue,
+            'from' => $fromDate,
+            'to' => $toDate,
+            'importantCheck' => $importantCheck,
+            'selectCategory' => $selectCategory
+        ];
+
+        // DebuggerUtility::var_dump(GeneralUtility::_POST());
+
+        DebuggerUtility::var_dump($data);
+
 
         $this->view->assign('news', $news);
         return $this->htmlResponse();

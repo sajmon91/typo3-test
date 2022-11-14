@@ -49,7 +49,7 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                 )
                 ->executeQuery();
 
-        $results = $selectNews->fetchAll();
+        $results = $selectNews->fetchAllAssociative();
         
         $dataMapper = GeneralUtility::makeInstance(DataMapper::class);
 
