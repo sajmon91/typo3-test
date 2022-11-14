@@ -76,7 +76,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $importantCheck = (int) GeneralUtility::_POST('importantCheck');
         $selectCategory = (int) GeneralUtility::_POST('selectCategory');
         
-        $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate);
+        $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck);
 
         $data = [
             'search' => $searchValue,

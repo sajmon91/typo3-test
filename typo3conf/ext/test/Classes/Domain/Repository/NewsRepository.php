@@ -34,9 +34,12 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * search for news 
      * 
      * @param string $searchValue
+     * @param string $fromDate
+     * @param string $toDate
+     * @param integer $important
      * @return array
      */
-    public function findBySearch(string $searchValue, string $fromDate, string $toDate): array 
+    public function findBySearch(string $searchValue, string $fromDate, string $toDate, int $important): array 
     {
         $searchValue = filter_var($searchValue, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $fromDate = filter_var($fromDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -60,6 +63,10 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         if($toDate){
             $whereExpressions[] = $queryBuilder->expr()->lte('newsdate', $queryBuilder->createNamedParameter($toDate));
+        }
+
+        if($important){
+            $whereExpressions[] = $queryBuilder->expr()->eq('important', $queryBuilder->createNamedParameter($important, \PDO::PARAM_INT));
         }
 
 
