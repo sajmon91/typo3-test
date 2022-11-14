@@ -44,6 +44,7 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $searchValue = filter_var($searchValue, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $fromDate = filter_var($fromDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $toDate = filter_var($toDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $important = filter_var($important, FILTER_SANITIZE_NUMBER_INT);
 
         
 
@@ -72,6 +73,7 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         $selectNews = $queryBuilder->select('*')->from('tx_test_domain_model_news')
                 ->where(...$whereExpressions)
+                ->orderBy('important', 'DESC')
                 ->executeQuery();
 
         $results = $selectNews->fetchAllAssociative();
