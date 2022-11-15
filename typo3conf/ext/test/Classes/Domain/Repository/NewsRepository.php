@@ -36,21 +36,25 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @param string $searchValue
      * @param string $fromDate
      * @param string $toDate
-     * @param integer $important
+     * @param int $important
+     * @param int $selectCategory
      * @return array
      */
-    public function findBySearch(string $searchValue, string $fromDate, string $toDate, int $important): array 
+    public function findBySearch(string $searchValue, string $fromDate, string $toDate, int $important, int $selectCategory): array 
     {
         $searchValue = filter_var($searchValue, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $fromDate = filter_var($fromDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $toDate = filter_var($toDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $important = filter_var($important, FILTER_SANITIZE_NUMBER_INT);
+        $selectCategory = filter_var($selectCategory, FILTER_SANITIZE_NUMBER_INT);
 
         
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_test_domain_model_news');
         $queryBuilder->getRestrictions()->removeByType(WorkspaceRestriction::class);
 
+        $table = 'tx_test_domain_model_news';
+        $joinTable = 'tx_test_news_newscategory_mm';
         $whereExpressions = [];
 
 
@@ -70,8 +74,21 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $whereExpressions[] = $queryBuilder->expr()->eq('important', $queryBuilder->createNamedParameter($important, \PDO::PARAM_INT));
         }
 
+        if($selectCategory){
+            $whereExpressions[] = $queryBuilder->expr()->eq('categoryMM.uid_foreign', $queryBuilder->createNamedParameter($selectCategory, \PDO::PARAM_INT));
+        }
 
-        $selectNews = $queryBuilder->select('*')->from('tx_test_domain_model_news')
+
+        $selectNews = $queryBuilder->select('*')->from($table)
+                ->join(
+                    $table,
+                    $joinTable,
+                    'categoryMM',
+                    $queryBuilder->expr()->eq(
+                        'categoryMM.uid_local',
+                        $queryBuilder->quoteIdentifier('tx_test_domain_model_news.uid')
+                    )
+                )
                 ->where(...$whereExpressions)
                 ->orderBy('important', 'DESC')
                 ->executeQuery();

@@ -32,12 +32,31 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $newsRepository = null;
 
     /**
+     * categoryRepository
+     *
+     * @var \Sajmon\Test\Domain\Repository\NewsCategoryRepository
+     */
+    protected $categoryRepository = null;
+
+
+    /**
      * @param \Sajmon\Test\Domain\Repository\NewsRepository $newsRepository
      */
     public function injectNewsRepository(\Sajmon\Test\Domain\Repository\NewsRepository $newsRepository)
     {
         $this->newsRepository = $newsRepository;
     }
+
+
+    /**
+     * @param \Sajmon\Test\Domain\Repository\NewsCategoryRepository $newsCategoryRepository
+     */
+    public function injectNewsCategoryRepository(\Sajmon\Test\Domain\Repository\NewsCategoryRepository $categoryRepository)
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
+
+
 
     /**
      * action list
@@ -47,7 +66,12 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function listAction(): \Psr\Http\Message\ResponseInterface
     {
         $news = $this->newsRepository->findAll();
+        $newsCategories = $this->categoryRepository->findAll();
+        // DebuggerUtility::var_dump($newsCategories);
+
+
         $this->view->assign('news', $news);
+        $this->view->assign('categories', $newsCategories);
         return $this->htmlResponse();
     }
 
@@ -76,17 +100,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $importantCheck = (int) GeneralUtility::_POST('importantCheck');
         $selectCategory = (int) GeneralUtility::_POST('selectCategory');
         
-        $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck);
-
-        $data = [
-            'search' => $searchValue,
-            'from' => $fromDate,
-            'to' => $toDate,
-            'importantCheck' => $importantCheck,
-            'selectCategory' => $selectCategory
-        ];
-
-        // DebuggerUtility::var_dump(GeneralUtility::_POST());
+        $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck, $selectCategory);
 
         // DebuggerUtility::var_dump($data);
 

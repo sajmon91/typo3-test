@@ -48,14 +48,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
       <div class="col-auto">
         <select class="form-select" name="selectCategory">
           <option selected hidden value="0">Category</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <f:for each="{categories}" as="category">
+            <option value="{category.uid}">{category.name}</option>
+          </f:for>
         </select>
       </div>
       
-
-
       <div class="col-auto">
         <input class="btn btn-primary" type="submit" value="submit">
       </div>
