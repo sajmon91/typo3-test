@@ -99,13 +99,23 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $toDate = trim(GeneralUtility::_POST('toDate'));
         $importantCheck = (int) GeneralUtility::_POST('importantCheck');
         $selectCategory = (int) GeneralUtility::_POST('selectCategory');
+
+        if($searchValue || $fromDate || $toDate || $importantCheck || $selectCategory){
+            $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck, $selectCategory);
+
+            $this->view->assign('news', $news);
+            return $this->htmlResponse();
+
+        }else{
+            // $this->view->assign('news', $news);
+            return $this->htmlResponse();
+        }
         
-        $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck, $selectCategory);
+        
 
         // DebuggerUtility::var_dump($data);
 
 
-        $this->view->assign('news', $news);
-        return $this->htmlResponse();
+        
     }
 }

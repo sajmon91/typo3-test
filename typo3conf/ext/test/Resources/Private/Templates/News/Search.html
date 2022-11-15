@@ -21,26 +21,37 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
-      <f:for each="{news}" as="news">
+      <f:if condition="{news}">
+        <f:then>
 
-        <div class="col">
-          <div class="card">
-            <img src="{f:uri.image(image:news.img)}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">
-                {news.title}
-                <small class="text-muted">{news.newsdate->f:format.date(format: 'd.m.Y')}</small>
-                <f:if condition="{news.important}">
-                    <span class="badge bg-success">Important</span>
-                </f:if>
-              </h5>
-              <p class="card-text">{news.description-> f:format.html()}</p>
-              <f:link.action class="btn btn-primary" action="show" arguments="{news : news}">See</f:link.action>
+           <f:for each="{news}" as="news">
+            <div class="col">
+              <div class="card">
+                <img src="{f:uri.image(image:news.img)}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    {news.title}
+                    <small class="text-muted">{news.newsdate->f:format.date(format: 'd.m.Y')}</small>
+                    <f:if condition="{news.important}">
+                        <span class="badge bg-success">Important</span>
+                    </f:if>
+                  </h5>
+                  <p class="card-text">{news.description-> f:format.html()}</p>
+                  <f:link.action class="btn btn-primary" action="show" arguments="{news : news}">See</f:link.action>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </f:for>
 
-      </f:for>
+        </f:then>
+
+        <f:else>
+            <h3 class="text-danger">Must send some filter in search</h3>
+        </f:else>
+       
+      </f:if>
+
+      
       
     </div>
  
