@@ -9,6 +9,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
+
 /**
  * This file is part of the "test" Extension for TYPO3 CMS.
  *
@@ -72,6 +73,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         $this->view->assign('news', $news);
         $this->view->assign('categories', $newsCategories);
+        $this->view->assign('filter', GeneralUtility::makeInstance(\Sajmon\Test\Domain\Model\Filter::class));
         return $this->htmlResponse();
     }
 
@@ -92,16 +94,30 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function searchAction(): \Psr\Http\Message\ResponseInterface
+    public function searchAction(?\Sajmon\Test\Domain\Model\Filter $filter)
     {
-        $searchValue = trim(GeneralUtility::_POST('searchValue'));
-        $fromDate = trim(GeneralUtility::_POST('fromDate'));
-        $toDate = trim(GeneralUtility::_POST('toDate'));
-        $importantCheck = (int) GeneralUtility::_POST('importantCheck');
-        $selectCategory = (int) GeneralUtility::_POST('selectCategory');
+        DebuggerUtility::var_dump($filter);
 
-        if($searchValue || $fromDate || $toDate || $importantCheck || $selectCategory){
-            $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck, $selectCategory);
+        // $searchValue = trim(GeneralUtility::_POST('searchValue'));
+        // $fromDate = trim(GeneralUtility::_POST('fromDate'));
+        // $toDate = trim(GeneralUtility::_POST('toDate'));
+        // $importantCheck = (int) GeneralUtility::_POST('importantCheck');
+        // $selectCategory = (int) GeneralUtility::_POST('selectCategory');
+
+        // if($searchValue || $fromDate || $toDate || $importantCheck || $selectCategory){
+        //     $news = $this->newsRepository->findBySearch($searchValue, $fromDate, $toDate, $importantCheck, $selectCategory);
+
+        //     $this->view->assign('news', $news);
+        //     return $this->htmlResponse();
+
+        // }else{
+        //     // $this->view->assign('news', $news);
+        //     return $this->htmlResponse();
+        // }
+        
+
+        if($filter->getSearchWord()|| $filter->getImportantCheck() || $filter->getSelectedCategory() || $filter->getFromDate() || $filter->getToDate()){
+            $news = $this->newsRepository->findBySearch($filter);
 
             $this->view->assign('news', $news);
             return $this->htmlResponse();
@@ -110,7 +126,6 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             // $this->view->assign('news', $news);
             return $this->htmlResponse();
         }
-        
         
 
         // DebuggerUtility::var_dump($data);

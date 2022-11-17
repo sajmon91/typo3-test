@@ -33,30 +33,23 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      * search for news 
      * 
-     * @param string $searchValue
-     * @param string $fromDate
-     * @param string $toDate
-     * @param int $important
-     * @param int $selectCategory
+     * @param \Sajmon\Test\Domain\Model\Filter $filter
      * @return array
      */
-    public function findBySearch(string $searchValue, string $fromDate, string $toDate, int $important, int $selectCategory): array 
+    public function findBySearch(\Sajmon\Test\Domain\Model\Filter $filter): array 
     {
-        $searchValue = filter_var($searchValue, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $fromDate = filter_var($fromDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $toDate = filter_var($toDate, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $important = filter_var($important, FILTER_SANITIZE_NUMBER_INT);
-        $selectCategory = filter_var($selectCategory, FILTER_SANITIZE_NUMBER_INT);
-
-        
-
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_test_domain_model_news');
-        $queryBuilder->getRestrictions()->removeByType(WorkspaceRestriction::class);
+        $searchValue = $filter->getSearchWord();
+        $important = $filter->getImportantCheck();
+        $selectCategory = $filter->getSelectedCategory();
+        $fromDate = $filter->getFromDate();
+        $toDate = $filter->getToDate();
 
         $table = 'tx_test_domain_model_news';
         $joinTable = 'tx_test_news_newscategory_mm';
         $whereExpressions = [];
 
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($table);
+        $queryBuilder->getRestrictions()->removeByType(WorkspaceRestriction::class);
 
         if($searchValue){
             $whereExpressions[] = $queryBuilder->expr()->like('title', $queryBuilder->createNamedParameter('%' . $searchValue . '%'));
