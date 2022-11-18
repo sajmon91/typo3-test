@@ -96,7 +96,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function searchAction(?\Sajmon\Test\Domain\Model\Filter $filter)
     {
-        DebuggerUtility::var_dump($filter);
+        // DebuggerUtility::var_dump($filter);
 
         // $searchValue = trim(GeneralUtility::_POST('searchValue'));
         // $fromDate = trim(GeneralUtility::_POST('fromDate'));

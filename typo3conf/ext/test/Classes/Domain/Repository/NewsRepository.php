@@ -83,6 +83,7 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                     )
                 )
                 ->where(...$whereExpressions)
+                ->groupBy('tx_test_domain_model_news.uid')
                 ->orderBy('important', 'DESC')
                 ->executeQuery();
 
@@ -90,7 +91,7 @@ class NewsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         
         $dataMapper = GeneralUtility::makeInstance(DataMapper::class);
 
-        // DebuggerUtility::var_dump($queryBuilder);
+        // DebuggerUtility::var_dump($results);
 
         return $dataMapper->map($this->objectType, $results);
     }
