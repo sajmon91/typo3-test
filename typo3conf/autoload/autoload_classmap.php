@@ -118,6 +118,8 @@ return array(
     'Sajmon\\Test\\Domain\\Model\\NewsCategory' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/NewsCategory.php',
     'Sajmon\\Test\\Domain\\Repository\\NewsCategoryRepository' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Repository/NewsCategoryRepository.php',
     'Sajmon\\Test\\Domain\\Repository\\NewsRepository' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Repository/NewsRepository.php',
+    'Sajmon\\Test\\ViewHelpers\\GravatarViewHelper' => $typo3InstallDir . 'typo3conf/ext/test/Classes/ViewHelper/GravatarViewHelper.php',
+    'Sajmon\\Test\\ViewHelpers\\YoutubeViewHelper' => $typo3InstallDir . 'typo3conf/ext/test/Classes/ViewHelper/YoutubeViewHelper.php',
     'T3docs\\StoreInventory\\Controller\\StoreInventoryController' => $typo3InstallDir . 'typo3conf/ext/store_inventory/Classes/Controller/StoreInventoryController.php',
     'T3docs\\StoreInventory\\Domain\\Model\\Product' => $typo3InstallDir . 'typo3conf/ext/store_inventory/Classes/Domain/Model/Product.php',
     'T3docs\\StoreInventory\\Domain\\Repository\\ProductRepository' => $typo3InstallDir . 'typo3conf/ext/store_inventory/Classes/Domain/Repository/ProductRepository.php',
