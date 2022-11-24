@@ -111,6 +111,7 @@ return array(
     'EBT\\ExtensionBuilder\\ViewHelpers\\PregReplaceViewHelper' => $typo3InstallDir . 'typo3conf/ext/extension_builder/Classes/ViewHelpers/PregReplaceViewHelper.php',
     'EBT\\ExtensionBuilder\\ViewHelpers\\RecordTypeViewHelper' => $typo3InstallDir . 'typo3conf/ext/extension_builder/Classes/ViewHelpers/RecordTypeViewHelper.php',
     'EBT\\ExtensionBuilder\\ViewHelpers\\SingularizeViewHelper' => $typo3InstallDir . 'typo3conf/ext/extension_builder/Classes/ViewHelpers/SingularizeViewHelper.php',
+    'Sajmon\\Test\\Controller\\ContactController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/ContactController.php',
     'Sajmon\\Test\\Controller\\NewsCategoryController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/NewsCategoryController.php',
     'Sajmon\\Test\\Controller\\NewsController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/NewsController.php',
     'Sajmon\\Test\\Domain\\Model\\Filter' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/Filter.php',

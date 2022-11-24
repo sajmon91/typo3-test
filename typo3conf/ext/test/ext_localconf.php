@@ -26,6 +26,18 @@ defined('TYPO3') || die();
         ]
     );
 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Test',
+        'Contact',
+        [
+            \Sajmon\Test\Controller\ContactController::class => 'list'
+        ],
+        // non-cacheable actions
+        [
+            \Sajmon\Test\Controller\ContactController::class => 'list'
+        ]
+    );
+
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
         'mod {

@@ -12,3 +12,8 @@ defined('TYPO3') || die();
     'Newscategories',
     'news categories'
 );
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'Test',
+    'Contact',
+    'contact'
+);

@@ -76,3 +76,12 @@ plugin.tx_test._CSS_DEFAULT_STYLE (
         color:green;
     }
 )
+
+##############
+#### PAGE ####
+##############
+page {
+    includeJSFooter {
+        test_scripts = EXT:test/Resources/Public/JavaScript/scripts.js
+    }
+}
