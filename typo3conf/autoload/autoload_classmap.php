@@ -114,6 +114,7 @@ return array(
     'Sajmon\\Test\\Controller\\ContactController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/ContactController.php',
     'Sajmon\\Test\\Controller\\NewsCategoryController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/NewsCategoryController.php',
     'Sajmon\\Test\\Controller\\NewsController' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Controller/NewsController.php',
+    'Sajmon\\Test\\Domain\\Model\\Contact' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/Contact.php',
     'Sajmon\\Test\\Domain\\Model\\Filter' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/Filter.php',
     'Sajmon\\Test\\Domain\\Model\\News' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/News.php',
     'Sajmon\\Test\\Domain\\Model\\NewsCategory' => $typo3InstallDir . 'typo3conf/ext/test/Classes/Domain/Model/NewsCategory.php',

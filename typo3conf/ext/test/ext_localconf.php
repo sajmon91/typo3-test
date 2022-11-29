@@ -30,11 +30,11 @@ defined('TYPO3') || die();
         'Test',
         'Contact',
         [
-            \Sajmon\Test\Controller\ContactController::class => 'list'
+            \Sajmon\Test\Controller\ContactController::class => 'list, contact'
         ],
         // non-cacheable actions
         [
-            \Sajmon\Test\Controller\ContactController::class => 'list'
+            \Sajmon\Test\Controller\ContactController::class => 'list, contact'
         ]
     );
 
