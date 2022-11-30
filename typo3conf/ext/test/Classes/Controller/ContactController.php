@@ -11,15 +11,9 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+use Symfony\Component\Mime\Address;
+use TYPO3\CMS\Core\Mail\MailMessage;
 
-
-// FlashMessage($message, $title, $severity = self::OK, $storeInSession)
-// $message = GeneralUtility::makeInstance(FlashMessage::class,
-//    'My message text',
-//    'Message Header',
-//    FlashMessage::WARNING,
-//    true
-// );
 
 
 /**
@@ -88,12 +82,13 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         if(empty($dataError['nameError']) && empty($dataError['emailError']) && empty($dataError['phoneError']) && empty($dataError['langsError'])){
 
             $this->addFlashMessage(
-                'This message is success',
+                'This message is successfully sent',
                 '',
                 FlashMessage::OK,
                 true
              );
-
+            
+            $this->sendMail($data);
             $this->redirect('list', NULL, NULL, NULL);
             
         }else{
@@ -119,6 +114,11 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         // $this->redirect('list', NULL, NULL, $dataError);
     }
 
+    /**
+     * validate name
+     * @param string $name
+     * @return string|null
+     */
     private function validateName(string $name): ?string
     {
         $letters = "/^[a-zA-Z]*$/";
@@ -134,6 +134,11 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         return null;
     }
 
+    /**
+     * validate email address
+     * @param string $email
+     * @return string|null
+     */
     private function validateEmail(string $email): ?string
     {
         $mailFormat = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
@@ -149,6 +154,11 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         return null;
     }
 
+    /**
+     * validate phone number
+     * @param string $phone
+     * @return string|null
+     */
     private function validatePhone(string $phone): ?string
     {
         $phoneFormat = "/^\+?([0-9]{2,3})\)?[\/. ]?([0-9]{2})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/";
@@ -162,6 +172,11 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         return null;
     }
 
+    /**
+     * validate language
+     * @param array|null $langues
+     * @return string|null
+     */
     private function validateLanguage(?array $langues): ?string
     {
         if($langues === null){
@@ -169,6 +184,23 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         }
 
         return null;
+    }
+
+    /**
+     * send email
+     * @param array $data
+     * @return void
+     */
+    private function sendMail(array $data): void
+    {
+        $mail = GeneralUtility::makeInstance(MailMessage::class);
+        $mail->from(new Address($data['email'], $data['name']));
+        $mail->to(new Address('sic.techlab@gmail.com', 'Test Name'));
+        $mail->subject('Your subject');
+        $mail->text($data['msg']);
+        $mail->html('<p>Here is the message itself</p>');
+        // DebuggerUtility::var_dump($mail);
+        // $mail->send();
     }
 
 }

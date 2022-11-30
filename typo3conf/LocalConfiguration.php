@@ -69,12 +69,13 @@ return [
         ],
     ],
     'MAIL' => [
-        'transport' => 'sendmail',
+        'defaultMailFromName' => '0',
+        'transport' => 'smtp',
         'transport_sendmail_command' => '/usr/sbin/sendmail -t -i',
-        'transport_smtp_encrypt' => '',
-        'transport_smtp_password' => '',
-        'transport_smtp_server' => '',
-        'transport_smtp_username' => '',
+        'transport_smtp_encrypt' => true,
+        'transport_smtp_password' => '*****',
+        'transport_smtp_server' => 'smtp.gmail.com:456',
+        'transport_smtp_username' => 'test@gmail.com',
     ],
     'SYS' => [
         'caching' => [
