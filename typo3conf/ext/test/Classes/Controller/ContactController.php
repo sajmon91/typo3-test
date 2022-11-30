@@ -67,19 +67,31 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         ];
 
         // validate name
-        $dataError['nameError'] = $this->validateName($name);
+        if($this->validateName($name)){
+            $dataError['nameError'] = $this->validateName($name);
+        }
+        
 
         // validate email
-        $dataError['emailError'] = $this->validateEmail($email);
+        if($this->validateEmail($email)){
+            $dataError['emailError'] = $this->validateEmail($email);
+        }
+        
 
         // validate phone
-        $dataError['phoneError'] = $this->validatePhone($phone);
+        if($this->validatePhone($phone)){
+            $dataError['phoneError'] = $this->validatePhone($phone);
+        }
+        
 
         // validate language
-        $dataError['langsError'] = $this->validateLanguage($languages);
+        if($this->validateLanguage($languages)){
+            $dataError['langsError'] = $this->validateLanguage($languages);
+        }
+        
 
         // check if errors are empty
-        if(empty($dataError['nameError']) && empty($dataError['emailError']) && empty($dataError['phoneError']) && empty($dataError['langsError'])){
+        if($this->ifErrorsIsEmpty($dataError)){
 
             $this->addFlashMessage(
                 'This message is successfully sent',
@@ -201,6 +213,21 @@ class ContactController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
         $mail->html('<p>Here is the message itself</p>');
         // DebuggerUtility::var_dump($mail);
         // $mail->send();
+    }
+
+    /**
+     * check if errors array is empty
+     * @param array $errors
+     * @return bool
+     */
+    private function ifErrorsIsEmpty(array $errors): bool
+    {
+        if(empty($errors['nameError']) && empty($errors['emailError']) && empty($errors['phoneError']) && empty($errors['langsError'])){
+
+            return true;
+        }
+
+        return false;
     }
 
 }

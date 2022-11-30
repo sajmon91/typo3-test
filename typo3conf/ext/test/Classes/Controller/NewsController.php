@@ -116,7 +116,7 @@ class NewsController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         // }
         
 
-        if($filter->getSearchWord()|| $filter->getImportantCheck() || $filter->getSelectedCategory() || $filter->getFromDate() || $filter->getToDate()){
+        if($filter->checkFilter()){
             $news = $this->newsRepository->findBySearch($filter);
 
             $this->view->assign('news', $news);

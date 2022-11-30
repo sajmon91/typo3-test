@@ -168,4 +168,14 @@ class Filter extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 		$this->toDate = trim($toDate);
 		return $this;
 	}
+
+    public function checkFilter()
+    {
+        if($this->getSearchWord() || $this->getImportantCheck() || $this->getSelectedCategory() || $this->getFromDate() || $this->getToDate()){
+            return true;
+
+        }else{
+            return false;
+        }
+    }
 }
